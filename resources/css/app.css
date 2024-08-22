@@ -1,0 +1,287 @@
+.navbar .nav-link:not(.active) {
+    margin: 0 0.5375em;
+    padding: 0.9375em 4.125em;
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+}
+
+.navbar .nav-link.active {
+    margin: 0 0.5375em;
+    padding: 0.9375em 4.125em;
+    color: #FFF !important;
+    background-color: #0B1D26 !important;
+}
+
+.navbar .nav-link:hover {
+    background-color: #3E525E !important;
+    color: #FBC834 !important;
+}
+
+.navbar .nav-link:hover:not(.active) {
+    color: #FBC834 !important;
+    background-color: #0B1D26 !important;
+}
+
+/* Menampilkan submenu saat menu utama aktif */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Mengatur dropdown-menu agar terlihat di bawah */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+.header-background {
+    /*background-image: url('/images/bukit_holbung.svg');
+    background-size: cover;
+    background-position: center;*/
+    height: 80vh;
+    position: relative;
+    color: white;
+    transition: height 0.5s ease;
+    /* Menambahkan transisi untuk perubahan tinggi */
+}
+
+.header-content {
+    color: #FFF;
+    position: absolute;
+    bottom: 126px;
+    left: 96px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    transition: all 0.5s ease;
+    /* Menambahkan transisi untuk perubahan ukuran font */
+}
+
+h1 {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 2.5rem;
+    transition: all 0.5s ease;
+    /* Menambahkan transisi untuk perubahan ukuran font pada h1 */
+}
+
+h2 {
+    font-size: 1.25rem;
+    transition: all 0.5s ease;
+    /* Menambahkan transisi untuk perubahan ukuran font pada h2 */
+}
+
+h3 {
+    font-size: 1.0rem;
+    transition: all 0.5s ease;
+    /* Menambahkan transisi untuk perubahan ukuran font pada h2 */
+}
+
+@media screen and (max-width: 1000px) {
+    .header-background {
+        height: 70vh;
+    }
+
+    .header-content {
+        bottom: 106px;
+        left: 76px;
+    }
+
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    h2 {
+        font-size: 0.9375rem;
+    }
+
+    h3 {
+        font-size: 0.9375rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header-background {
+        height: 60vh;
+    }
+
+    .header-content {
+        bottom: 46px;
+        left: 56px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 0.625rem;
+    }
+
+    h3 {
+        font-size: 0.625rem;
+    }
+}
+
+/* Beranda */
+.beranda {
+    .pelaporan {
+        background-color: #E5A000;
+        padding: 20px;
+        width: 173px;
+        height: max-content;
+        border-radius: 10px;
+        position: -webkit-sticky;
+        /* Safari */
+        position: sticky;
+        bottom: 20px;
+        right: 40px;
+        float: right;
+        z-index: 10;
+    }
+
+    .layanan {
+        .card {
+            border-radius: 20px;
+            box-shadow: 0 .225rem .25rem rgba(0, 0, 0, 0.24) !important;
+        }
+
+        .card-body {
+            border-radius: 20px;
+        }
+
+        .card-title {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .page {
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: none;
+            transition: background-color .5s;
+        }
+
+        .pagination a.active {
+            background-color: #0B1D26;
+            color: rgb(255, 255, 255);
+            border-radius: 10px !important;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #CECECE;
+            color: #000000;
+            border-radius: 10px !important;
+        }
+    }
+
+    .article {
+        .nav-pills .nav-link {
+            min-width: 130px;
+            background: 0 0;
+            border: 0;
+            border-radius: 8px;
+            margin: 10px;
+            color: #000000;
+            background-color: #D9D9D9 !important;
+        }
+
+        .nav-pills .nav-link.active {
+            min-width: 130px;
+            border-radius: 0px;
+            color: #FFF;
+            background-color: #0B1D26 !important;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: #3E525E !important;
+            color: #FBC834 !important;
+        }
+
+        .nav-pills .nav-link:hover:not(.active) {
+            color: #FBC834 !important;
+            background-color: #0B1D26 !important;
+        }
+
+        .tab-content .card {
+            border-radius: 0px;
+            box-shadow: 0 .225rem .25rem rgba(0, 0, 0, 0.24) !important;
+            padding-bottom: 15px;
+        }
+
+        .tab-content .card-body {
+            border-radius: 0px;
+
+        }
+
+        .tab-content .btn {
+            height: fit-content;
+        }
+    }
+}
+
+/* Berita */
+
+.berita {
+    .page {
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: none;
+            transition: background-color .5s;
+        }
+
+        .pagination a.active {
+            background-color: #0B1D26;
+            color: rgb(255, 255, 255);
+            border-radius: 10px !important;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #CECECE;
+            color: #000000;
+            border-radius: 10px !important;
+        }
+    }
+}
+
+.detailberita-card {
+    .card {
+        border: none;
+    }
+}
+
+/* Artikel */
+.artikel {
+    .page {
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: none;
+            transition: background-color .5s;
+        }
+
+        .pagination a.active {
+            background-color: #0B1D26;
+            color: rgb(255, 255, 255);
+            border-radius: 10px !important;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #CECECE;
+            color: #000000;
+            border-radius: 10px !important;
+        }
+    }
+}
+
+.detailartikel-card {
+    .card {
+        border: none;
+    }
+}
