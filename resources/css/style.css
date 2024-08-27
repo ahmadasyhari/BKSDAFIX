@@ -74,6 +74,7 @@ body {
     padding-left: 2%;
     width: auto;
     height: 75px;
+    transition: all 0.2s ease;
 }
 
 .bg-logo {

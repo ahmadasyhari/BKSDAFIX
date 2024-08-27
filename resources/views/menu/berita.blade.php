@@ -13,13 +13,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    @vite('resources/js/app.js')
+    @vite('resources/css/style.css')
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img class="logo" src="/images/logo.png" alt="Logo">
+            <img class="logo" src="/images/logo.png-sm" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
