@@ -26,10 +26,19 @@ Route::get('/detailartikel', function () {
 Route::get('/logo', function () {
     return view('menu.halaman_logo');
 });
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
+    Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
+    Route::post('/admin/menu/store', [MenuController::class, 'store'])->name('menu.store');
+    Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
+    Route::delete('/admin/menu/force-delete/{id}', [MenuController::class, 'forceDelete'])->name('menu.forceDelete');
+    Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
+    Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
+    // Route lain yang memerlukan autentikasi
+});
 
-Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
-Route::post('/admin/menu/store', [MenuController::class, 'store'])->name('menu.store');
-Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
-Route::delete('/admin/menu/force-delete/{id}', [MenuController::class, 'forceDelete'])->name('menu.forceDelete');
-Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
-Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
