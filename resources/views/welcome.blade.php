@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ isset($menu) ? $menu->title : 'Beranda' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
     <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +19,7 @@
 <body style="background-color: #0B1D26;">
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img src="/images/logo.png" alt="Logo" width="75" height="auto">
+            <img class="logo" src="/images/logo.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -92,7 +94,7 @@
                             <div class="header-content" z-index="1">
                                 <h2 style="color: #FBC834">Informasi</h2>
                                 <h1>Poropo</h1>
-                                <h2>Samosir, Sumatera Utara</h2>
+                                <h2>Silahisabungan, Sumatera Utara</h2>
                             </div>
                         </div>
                     </div>
@@ -102,88 +104,89 @@
                         <section class="py-md-5">
                             <article class="container-fluid text-center"
                                 style="font-family: 'Montserrat Subrayada', sans-serif;">
-                                <h1 class="mb-5">Layanan Kami</h2>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="card-body py-md-4"
-                                                    style="background-image: url(/images/e-satsdn.png); background-size: crop; background-position: center;">
-                                                    <div class="row d-flex justify-content-center align-items-center">
-                                                        <div class="col-4">
-                                                            <i class="fa-solid fa-phone-volume text-start"
-                                                                style="font-size: 4.5rem;"></i>
-                                                        </div>
-                                                        <div class="col-8 text-start mb-2">
-                                                            <h1 class="card-title">E-SATS-DN</h1>
-                                                            <h3 class="card-text">Surat Izin<br>E-SATS-DN</h3>
-                                                        </div>
+                                <h1 class="mb-5">Layanan Kami</h1>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-body py-md-4"
+                                                style="background-image: url(/images/e-satsdn.png); background-size: crop; background-position: center;">
+                                                <div class="row d-flex justify-content-center align-items-center">
+                                                    <div class="col-4">
+                                                        <i class="icon-layanan nf nf-fa-pencil_square_o text-start"></i>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="card-body py-md-4"
-                                                    style="background-image: url(/images/e-simaksi.png); background-size: crop; background-position: center;">
-                                                    <div class="row d-flex justify-content-center align-items-center">
-                                                        <div class="col-4">
-                                                            <i class="fa-solid fa-phone-volume text-start"
-                                                                style="font-size: 4.5rem;"></i>
-                                                        </div>
-                                                        <div class="col-8 text-start mb-2">
-                                                            <h1 class="card-title">E-SIMAKSI</h1>
-                                                            <h3 class="card-text">Surat Izin Masuk<br>Kawasan
-                                                                Konservasi
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="card-body py-md-4"
-                                                    style="background-image: url(/images/form-c.png); background-size: crop; background-position: center;">
-                                                    <div class="row d-flex justify-content-center align-items-center">
-                                                        <div class="col-4">
-                                                            <i class="fa-solid fa-phone-volume text-start"
-                                                                style="font-size: 4.5rem;"></i>
-                                                        </div>
-                                                        <div class="col-8 text-start mb-2">
-                                                            <h1 class="card-title">Form-C</h1>
-                                                            <!--<h2 class="card-text">Formulir untuk Layanan C</h2>-->
-                                                        </div>
+                                                    <div class="col-8 text-start mb-2 p-0">
+                                                        <h1 class="card-title">E-SATS-DN</h1>
+                                                        <h3 class="card-text">Surat Izin<br>E-SATS-DN</h3>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-body py-md-4"
+                                                style="background-image: url(/images/e-simaksi.png); background-size: crop; background-position: center;">
+                                                <div class="row d-flex justify-content-center align-items-center">
+                                                    <div class="col-4">
+                                                        <i
+                                                            class="icon-layanan nf nf-md-file_document_outline text-start"></i>
+                                                    </div>
+                                                    <div class="col-8 text-start mb-2 p-0">
+                                                        <h1 class="card-title">E-SIMAKSI</h1>
+                                                        <h3 class="card-text">Surat Izin Masuk<br>Kawasan
+                                                            Konservasi
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-body py-md-4"
+                                                style="background-image: url(/images/form-c.png); background-size: crop; background-position: center;">
+                                                <div class="row d-flex justify-content-center align-items-center">
+                                                    <div class="col-4">
+                                                        <i class="icon-layanan fa-regular fa-message text-start"></i>
+                                                    </div>
+                                                    <div class="col-8 text-start mb-2 p-0">
+                                                        <h1 class="card-title">Form-C</h1>
+                                                        <!--<h2 class="card-text">Formulir untuk Layanan C</h2>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </article>
                         </section>
                         <section class="informasi container-fluid py-5">
-                            <article class="row mx-3">
+                            <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
+                            <article class="row mx-1">
                                 <div class="col-md-12">
                                     <div class="card mb-4 shadow-sm py-3 px-3" style="background-color: #0B1D26;">
-                                        <div class="card-body row g-3">
+                                        <div class="card-body row g-5">
                                             <header class="col-md-4 d-flex align-items-center">
                                                 <img src="/images/image2.png" class="card-img" alt="Berita Image">
                                             </header>
                                             <aside class="col-md-8">
-                                                <div class="text-white">
-                                                    <h1 class="card-title" style="color: #FBC834">
+                                                <header class="text-white pb-3">
+                                                    <h2 class="card-title" style="color: #FBC834">
                                                         INFORMASI
-                                                    </h1>
-                                                    <h3 class="card-text">Sahabat, pada tahu nggak sih
+                                                    </h2>
+                                                </header>
+                                                <article class="text-white">
+                                                    <p class="card-text">Sahabat, pada tahu nggak sih
                                                         kalau kita bisa lihat gajah di dekat Danau Toba? Ayo
-                                                        kita ke ANECC!</h3>
-                                                    <h3 class="card-text">Ayok kita ke ANECC ! Lokasinya
+                                                        kita ke ANECC!</p>
+                                                    <p class="card-text">Ayok kita ke ANECC ! Lokasinya
                                                         deket banget sama Parapat loh! Tepatnya di Jl. Raya
                                                         Lintas Utama Sumatera No.16,
                                                         Sibaganding, Kec. Girsang Sipangan Bolon, Kabupaten
-                                                        Simalungun, Sumatera Utara 21174.</h3>
-                                                    <h3 class="card-text"><small class="text-muted">1 menit
-                                                            yang lalu</small></h3>
-                                                </div>
+                                                        Simalungun, Sumatera Utara 21174.</p>
+                                                    <p class="card-text"><small class="text-muted">1 menit
+                                                            yang lalu</small></p>
+                                                </article>
                                             </aside>
                                         </div>
                                     </div>
@@ -201,67 +204,68 @@
                                 </ul>
                             </nav>
                         </section>
-                        <section class="insta container-fluid align-items-center justify-content-center">
+                        <section class="insta container-fluid">
                             <h1 class="mb-4 text-start" style="color: #004165"><i class="fa-brands fa-instagram"></i>
-                                INSTAGRAM</h2>
-                                <article class="row g-3">
-                                    <!-- Instagram Post 1 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle8.png" alt="Instagram 1" class="img-fluid">
-                                        </div>
+                                <a href="https://www.instagram.com/bbksda_sumut/" class="text-decoration-none text-reset">INSTAGRAM</a></h1>
+                            <article class="row g-3 d-flex align-items-center justify-content-center">
+                                <!-- Instagram Post 1 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle8.png" alt="Instagram 1" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 2 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle9.png" alt="Instagram 2" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 2 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle9.png" alt="Instagram 2" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 3 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle17.png" alt="Instagram 3" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 3 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle17.png" alt="Instagram 3" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 4 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle30.png" alt="Instagram 4" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 4 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle30.png" alt="Instagram 4" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 5 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle12.png" alt="Instagram 5" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 5 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle12.png" alt="Instagram 5" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 6 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle13.png" alt="Instagram 6" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 6 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle13.png" alt="Instagram 6" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 7 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle14.png" alt="Instagram 7" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 7 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle14.png" alt="Instagram 7" class="img-fluid">
                                     </div>
-                                    <!-- Instagram Post 8 -->
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                        <div class="instagram-post">
-                                            <img src="/images/Rectangle31.png" alt="Instagram 8" class="img-fluid">
-                                        </div>
+                                </div>
+                                <!-- Instagram Post 8 -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <div class="instagram-post">
+                                        <img src="/images/Rectangle31.png" alt="Instagram 8" class="img-fluid">
                                     </div>
-                                </article>
+                                </div>
+                            </article>
                         </section>
+
                         <section class="article pt-5">
                             <article class="container-fluid">
                                 <h1 class="mb-4 text-start" style="color: #004165">Artikel</h2>
                                     <div class="row d-flex">
                                         <div class="col-lg-12 text-center mb-4">
-                                            <ul class="nav nav-pills justify-content-start" id="artikelTabs"
-                                                role="tablist">
+                                            <ul class="nav nav-pills d-flex justify-content-start flex-wrap"
+                                                id="artikelTabs" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link fw-bolder active" id="pengelolaan-tab"
                                                         data-toggle="tab" href="#pengelolaan"
@@ -288,6 +292,7 @@
                                             </ul>
                                         </div>
                                     </div>
+
                                     <div class="tab-content" id="artikelTabsContent">
                                         <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
                                             <div class="row">
@@ -425,8 +430,7 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white text-start">bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -436,8 +440,7 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white text-start">bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -447,8 +450,7 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">@bbksda</a>
+                                            <a href="https://www.instagram.com/bbksda_sumut/" class="text-white text-start">@bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -458,15 +460,14 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white">bbksda</a>
                                         </div>
                                     </div>
                             </div>
                             <!-- Tentang Kami -->
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <h1 class="mb-4">Tentang Kami</h5>
-                                    <p>
+                                    <p style="font-family: Montserrat">
                                         Penasehat/Pembina:<br>
                                         Kepala Balai Besar KSDA Papua Barat<br>
                                         Kepala Bagian Tata Usaha<br>
@@ -485,9 +486,8 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <h2
-                                                style="text-decoration: none; font-family: 'Montserrat Subrayada', sans-serif;">
-                                                CALL CENTRE :<br>085376690666</h2>
+                                            <p class="text-decoration-none text-reset" style="font-family: 'Montserrat Subrayada', sans-serif;">
+                                                CALL CENTRE :<br>085376690666</p>
                                         </div>
                                     </div>
                             </div>
@@ -495,10 +495,10 @@
                     </div>
                 </footer>
                 <div class="pelaporan">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <i class="fa-solid fa-phone-volume text-start"
-                            style="font-size: 1.5rem; margin-right: 1.25rem;"></i>
-                        <h3 class="fw-bold m-0">PELAPORAN</h3>
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <i class="icon-layanan fa-solid fa-phone-volume text-start"
+                            style="font-size: 1.5em; margin-right: 1.5rem;"></i>
+                        <a href="#" class="fw-bold m-0 text-decoration-none text-reset">PELAPORAN</a>
                     </div>
                 </div>
         @endif
