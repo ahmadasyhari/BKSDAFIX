@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($menu) ? $menu->title : 'Detail Berita' }}</title>
+    <title>{{ isset($menu) ? $menu->title : 'Logo BKSDA' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img class="logo" src="/images/logo.png" alt="Logo">
+            <img class="logo" src="/images/logo.png" alt="Logo" width="75" height="auto">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,17 +30,19 @@
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
+                        <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" type="button"
+                            aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
+                            <li><a class="fw-bold dropdown-item {{ !isset($menu) ? 'active' : '' }}"
+                                    href="#">Logo</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Struktur Organisasi</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Visi & Misi</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Tugas Pokok dan Fungsi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
-                            type="button" aria-expanded="false">DATA & INFORMASI</a>
+                        <a class="fw-bold nav-link" aria-current="page" type="button" aria-expanded="false">DATA &
+                            INFORMASI</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="#">Perizinan</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
@@ -113,71 +115,104 @@
                 {!! $menu->content !!}
             </div>
         @else
-            <section class="detailberita">
+            <section class="hal-logo">
                 <!-- Header -->
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/paropo.svg" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
-                                <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>PENGUMUMAN DAN BERITA</h1>
+                                <h2 style="color: #FBC834">PROFIL</h2>
+                                <h1>LOGO</h1>
                             </div>
                         </div>
                     </div>
                 </article>
-                <section class="detailberita-card card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
+                <section class="logo-card card mx-4 py-5" style="top: -30px; border-radius: 20px; z-index: 2;">
                     <article class="card-body pt-lg-4">
-                        <div class="container py-3">
-                            <div class="card px-3">
-                                <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-text text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
-                                        </div>
-                                    </header>
-                                    <aside class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </aside>
+                        <div class="container bg-logo py-2">
+                            <div class="row d-flex justify-content-center text-center">
+                                <h1>MAKNA LOGO</h1>
+                                <h1>BALAI BESAR KSDA SUMATRA UTARA</h1>
+                                <img class="img-fluid mx-auto" src="/images/logo.png" alt="Logo BKSDA SUMUT">
+                            </div>
+                            <div class="text-center mb-4">
+                                <h1 style="color: #E5A000;">MAKNA LOGO</h1>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-7 px-3 text-start">
+                                    <h2 class="mb-3">MAKNA LOGO</h2>
+                                    <p> Sebagai lambang universal dengan makna yang luas, dan melambangakan keterbukaan
+                                        tampa batasan dalam menerima hal hal baru yang berkesinambungan. Disamping itu
+                                        bentuk bulat tanpa awal atau akhir, tanpa sisi atau sudut, bentuk geometris ini
+                                        menceritakan tentang kesempurnaan, satu kesatuan, spiritualitas, dan kehidupan
+                                        yang
+                                        dinamis. Dengan demikian Balai Besar KSDA Sumatera Utara mampu menerima/menyerap
+                                        inovasi dan hal hal baru yang positif untuk membangun kesempurnaan, satu
+                                        kesatuan,
+                                        spiritualitas, dan kehidupan yang dinamis, sehingga mampu mengemban tugas dan
+                                        fungsinya dalam konservasi sumber daya alam.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="container py-3">
-                            <div class="card px-3">
+                            <div class="row mb-3">
+                                <div class="col offset-md-5 align-self-end px-3 text-end">
+                                    <h2 class="mb-3">POHON FICUS/BERINGIN</h2>
+                                    <p> Pohon yang memiiki fungsi konservasi tinggi untuk sumber pakan, perlindungan
+                                        siklus
+                                        air dan koservasi tanah. Diharapkan Balai Besar KSDA Sumatera Utara mampu
+                                        mejalankan
+                                        fungsinya sebagai pengelolaan Konservasi sumber daya alam.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-7 px-3 text-start">
+                                    <h2 class="mb-3">AKAR</h2>
+                                    <p> Akar yang menguat mencengkeram memberikan harapan agar Balai Besar KSDA Sumatera
+                                        Utara mempu kuat memberikan kekuatan bagi konservasi sumber daya alam sehingga
+                                        kualitas kehidupan dapat dipertahakan bahkan ditingkatkan.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col offset-md-5 align-self-end  px-3 align-self-end text-end">
+                                    <h2 class="mb-3">SILUET HARIMAU, ORANGUTAN DAN GAJAH</h2>
+                                    <p> Melambangkan potensi di Sumatera Utara sebagai habitat bagi satwa prioritas
+                                        yaitu :
+                                        Harimau sumatera, Orangutan sumatera, orangutan tapanuli dan Gajah sumatera.
+                                        Ketiganya merupakan species yang menjadi unggulan dan prioritas utama Indonesia
+                                        untuk dilestarikan.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-center mb-5 mx-5 d-flex justify-content-center">
+                                <h1 style="color: #E5A000;">MAKNA WARNA</h1>
+                            </div>
+                            <div class="px-5">
+                                <div class="row mb-4">
+                                    <div class="col-2 text-center">
+                                        <img class="logo" src="/images/hijau.png" alt="orange">
+                                    </div>
+                                    <div class="col-md-10 d-flex align-items-center">
+                                        <p> Hijau diartikan sebagai sumber kehidupan, kesegaran, dan rasa aman. Hijau
+                                            juga
+                                            memiliki arti kesuburan, warna hijau juga memberikan kesan ambisi, uang, dan
+                                            kekayaan.
+                                        </p>
+                                    </div>
+                                </div>
                                 <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </header>
-                                    <aside class="col-md-6 px-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-title text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll
-                                                put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
-                                        </div>
-                                    </aside>
+                                    <div class="col-2 text-center">
+                                        <img class="logo" src="/images/orange.png" alt="hijau">
+                                    </div>
+                                    <div class="col-md-10 d-flex align-items-center">
+                                        <p> Orange membawa kesan kreatif, bahagia, kebebasan dan kepercayaan diri.
+                                            Disamping warna orange yang memberikan kehangatan dan semangat. Warna Orange
+                                            juga merupakan perwujudan symbol petualangan, kepercayaan diri, kemampuan
+                                            diri, kemampuan bersosialisasi serta ketenangan dan suatu hubungan.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

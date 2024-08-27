@@ -16,7 +16,7 @@
     @vite('resources/js/app.js')
 </head>
 
-<body style="background-color: #0B1D26;">
+<body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
             <img class="logo" src="/images/logo.png" alt="Logo">
@@ -25,14 +25,48 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="fw-bold nav-link" aria-current="page" href="#">DATA & INFORMASI</a>
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Struktur Organisasi</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Visi & Misi</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Tugas Pokok dan Fungsi</a></li>
+                        </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="#">Perizinan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Laporan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Galery Foto dan Video</a></li>
+                        </ul>
+                    </li>            
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="#">SIMAKSI</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">SATS-DN</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">FORM-C</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Pengepakan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a></li>
+                        </ul>
+                    </li>
+                    
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                         <li class="nav-item dropdown">
@@ -112,7 +146,8 @@
                                                 style="background-image: url(/images/e-satsdn.png); background-size: crop; background-position: center;">
                                                 <div class="row d-flex justify-content-center align-items-center">
                                                     <div class="col-4">
-                                                        <i class="icon-layanan nf nf-fa-pencil_square_o text-start"></i>
+                                                        <i
+                                                            class="icon-layanan nf nf-fa-pencil_square_o text-start"></i>
                                                     </div>
                                                     <div class="col-8 text-start mb-2 p-0">
                                                         <h1 class="card-title">E-SATS-DN</h1>
@@ -206,7 +241,9 @@
                         </section>
                         <section class="insta container-fluid">
                             <h1 class="mb-4 text-start" style="color: #004165"><i class="fa-brands fa-instagram"></i>
-                                <a href="https://www.instagram.com/bbksda_sumut/" class="text-decoration-none text-reset">INSTAGRAM</a></h1>
+                                <a href="https://www.instagram.com/bbksda_sumut/"
+                                    class="text-decoration-none text-reset">INSTAGRAM</a>
+                            </h1>
                             <article class="row g-3 d-flex align-items-center justify-content-center">
                                 <!-- Instagram Post 1 -->
                                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
@@ -259,11 +296,11 @@
                             </article>
                         </section>
 
-                        <section class="article pt-5">
+                        <section class="list-artikel pt-5">
                             <article class="container-fluid">
-                                <h1 class="mb-4 text-start" style="color: #004165">Artikel</h2>
+                                <h1 class="mb-3 text-start" style="color: #004165">Artikel</h2>
                                     <div class="row d-flex">
-                                        <div class="col-lg-12 text-center mb-4">
+                                        <div class="col-lg-12 text-center mb-5 p-1">
                                             <ul class="nav nav-pills d-flex justify-content-start flex-wrap"
                                                 id="artikelTabs" role="tablist">
                                                 <li class="nav-item">
@@ -446,11 +483,12 @@
                                     <div class="row mb-4">
                                         <div class="col-2 text-center">
                                             <i class="fab fa-instagram"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 3px;"></i>
+                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 2px;"></i>
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="https://www.instagram.com/bbksda_sumut/" class="text-white text-start">@bbksda</a>
+                                            <a href="https://www.instagram.com/bbksda_sumut/"
+                                                class="text-white text-start">@bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -486,7 +524,8 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <p class="text-decoration-none text-reset" style="font-family: 'Montserrat Subrayada', sans-serif;">
+                                            <p class="text-decoration-none text-reset"
+                                                style="font-family: 'Montserrat Subrayada', sans-serif;">
                                                 CALL CENTRE :<br>085376690666</p>
                                         </div>
                                     </div>

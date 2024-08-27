@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ isset($menu) ? $menu->title : 'Pengumuman dan Berita' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
     <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,23 +16,60 @@
     @vite('resources/js/app.js')
 </head>
 
-<body style="background-color: #0B1D26;">
+<body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img src="/images/logo.png" alt="Logo" width="75" height="auto">
+            <img class="logo" src="/images/logo.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
-                        <a class="fw-bold nav-link" aria-current="page" href="/">BERANDA</a>
+                        <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Struktur Organisasi</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Visi & Misi</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Tugas Pokok dan Fungsi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
-                            href="#">DATA & INFORMASI</a>
+                            type="button" aria-expanded="false">DATA & INFORMASI</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="#">Perizinan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Laporan</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Galery Foto dan Video</a></li>
+                        </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item" href="#">SIMAKSI</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">SATS-DN</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">FORM-C</a></li>
+                            <li><a class="fw-bold dropdown-item" href="#">Pengepakan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
+                                    Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa
+                                    Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                         <li class="nav-item dropdown">
@@ -92,7 +131,7 @@
                         <div class="container py-2">
                             <div class="card" style="border-radius: 10px;">
                                 <div class="card-body p-4">
-                                    <div class="row">
+                                    <div class="row g-3">
                                         <header class="col-md-2">
                                             <img src="/images/imgplaceholdersquare.png" class="card-img"
                                                 alt="Berita Image">
@@ -113,7 +152,7 @@
                         <div class="container py-3">
                             <div class="card" style="border-radius: 10px;">
                                 <div class="card-body p-4">
-                                    <div class="row">
+                                    <div class="row g-3">
                                         <header class="col-md-2">
                                             <img src="/images/imgplaceholdersquare.png" class="card-img"
                                                 alt="Berita Image">
@@ -134,7 +173,7 @@
                         <div class="container py-3">
                             <div class="card" style="border-radius: 10px;">
                                 <div class="card-body p-4">
-                                    <div class="row">
+                                    <div class="row g-3">
                                         <header class="col-md-2">
                                             <img src="/images/imgplaceholdersquare.png" class="card-img"
                                                 alt="Berita Image">
@@ -153,17 +192,33 @@
                             </div>
                         </div>
                         <!-- Pagination -->
-                        <nav class="page mt-5" aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item m-1"><a class="page-link text-secondary" href="/berita"><i class="fa-solid fa-arrow-left px-3"></i>Previous</a>
-                                <li class="page-item m-1"><a class="page-link active" href="#">1</a>
+                        <nav class="page mt-5">
+                            <ul class="pagination d-flex flex-wrap justify-content-center">
+                                <li class="page-item m-1">
+                                    <a class="page-link text-secondary" href="/berita"><i
+                                            class="fa-solid fa-arrow-left px-3"></i>Previous</a>
                                 </li>
-                                <li class="page-item m-1"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item m-1"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item m-1"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item m-1"><a class="page-link" href="#">67</a></li>
-                                <li class="page-item m-1"><a class="page-link" href="#">68</a></li>
-                                <li class="page-item m-1"><a class="page-link" href="/berita">Next<i class="fa-solid fa-arrow-right px-3"></i></a>
+                                <li class="page-item m-1">
+                                    <a class="page-link active" href="#">1</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link" href="#">...</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link" href="#">67</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link" href="#">68</a>
+                                </li>
+                                <li class="page-item m-1">
+                                    <a class="page-link text-secondary" href="/berita">Next<i
+                                            class="fa-solid fa-arrow-right px-3"></i></a>
                                 </li>
                             </ul>
                         </nav>
@@ -182,8 +237,7 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white text-start">bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -193,19 +247,18 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white text-start">bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-2 text-center">
                                             <i class="fab fa-instagram"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 3px;"></i>
+                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 2px;"></i>
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white text-start"
-                                                style="text-decoration: none;">@bbksda</a>
+                                            <a href="https://www.instagram.com/bbksda_sumut/"
+                                                class="text-white text-start">@bbksda</a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -215,15 +268,14 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <a href="#" class="text-white"
-                                                style="text-decoration: none;">bbksda</a>
+                                            <a href="#" class="text-white">bbksda</a>
                                         </div>
                                     </div>
                             </div>
                             <!-- Tentang Kami -->
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <h1 class="mb-4">Tentang Kami</h5>
-                                    <p>
+                                    <p style="font-family: Montserrat">
                                         Penasehat/Pembina:<br>
                                         Kepala Balai Besar KSDA Papua Barat<br>
                                         Kepala Bagian Tata Usaha<br>
@@ -242,9 +294,9 @@
                                         </div>
                                         <div class="col-1"></div>
                                         <div class="col-auto">
-                                            <h2
-                                                style="text-decoration: none; font-family: 'Montserrat Subrayada', sans-serif;">
-                                                CALL CENTRE :<br>085376690666</h2>
+                                            <p class="text-decoration-none text-reset"
+                                                style="font-family: 'Montserrat Subrayada', sans-serif;">
+                                                CALL CENTRE :<br>085376690666</p>
                                         </div>
                                     </div>
                             </div>
