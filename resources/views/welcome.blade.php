@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
+    <nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
             <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -33,40 +33,49 @@
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Struktur Organisasi</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Visi & Misi</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Tugas Pokok dan Fungsi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="/logo">Logo</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Struktur Organisasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Visi & Misi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Tugas Pokok dan Fungsi</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="#">Perizinan</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Laporan</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Galery Foto dan Video</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Perizinan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kawasan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Laporan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Galery Foto dan Video</a></li>
                         </ul>
-                    </li>            
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="#">SIMAKSI</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">SATS-DN</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">FORM-C</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Pengepakan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">IZIN BARU / PERPANJANGAN</a>
+                            </li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">SIMAKSI</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran TSL</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Peredaran TSL</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
+                                    Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa
+                                    Liar</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a>
+                            </li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pembangunan Strategis yang
+                                    tidak dapat dielakan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
                     </li>
-                    
+
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                         <li class="nav-item dropdown">
@@ -110,7 +119,7 @@
                 {!! $menu->content !!}
             </div>
         @else
-            <section class="beranda">
+            <section>
                 <!-- Jika tidak ada menu yang dipilih, tampilkan beranda -->
                 <!-- Header -->
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -133,62 +142,46 @@
                         </div>
                     </div>
                 </article>
-                <section class="layanan card mx-4" style="top: -30px; border-radius: 20px;" z-index="2">
+                <section class="card mx-4" style="top: -30px; border-radius: 20px;" z-index="2">
                     <article class="card-body pt-5">
                         <section class="py-md-5">
                             <article class="container-fluid text-center"
                                 style="font-family: 'Montserrat Subrayada', sans-serif;">
                                 <h1 class="mb-5">Layanan Kami</h1>
-                                <div class="row">
+                                <div class="layanan row">
                                     <div class="col-lg-4 col-md-6 mb-4">
-                                        <div class="card h-100">
-                                            <div class="card-body py-md-4"
-                                                style="background-image: url(/images/e-satsdn.png); background-size: crop; background-position: center;">
-                                                <div class="row d-flex justify-content-center align-items-center">
-                                                    <div class="col-4">
-                                                        <i
-                                                            class="icon-layanan nf nf-fa-pencil_square_o text-start"></i>
-                                                    </div>
-                                                    <div class="col-8 text-start mb-2 p-0">
-                                                        <h1 class="card-title">E-SATS-DN</h1>
-                                                        <h3 class="card-text">Surat Izin<br>E-SATS-DN</h3>
-                                                    </div>
+                                        <div class="card">
+                                            <div class="card-body d-flex justify-content-center align-items-center py-md-4"
+                                                style="">
+                                                <div class="position-absolute opacity-25 top-0 left-0 w-100 h-100"
+                                                    loading="lazy"
+                                                    style="background-image: url('/images/satsdn.jpg'); background-size: cover; background-position: center;">
                                                 </div>
+                                                <h1 class="card-title">SATS-DN</h1>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 mb-4">
-                                        <div class="card h-100">
-                                            <div class="card-body py-md-4"
-                                                style="background-image: url(/images/e-simaksi.png); background-size: crop; background-position: center;">
-                                                <div class="row d-flex justify-content-center align-items-center">
-                                                    <div class="col-4">
-                                                        <i
-                                                            class="icon-layanan nf nf-md-file_document_outline text-start"></i>
-                                                    </div>
-                                                    <div class="col-8 text-start mb-2 p-0">
-                                                        <h1 class="card-title">E-SIMAKSI</h1>
-                                                        <h3 class="card-text">Surat Izin Masuk<br>Kawasan
-                                                            Konservasi
-                                                        </h3>
-                                                    </div>
+                                        <div class="card">
+                                            <div class="card-body d-flex justify-content-center align-items-center py-md-4"
+                                                style="">
+                                                <div class="position-absolute opacity-25 top-0 left-0 w-100 h-100"
+                                                    loading="lazy"
+                                                    style="background-image: url('/images/formc.png'); background-size: cover; background-position: center;">
                                                 </div>
+                                                <h1 class="card-title">FORM-C</h1>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6 mb-4">
-                                        <div class="card h-100">
-                                            <div class="card-body py-md-4"
-                                                style="background-image: url(/images/form-c.png); background-size: crop; background-position: center;">
-                                                <div class="row d-flex justify-content-center align-items-center">
-                                                    <div class="col-4">
-                                                        <i class="icon-layanan fa-regular fa-message text-start"></i>
-                                                    </div>
-                                                    <div class="col-8 text-start mb-2 p-0">
-                                                        <h1 class="card-title">Form-C</h1>
-                                                        <!--<h2 class="card-text">Formulir untuk Layanan C</h2>-->
-                                                    </div>
+                                        <div class="card">
+                                            <div class="card-body d-flex justify-content-center align-items-center py-md-4"
+                                                style="">
+                                                <div class="position-absolute opacity-25 top-0 left-0 w-100 h-100"
+                                                    loading="lazy"
+                                                    style="background-image: url('/images/pengepakan.jpg'); background-size: cover; background-position: center;">
                                                 </div>
+                                                <h1 class="card-title">PENGEPAKAN</h1>
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +192,7 @@
                             <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
                             <article class="row mx-1">
                                 <div class="col-md-12">
-                                    <div class="card mb-4 shadow-sm py-3 px-3" style="background-color: #0B1D26;">
+                                    <div class="card mb-4 shadow-sm py-3 px-4">
                                         <div class="card-body row g-5">
                                             <header class="col-md-4 d-flex align-items-center">
                                                 <img src="/images/image2.png" class="card-img" alt="Berita Image">
@@ -228,7 +221,7 @@
                                 </div>
                             </article>
                             <!-- Pagination -->
-                            <nav class="page" aria-label="Page navigation example">
+                            <nav class="page page-short" aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item m-1"><a class="page-link active" href="#">1</a>
                                     </li>
@@ -239,12 +232,13 @@
                                 </ul>
                             </nav>
                         </section>
-                        <section class="insta container-fluid">
-                            <h1 class="mb-4 text-start" style="color: #004165"><i class="fa-brands fa-instagram"></i>
+                        <section class="container-fluid">
+                            <h1 class="mb-4 text-start align-middle" style="color: #004165"><i
+                                    class="fa-brands fa-instagram align-middle" style="font-size: 1.5em"></i>
                                 <a href="https://www.instagram.com/bbksda_sumut/"
                                     class="text-decoration-none text-reset">INSTAGRAM</a>
                             </h1>
-                            <article class="row g-3 d-flex align-items-center justify-content-center">
+                            <article class="row g-4 d-flex align-items-center justify-content-center">
                                 <!-- Instagram Post 1 -->
                                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
                                     <div class="instagram-post">
@@ -454,92 +448,43 @@
                         </section>
                     </article>
                 </section>
-                <footer class="text-light pt-5">
-                    <div class="container-fluid px-5">
+                <footer class="footer text-light py-5">
+                    <div class="container">
                         <div class="row">
-                            <!-- Temui Kami -->
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <h1 class="mb-4">Temui Kami</h5>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-facebook-f"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 5px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white text-start">bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-youtube"
-                                                style="color: #FFD43B; font-size: 2.125rem;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white text-start">bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-instagram"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 2px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="https://www.instagram.com/bbksda_sumut/"
-                                                class="text-white text-start">@bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-twitter"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 0px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white">bbksda</a>
-                                        </div>
-                                    </div>
-                            </div>
-                            <!-- Tentang Kami -->
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <h1 class="mb-4">Tentang Kami</h5>
-                                    <p style="font-family: Montserrat">
-                                        Penasehat/Pembina:<br>
-                                        Kepala Balai Besar KSDA Papua Barat<br>
-                                        Kepala Bagian Tata Usaha<br>
-                                        Pengarah :<br>
-                                        Kepala Subbag. Data, Evlap, dan Kehumasan<br><br>
-                                        Penanggung Jawab/Pemimpin Redaksi:<br>Gusta Fitri Adi, S.Hut
-                                    </p>
-                            </div>
-                            <!-- Hubungi Kami -->
+                            <!-- Temukan Kami Section -->
                             <div class="col-lg-4 col-md-12 mb-4">
-                                <h1 class="mb-4 text-start">Hubungi Kami</h5>
-                                    <div class="row">
-                                        <div class="col-2 text-center">
-                                            <i class="fa-solid fa-phone-volume text-start"
-                                                style="color: #FFD43B; font-size: 2.125rem;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <p class="text-decoration-none text-reset"
-                                                style="font-family: 'Montserrat Subrayada', sans-serif;">
-                                                CALL CENTRE :<br>085376690666</p>
-                                        </div>
-                                    </div>
+                                <h2 class="text-uppercase fw-bold mb-4">Temukan Kami</h2>
+                                <p>Sosial Media Resmi dari Balai Besar Konservasi <br> Sumber Daya Alam Sumatra Utara
+                                </p>
+                                <div class="social-icons">
+                                    <a href="#"><img src="/images/facebook.png" alt="Facebook"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/youtube.png" alt="YouTube"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/instagram.png" alt="Instagram"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/twitter.png" alt="Twitter"
+                                            class="social-icon"></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12 mb-4"></div>
+                            <!-- Hubungi Kami Section -->
+                            <div class="col-lg-3 col-md-12 mb-4">
+                                <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
+                                <h3 class="text-lg-end text-md-start text-wrap align-middle">
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </footer>
                 <div class="pelaporan">
                     <div class="container d-flex justify-content-center align-items-center">
-                        <i class="icon-layanan fa-solid fa-phone-volume text-start"
-                            style="font-size: 1.5em; margin-right: 1.5rem;"></i>
-                        <a href="#" class="fw-bold m-0 text-decoration-none text-reset">PELAPORAN</a>
+                        <img class="icon-pelaporan" src="/images/pelaporan.png" alt="Logo">
+                        <a href="#" class="m-0 text-decoration-none">PELAPORAN</a>
                     </div>
                 </div>
+            </section>
         @endif
     </main>
 </body>

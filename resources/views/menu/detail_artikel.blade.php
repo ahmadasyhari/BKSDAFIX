@@ -51,10 +51,12 @@
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="#">SIMAKSI</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">SATS-DN</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">FORM-C</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Pengepakan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">IZIN BARU / PERPANJANGAN</a>
+                            </li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">SIMAKSI</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran TSL</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Peredaran TSL</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -67,6 +69,9 @@
                                     Liar</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a>
                             </li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pembangunan Strategis yang
+                                    tidak dapat dielakan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
                     </li>
 
@@ -183,85 +188,42 @@
                         </div>
                     </article>
                 </section>
-                <footer class="text-light pt-5">
-                    <div class="container-fluid px-5">
+                <footer class="footer text-light py-5">
+                    <div class="container">
                         <div class="row">
-                            <!-- Temui Kami -->
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <h1 class="mb-4">Temui Kami</h5>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-facebook-f"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 5px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white text-start">bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-youtube"
-                                                style="color: #FFD43B; font-size: 2.125rem;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white text-start">bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-instagram"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 2px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="https://www.instagram.com/bbksda_sumut/"
-                                                class="text-white text-start">@bbksda</a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-2 text-center">
-                                            <i class="fab fa-twitter"
-                                                style="color: #FFD43B; font-size: 2.125rem; padding-left: 0px;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <a href="#" class="text-white">bbksda</a>
-                                        </div>
-                                    </div>
-                            </div>
-                            <!-- Tentang Kami -->
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <h1 class="mb-4">Tentang Kami</h5>
-                                    <p style="font-family: Montserrat">
-                                        Penasehat/Pembina:<br>
-                                        Kepala Balai Besar KSDA Papua Barat<br>
-                                        Kepala Bagian Tata Usaha<br>
-                                        Pengarah :<br>
-                                        Kepala Subbag. Data, Evlap, dan Kehumasan<br><br>
-                                        Penanggung Jawab/Pemimpin Redaksi:<br>Gusta Fitri Adi, S.Hut
-                                    </p>
-                            </div>
-                            <!-- Hubungi Kami -->
+                            <!-- Temukan Kami Section -->
                             <div class="col-lg-4 col-md-12 mb-4">
-                                <h1 class="mb-4 text-start">Hubungi Kami</h5>
-                                    <div class="row">
-                                        <div class="col-2 text-center">
-                                            <i class="fa-solid fa-phone-volume text-start"
-                                                style="color: #FFD43B; font-size: 2.125rem;"></i>
-                                        </div>
-                                        <div class="col-1"></div>
-                                        <div class="col-auto">
-                                            <p class="text-decoration-none text-reset"
-                                                style="font-family: 'Montserrat Subrayada', sans-serif;">
-                                                CALL CENTRE :<br>085376690666</p>
-                                        </div>
-                                    </div>
+                                <h2 class="text-uppercase fw-bold mb-4">Temukan Kami</h2>
+                                <p>Sosial Media Resmi dari Balai Besar Konservasi <br> Sumber Daya Alam Sumatra Utara
+                                </p>
+                                <div class="social-icons">
+                                    <a href="#"><img src="/images/facebook.png" alt="Facebook"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/youtube.png" alt="YouTube"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/instagram.png" alt="Instagram"
+                                            class="social-icon"></a>
+                                    <a href="#"><img src="/images/twitter.png" alt="Twitter"
+                                            class="social-icon"></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-12 mb-4"></div>
+                            <!-- Hubungi Kami Section -->
+                            <div class="col-lg-3 col-md-12 mb-4">
+                                <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
+                                <h3 class="text-lg-end text-md-start text-wrap align-middle">
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </footer>
+                <div class="pelaporan">
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <img class="icon-pelaporan" src="/images/pelaporan.png" alt="Logo">
+                        <a href="#" class="m-0 text-decoration-none">PELAPORAN</a>
+                    </div>
+                </div>
             </section>
         @endif
     </main>
