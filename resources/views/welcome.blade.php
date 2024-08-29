@@ -78,7 +78,7 @@
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
                             @if ($menuItem->url)
                                 <a class="nav-link" href="{{ $menuItem->url }}">
                                     {{ $menuItem->title }}
