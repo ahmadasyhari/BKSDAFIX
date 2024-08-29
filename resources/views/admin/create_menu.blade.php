@@ -16,73 +16,16 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script defer src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <!-- Gunakan versi CDN TinyMCE yang tidak membutuhkan API Key -->
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"></script>
     @vite('resources/css/nav.css')
     @vite('resources/js/nav.js')
-    <style>
-        .ql-toolbar.ql-snow {
-            border: 1px solid #ccc;
-        }
-
-        .ql-container.ql-snow {
-            border: 1px solid #ccc;
-            height: 300px;
-            /* Tinggi editor */
-        }
-
-        .ql-editor iframe {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
 
 <body>
     <main class="wrapper d-flex align-items-stretch">
         <nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                    <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
-            </div>
-            <div class="container-fluid d-grid justify-content-stretch text-center px-0 py-4">
-                <ul class="nav flex-column">
-                    <li class="nav-item py-3">
-                        <img src="/images/profile.png" alt="Logo" width="75" height="auto">
-                        <h4 class="my-3">Admin</h4>
-                    </li>
-                </ul>
-                <hr style="margin: 0rem;">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active py-3" aria-current="page" href="{{ route('menu.create') }}">
-                            Beranda
-                        </a>
-                    </li>
-                    <hr style="margin: 0rem;">
-                    <li class="nav-item">
-                        <a class="nav-link active py-3" aria-current="page" href="{{ route('menu.create') }}">
-                            Mengelola Menu
-                        </a>
-                    </li>
-                    <hr style="margin: 0rem;">
-                    <li class="nav-item">
-                        <a class="nav-link py-3" href="#">Mengelola Pengumuman</a>
-                    </li>
-                    <hr style="margin: 0rem;">
-                    <li class="nav-item">
-                        <a class="nav-link py-3" href="#">Mengelola Artikel</a>
-                    </li>
-                    <hr style="margin: 0rem;">
-                    <li class="nav-item">
-                        <a class="nav-link py-3" href="#">Mengelola Video</a>
-                    </li>
-                    <hr style="margin: 0rem;">
-                    <li class="nav-item">
-                        <a class="nav-link py-3" href="#">Mengelola Foto</a>
-                </ul>
-            </div>
+            <!-- Sidebar content -->
         </nav>
 
         <!-- Section Block -->
@@ -214,8 +157,6 @@
             </section>
         </section>
         <script>
-            var quill;
-
             // Fungsi untuk menampilkan input yang sesuai
             function toggleContentInput() {
                 var type = document.getElementById('type').value;
@@ -228,31 +169,40 @@
                     document.getElementById('rich-text-input').style.display = 'block';
                     document.querySelector('textarea[name=content]').style.display = 'block'; // Show textarea
 
-                    // Inisialisasi Quill editor hanya jika belum diinisialisasi
-                    if (!quill) {
-                        quill = new Quill('#editor', {
-                            theme: 'snow',
-                            modules: {
-                                toolbar: [
-                                    [{ 'header': [1, 2, 3, false] }],
-                                    [{ 'align': [] }],
-                                    ['bold', 'italic', 'underline', 'strike'],
-                                    ['link', 'image', 'video'],
-                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                                    [{ 'indent': '-1' }, { 'indent': '+1' }],
-                                    ['clean'],
-                                    ['table']
-                                ]
+                    // Inisialisasi TinyMCE
+                    if (!tinymce.activeEditor) {
+                        tinymce.init({
+                            selector: '#editor',
+                            width: 600,
+                            height: 300,
+                            plugins: [
+                                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                                'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                                'table', 'emoticons', 'help'
+                            ],
+                            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                                'forecolor backcolor emoticons | help',
+                            menu: {
+                                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+                            },
+                            menubar: 'favs file edit view insert format tools table help',
+                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                            setup: function (editor) {
+                                editor.on('init', function () {
+                                    // Transfer the content from the textarea to the editor
+                                    editor.setContent(document.querySelector('textarea[name=content]').value || '');
+                                });
                             }
                         });
                     }
                 }
             }
 
-            // Menyimpan konten Quill ke textarea sebelum form disubmit
+            // Menyimpan konten TinyMCE ke textarea sebelum form disubmit
             document.querySelector('form').onsubmit = function () {
                 if (document.getElementById('type').value === 'rich_text') {
-                    document.querySelector('textarea[name=content]').value = quill.root.innerHTML;
+                    document.querySelector('textarea[name=content]').value = tinymce.activeEditor.getContent();
                 }
             };
 

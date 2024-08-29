@@ -26,6 +26,22 @@ Route::get('/detailartikel', function () {
 Route::get('/logo', function () {
     return view('menu.halaman_logo');
 });
+
+Route::get('/simaksi', function () {
+    return view('menu.layanan_simaksi');
+});
+
+Route::get('/perizinan', function () {
+    return view('menu.perizinan');
+});
+
+Route::get('/simaksi', function () {
+    return view('menu.layanan_simaksi');
+});
+
+Route::get('/mitra', function () {
+    return view('menu.mitra');
+});
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
     Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');

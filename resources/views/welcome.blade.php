@@ -43,7 +43,7 @@
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Perizinan</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="/perizinan">Perizinan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kawasan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Laporan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Galery Foto dan Video</a></li>
@@ -54,7 +54,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">IZIN BARU / PERPANJANGAN</a>
                             </li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">SIMAKSI</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="/simaksi">SIMAKSI</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran TSL</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Peredaran TSL</a></li>
@@ -63,7 +63,7 @@
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap" href="/mitra">Lembaga Konservasi</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
                                     Liar</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa

@@ -5,16 +5,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($menu) ? $menu->title : 'Detail Berita' }}</title>
+    <title>{{ isset($menu) ? $menu->title : 'Mitra Kerja' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
     <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <link
+        href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/cr-2.0.3/date-1.5.2/fc-5.0.1/fh-4.0.1/kt-2.12.1/r-3.0.2/rg-1.5.0/rr-1.5.0/sc-2.4.3/sb-1.7.1/sp-2.3.1/sl-2.0.3/sr-1.4.1/datatables.min.css"
+        rel="stylesheet">
+    <script defer
+        src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/cr-2.0.3/date-1.5.2/fc-5.0.1/fh-4.0.1/kt-2.12.1/r-3.0.2/rg-1.5.0/rr-1.5.0/sc-2.4.3/sb-1.7.1/sp-2.3.1/sl-2.0.3/sr-1.4.1/datatables.min.js">
+    </script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     @vite('resources/css/style.css')
+    @vite('resources/js/nav.js')
 </head>
+<style>
+    tbody tr {
+        height: 3rem;
+    }
+</style>
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
@@ -39,8 +55,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
-                            type="button" aria-expanded="false">DATA & INFORMASI</a>
+                        <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="/perizinan">Perizinan</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
@@ -60,9 +75,11 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
+                        <a class="fw-bold nav-link  {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
+                            type="button" aria-expanded="false">MITRA KERJA</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/mitra">Lembaga Konservasi</a></li>
+                            <li><a class="fw-bold dropdown-item text-wrap {{ !isset($menu) ? 'active' : '' }}"
+                                    href="/mitra">Lembaga Konservasi</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
                                     Liar</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa
@@ -118,76 +135,94 @@
                 {!! $menu->content !!}
             </div>
         @else
-            <section class="detailberita">
+            <section class="mitra">
                 <!-- Header -->
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/paropo.svg" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
-                                <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>PENGUMUMAN DAN BERITA</h1>
+                                <h2 style="color: #FBC834">Mitra Kerja</h2>
+                                <h1>LEMBAGA KONSERVASI</h1>
                             </div>
                         </div>
                     </div>
                 </article>
-                <section class="detailberita-card card mx-4 py-5" style="top: -30px; border-radius: 20px;"
-                    z-index="2">
-                    <article class="card-body pt-lg-4">
-                        <div class="container py-3">
-                            <div class="card px-3">
-                                <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-text text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
-                                        </div>
-                                    </header>
-                                    <aside class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </aside>
-                                </div>
-                            </div>
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
+                    <div class="card-body pt-lg-4 ">
+                        <div class="text-center mb-5">
+                            <h1>LEMBAGA KONSERVASI</h1>
+                            <h2 style="color: #757575">BALAI KONSERVASI SUMBER DAYA ALAM SUMATRA UTARA</h2>
                         </div>
-                        <div class="container py-3">
-                            <div class="card px-3">
-                                <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </header>
-                                    <aside class="col-md-6 px-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-title text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll
-                                                put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
-                                        </div>
-                                    </aside>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                        <article class="data_table" style="padding: 50px 100px;">
+                            <table id="table-s" class="table display table-hover align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="40%">NAMA LEMBAGA</th>
+                                        <th class="text-center">ALAMAT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Yayasan Kura-Kura Nusa Penida</td>
+                                        <td>Ds. Toya Pakeh, Nusa Penida</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CV. BALI HARMONI/BALI ZOO</td>
+                                        <td>Ds. Singapadu Sukawati - Gianyar</td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                        <nav class="page page-short" style="padding: 0 80px;" aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item m-1"><a class="page-link active" href="#">1</a>
+                                </li>
+                                <li class="page-item m-1"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item m-1"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item m-1"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item m-1"><a class="page-link" href="#">67</a></li>
+                                <li class="page-item m-1"><a class="page-link" href="#">68</a></li>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </section>
                 <footer class="footer text-light py-5">
                     <div class="container">

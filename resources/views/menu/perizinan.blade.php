@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($menu) ? $menu->title : 'Detail Berita' }}</title>
+    <title>{{ isset($menu) ? $menu->title : 'Perizinan' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
@@ -42,7 +42,8 @@
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             type="button" aria-expanded="false">DATA & INFORMASI</a>
                         <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item" href="/perizinan">Perizinan</a></li>
+                            <li><a class="fw-bold dropdown-item {{ !isset($menu) ? 'active' : '' }}"
+                                    href="/perizinan">Perizinan</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Kawasan</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Laporan</a></li>
                             <li><a class="fw-bold dropdown-item" href="#">Galery Foto dan Video</a></li>
@@ -118,26 +119,68 @@
                 {!! $menu->content !!}
             </div>
         @else
-            <section class="detailberita">
+            <section class="perizinan">
                 <!-- Header -->
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/paropo.svg" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
                                 <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>PENGUMUMAN DAN BERITA</h1>
+                                <h1>PERIZINAN</h1>
                             </div>
                         </div>
                     </div>
                 </article>
-                <section class="detailberita-card card mx-4 py-5" style="top: -30px; border-radius: 20px;"
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;"
                     z-index="2">
-                    <article class="card-body pt-lg-4">
+                    <div class="card-body pt-lg-4 ">
+                        <article class="container-fluid text-center">
+                            <div class="row px-4">
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card shadow-sm" style="background-color:#0B1D26; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center text-white"
+                                            style="">
+                                            <h5 class="card-title p-0 m-0">Title</h5>
+                                            <p>Body text</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center"
+                                            style="">
+                                            <h5 class="card-title p-0 m-0">Title</h5>
+                                            <p>Body text</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center"
+                                            style="">
+                                            <h5 class="card-title p-0 m-0">Title</h5>
+                                            <p>Body text</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mb-4">
+                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center"
+                                            style="">
+                                            <h5 class="card-title p-0 m-0">Title</h5>
+                                            <p>Body text</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
                         <div class="container py-3">
-                            <div class="card px-3">
+                            <div class="card px-3" style="border: none;">
                                 <div class="row">
-                                    <header class="col-md-6 py-3">
+                                    <article class="col-md-6 py-3">
                                         <div class="card-block px-6">
                                             <h4 class="card-title fw-bold pt-3">Heading</h4>
                                             <h5 class="card-text text-secondary mb-3">Subheading</h5>
@@ -153,7 +196,7 @@
                                                 excepteur Basset hound. Zürich sleepy perfect consectetur.
                                             </p>
                                         </div>
-                                    </header>
+                                    </article>
                                     <aside class="col-md-6 py-3">
                                         <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
                                     </aside>
@@ -161,17 +204,13 @@
                             </div>
                         </div>
                         <div class="container py-3">
-                            <div class="card px-3">
+                            <div class="card px-3" style="border: none;">
                                 <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </header>
-                                    <aside class="col-md-6 px-3">
+                                    <article class="col-md-6 py-3">
                                         <div class="card-block px-6">
                                             <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-title text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll
-                                                put
+                                            <h5 class="card-text text-secondary mb-3">Subheading</h5>
+                                            <p class="card-text">Body text for your whole article or post. We’ll put
                                                 in some lorem ipsum to show how a filled-out page might look:</p>
                                             <p class="card-text">Excepteur efficient emerging, minim veniam anim
                                                 aute carefully curated Ginza conversation exquisite perfect nostrud
@@ -183,11 +222,14 @@
                                                 excepteur Basset hound. Zürich sleepy perfect consectetur.
                                             </p>
                                         </div>
+                                    </article>
+                                    <aside class="col-md-6 py-3">
+                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
                                     </aside>
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 </section>
                 <footer class="footer text-light py-5">
                     <div class="container">
