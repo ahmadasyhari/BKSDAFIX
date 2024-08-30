@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" type="button"
                             aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
@@ -74,13 +74,12 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
-
+                    </li> -->
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                         <li class="nav-item dropdown">
                             @if ($menuItem->url)
-                                <a class="nav-link" href="{{ $menuItem->url }}">
+                                <a class="fw-bold nav-link" href="{{ $menuItem->url }}">
                                     {{ $menuItem->title }}
                                 </a>
                             @else
