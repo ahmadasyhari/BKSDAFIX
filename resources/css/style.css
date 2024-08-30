@@ -241,7 +241,7 @@ h3 {
     height: fit-content;
 }
 
-/* Berita */
+/* Pengumuman */
 
 .page .pagination a {
     color: black;
@@ -264,7 +264,7 @@ h3 {
     border-radius: 10px !important;
 }
 
-.detailberita-card .card {
+.detailpengumuman-card .card {
     border: none;
 }
 

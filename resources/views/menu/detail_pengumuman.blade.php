@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($menu) ? $menu->title : 'Pengumuman dan Berita' }}</title>
+    <title>{{ isset($menu) ? $menu->title : 'Detail Berita' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
@@ -73,7 +73,7 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
+                    </li>-->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
@@ -118,12 +118,12 @@
                 {!! $menu->content !!}
             </div>
         @else
-            <section class="berita">
+            <section class="detailpengumuman">
                 <!-- Header -->
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/pengumuman.png" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
                                 <h2 style="color: #FBC834">Informasi</h2>
                                 <h1>PENGUMUMAN DAN BERITA</h1>
@@ -131,103 +131,26 @@
                         </div>
                     </div>
                 </article>
-                <section class="berita-card card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
-                    <article class="card-body pt-lg-5">
-                        <div class="container py-2">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <section class="detailpengumuman-card card mx-4 py-5" style="top: -30px; border-radius: 20px;"
+                    z-index="2">
+                    </div>
+                    <article class="card-body pt-lg-4">
                         <div class="container py-3">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
-                                    </div>
+                            <div class="card px-3">
+                                <div class="row">
+                                    <header class="col-md-6 py-3">
+                                        <div class="card-block px-6">
+                                            <h4 class="card-title fw-bold pt-3">{{ $pengumuman->judul }}</h4>
+                                            <h5 class="card-text text-secondary mb-3">{{ $pengumuman->judul }}</h5>
+                                            <p class="card-text">{{ $pengumuman->konten }}</p>
+                                        </div>
+                                    </header>
+                                    <aside class="col-md-6 d-flex align-items-center py-3">
+                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
+                                    </aside>
                                 </div>
                             </div>
                         </div>
-                        <div class="container py-3">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pagination -->
-                        <nav class="page mt-5">
-                            <ul class="pagination d-flex flex-wrap justify-content-center">
-                                <li class="page-item m-1">
-                                    <a class="page-link text-secondary" href="/berita"><i
-                                            class="fa-solid fa-arrow-left px-3"></i>Previous</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link active" href="#">1</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">...</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">67</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">68</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link text-secondary" href="/berita">Next<i
-                                            class="fa-solid fa-arrow-right px-3"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </article>
                 </section>
                 <footer class="footer text-light py-5">
                     <div class="container">
@@ -253,7 +176,9 @@
                             <div class="col-lg-3 col-md-12 mb-4">
                                 <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
                                 <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
+                                    085376699066
+                                </h3>
                                 </h3>
                             </div>
                         </div>

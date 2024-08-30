@@ -1,26 +1,12 @@
 <?php
 
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/berita', function () {
-    return view('menu.berita');
-});
-
-Route::get('/detailberita', function () {
-    return view('menu.detail_berita');
-});
-
-Route::get('/artikel', function () {
-    return view('menu.artikel');
-});
-
-Route::get('/detailartikel', function () {
-    return view('menu.detail_artikel');
 });
 
 Route::get('/logo', function () {
@@ -42,16 +28,33 @@ Route::get('/simaksi', function () {
 Route::get('/mitra', function () {
     return view('menu.mitra');
 });
+
+
+Route::get('/artikel', [ArtikelController::class, 'showArtikel'])->name('artikel.list');
+Route::get('/detailartikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
+Route::get('/pengumuman', [PengumumanController::class, 'showPengumuman'])->name('pengumuman.list');
+Route::get('/detailpengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman.show');
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
+    // Rute untuk Menu
     Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
     Route::post('/admin/menu/store', [MenuController::class, 'store'])->name('menu.store');
     Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
     Route::delete('/admin/menu/force-delete/{id}', [MenuController::class, 'forceDelete'])->name('menu.forceDelete');
     Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
-    Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
-    // Route lain yang memerlukan autentikasi
+
+    // Rute untuk Artikel
+    Route::get('admin/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
+    Route::post('admin/artikel/store', [ArtikelController::class, 'store'])->name('artikel.store');
+    Route::get('admin/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+    Route::delete('admin/artikel/{id}', [ArtikelController::class, 'destroy'])->name('artikel.destroy');
+
+    // Rute untuk Pengumuman
+    Route::get('admin/pengumuman/create', [PengumumanController::class, 'create'])->name('pengumuman.create');
+    Route::post('admin/pengumuman/store', [PengumumanController::class, 'store'])->name('pengumuman.store');
+    Route::get('admin/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
+    Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 });
+
 
 
 

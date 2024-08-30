@@ -30,6 +30,7 @@
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
@@ -75,16 +76,17 @@
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
                     </li>
+                -->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                         <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
                             @if ($menuItem->url)
-                                <a class="nav-link" href="{{ $menuItem->url }}">
+                                <a class="nav-link text-uppercase" href="{{ $menuItem->url }}">
                                     {{ $menuItem->title }}
                                 </a>
                             @else
-                                <a class="nav-link dropdown-toggle" href="#" id="{{ $dropdownId }}"
+                                <a class="nav-link dropdown-toggle text-uppercase" href="#" id="{{ $dropdownId }}"
                                     role="button" aria-expanded="false">
                                     {{ $menuItem->title }}
                                 </a>
@@ -227,7 +229,7 @@
                                     </li>
                                     <li class="page-item m-1"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item m-1"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item m-1"><a class="page-link" href="/berita">Lebih Banyak</a>
+                                    <li class="page-item m-1"><a class="page-link" href="/pengumuman">Lebih Banyak</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -472,7 +474,9 @@
                             <div class="col-lg-3 col-md-12 mb-4">
                                 <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
                                 <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
+                                    085376699066
+                                </h3>
                                 </h3>
                             </div>
                         </div>

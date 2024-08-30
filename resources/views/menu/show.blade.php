@@ -1,6 +1,7 @@
 <?php use App\Models\Menu; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     @vite('resources/css/style.css')
 </head>
+
 <body>
-<nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF">
+    <nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
             <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,7 +30,7 @@
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item text-wrap" href="/logo">Logo</a></li>
@@ -72,7 +74,7 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
+                    </li>-->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
@@ -110,72 +112,69 @@
     </nav>
 
     <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/paropo.svg" class="d-block w-100" alt="...">
-                            <div class="header-content" z-index="1">
-                             
-                            </div>
-                        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="/images/paropo.svg" class="d-block w-100" alt="...">
+                <div class="header-content" z-index="1">
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <section class="logo-card card mx-4 py-5" style="top: -30px; border-radius: 20px; z-index: 2;">
+        <article class="card-body pt-lg-4">
+            <div class="container py-2">
+                @if (isset($menu))
+                    <h1>{{ $menu->title }}</h1>
+                    <div>
+                        {!! $menu->content !!}
                     </div>
-                </article>
+                @else
+                    <h1>Selamat Datang di BKSDA</h1>
+                    <p>Ini adalah halaman beranda aplikasi BKSDA Anda.</p>
+                @endif
+            </div>
 
-                <section class="logo-card card mx-4 py-5" style="top: -30px; border-radius: 20px; z-index: 2;">
-                    <article class="card-body pt-lg-4">
-                    <div class="container mt-5">
-                    @if(isset($menu))
-                        <h1>{{ $menu->title }}</h1>
-                        <div>
-                            {!! $menu->content !!}
-                        </div>
-                    @else
-                        <h1>Selamat Datang di BKSDA</h1>
-                        <p>Ini adalah halaman beranda aplikasi BKSDA Anda.</p>
-                    @endif
-    </div>
+        </article>
+    </section>
 
-                    </article>
-                </section>
-
-                <footer class="footer text-light py-5">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Temukan Kami Section -->
-                            <div class="col-lg-4 col-md-12 mb-4">
-                                <h2 class="text-uppercase fw-bold mb-4">Temukan Kami</h2>
-                                <p>Sosial Media Resmi dari Balai Besar Konservasi <br> Sumber Daya Alam Sumatra Utara
-                                </p>
-                                <div class="social-icons">
-                                    <a href="#"><img src="/images/facebook.png" alt="Facebook"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/youtube.png" alt="YouTube"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/instagram.png" alt="Instagram"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/twitter.png" alt="Twitter"
-                                            class="social-icon"></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12 mb-4"></div>
-                            <!-- Hubungi Kami Section -->
-                            <div class="col-lg-3 col-md-12 mb-4">
-                                <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
-                                <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
-                                    085376699066
-                                </h3>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <div class="pelaporan">
-                    <div class="container d-flex justify-content-center align-items-center">
-                        <img class="icon-pelaporan" src="/images/pelaporan.png" alt="Logo">
-                        <a href="#" class="m-0 text-decoration-none">PELAPORAN</a>
+    <footer class="footer text-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Temukan Kami Section -->
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h2 class="text-uppercase fw-bold mb-4">Temukan Kami</h2>
+                    <p>Sosial Media Resmi dari Balai Besar Konservasi <br> Sumber Daya Alam Sumatra Utara
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><img src="/images/facebook.png" alt="Facebook" class="social-icon"></a>
+                        <a href="#"><img src="/images/youtube.png" alt="YouTube" class="social-icon"></a>
+                        <a href="#"><img src="/images/instagram.png" alt="Instagram" class="social-icon"></a>
+                        <a href="#"><img src="/images/twitter.png" alt="Twitter" class="social-icon"></a>
                     </div>
                 </div>
+                <div class="col-lg-5 col-md-12 mb-4"></div>
+                <!-- Hubungi Kami Section -->
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
+                    <h3 class="text-lg-end text-md-start text-wrap align-middle">
+                        <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
+                        085376699066
+                    </h3>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="pelaporan">
+        <div class="container d-flex justify-content-center align-items-center">
+            <img class="icon-pelaporan" src="/images/pelaporan.png" alt="Logo">
+            <a href="#" class="m-0 text-decoration-none">PELAPORAN</a>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

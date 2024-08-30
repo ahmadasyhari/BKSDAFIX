@@ -582,7 +582,7 @@ button:focus {
 #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
-    top: 49px;
+    top: 120px;
     right: 0;
     margin-right: -20px;
     -webkit-transition: 0.3s;
@@ -664,34 +664,15 @@ button:focus {
 }
 
 #sidebar .custom-menu .btn.btn-dark {
-    color: #FFF;
+    size: 2rem;
+    color: #0B1D26;
     background: transparent;
     border-color: transparent;
 }
 
-#sidebar .custom-menu .btn.btn-dark:after {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    background: #0B1D26 !important;
-    border-radius: 10px;
-}
-
-#sidebar .custom-menu .btn.btn-dark:hover{
+#sidebar .custom-menu .btn.btn-dark:hover {
     color: #E5A000;
-    background: transparent !important;
-    border-color: transparent !important;
-}
-
-#sidebar .custom-menu .btn.btn-dark:focus {
-    background: transparent !important;
+    background: #0B1D26 !important;
     border-color: transparent !important;
 }
 
@@ -724,7 +705,15 @@ a[data-toggle="collapse"] {
     transition: all 0.3s;
 }
 
+#content-header {
+    width: 100%;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
 .sr-only {
+    z-index: 100;
     position: absolute;
     width: 1px;
     height: 1px;
@@ -750,6 +739,7 @@ a[data-toggle="collapse"] {
     list-style: none;
 }
 
+/*
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -784,6 +774,7 @@ a[data-toggle="collapse"] {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+*/
 
 .btn.disabled,
 .btn:disabled {
@@ -795,15 +786,29 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
-.bg-dark, 
+.bg-dark,
 .nav-bg-dark {
     background-color: #0B1D26 !important;
 }
 
-.nav-item .nav-link:hover{
-    background-color: #E5A000;
+.nav .nav-item .nav-link {
+    color: #ffffff !important;
 }
 
-.nav-item .nav-link{
-    color: #ffffff !important;
+.nav .nav-item .nav-link.active {
+    background-color: #E5A000 !important;
+}
+
+.nav .nav-item .nav-link:hover:not(.active) {
+    color: #FFF !important;
+    background-color: #E5A000 !important;
+}
+
+.nav .nav-item .nav-link:hover {
+    color: #E5A000 !important;
+    background-color: #f5f5f5 !important;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #E5A000 !important;
 }

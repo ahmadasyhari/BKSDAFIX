@@ -1,23 +1,71 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('nav')
+    <nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
+        <div class="custom-menu">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+            </button>
+        </div>
+        <div class="container-fluid d-grid justify-content-stretch text-center px-0 py-4">
+            <ul class="nav flex-column">
+                <li class="nav-item py-3">
+                    <img src="/images/profile.png" alt="Logo" width="75" height="auto">
+                    <h4 class="my-3">Admin</h4>
+                </li>
+            </ul>
+            <hr style="margin: 0rem;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link py-3 active" aria-current="page">Beranda</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('menu.create') }}">Mengelola Menu</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('pengumuman.index') }}">Mengelola Pengumuman</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('artikel.index') }}">Mengelola Artikel</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="#">Mengelola Video</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="#">Mengelola Foto</a>
+            </ul>
+        </div>
+    </nav>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <!-- Main content -->
+    <div class="container d-flex align-items-center px-4 py-3 bg-white mb-4">
+        <p class="align-middle p-0 m-0 fs-5">Beranda</p>
+    </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    @if (session('success'))
+        <div class="alert alert-success mx-4">
+            {{ session('success') }}
+        </div>
+    @endif
 
-                    {{ __('You are logged in!') }}
-                </div>
+    <section id="content" class="bg-white mx-4 p-4 px-4 px-md-5 py-md-5">
+        <div class="card">
+            <div class="card-body">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                {{ __('Anda berhasil login!') }}
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

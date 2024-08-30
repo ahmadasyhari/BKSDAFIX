@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
@@ -73,7 +73,7 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                     
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
@@ -123,7 +123,7 @@
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/pengumuman.png" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
                                 <h2 style="color: #FBC834">Informasi</h2>
                                 <h1>Artikel</h1>
@@ -133,99 +133,30 @@
                 </article>
                 <section class="artikel-card card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
                     <article class="card-body pt-lg-5">
+                        @foreach($artikels as $artikel)
                         <div class="container py-2">
                             <div class="card" style="border-radius: 10px;">
                                 <div class="card-body p-4">
                                     <div class="row g-3">
                                         <header class="col-md-2">
                                             <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
+                                                alt="Artikel Image">
                                         </header>
                                         <aside class="col-md-10 px-3">
                                             <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
+                                                <h4 class="card-title fw-bold">{{ $artikel->judul }}</h4>
+                                                <p class="card-text">{{ Str::limit($artikel->konten, 150) }}</p>
+                                                <a href="{{ route('artikel.show', $artikel->id) }}" class="mt-auto btn btn-dark">Selengkapnya</a>
                                             </div>
                                         </aside>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container py-3">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container py-3">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Berita Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">Title</h4>
-                                                <p class="card-text">Body text for whatever you’d like to say. Add main
-                                                    takeaway points, quotes, anecdotes, or even a very very short story.
-                                                </p>
-                                                <a href="/detailberita" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                         <!-- Pagination -->
                         <nav class="page mt-5">
-                            <ul class="pagination d-flex flex-wrap justify-content-center">
-                                <li class="page-item m-1">
-                                    <a class="page-link text-secondary" href="/berita"><i
-                                            class="fa-solid fa-arrow-left px-3"></i>Previous</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link active" href="#">1</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">...</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">67</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link" href="#">68</a>
-                                </li>
-                                <li class="page-item m-1">
-                                    <a class="page-link text-secondary" href="/berita">Next<i
-                                            class="fa-solid fa-arrow-right px-3"></i></a>
-                                </li>
-                            </ul>
+                            {{ $artikels->links() }}
                         </nav>
                     </article>
                 </section>

@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
@@ -73,7 +73,7 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
+                    </li>-->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
@@ -123,70 +123,34 @@
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/berita.png" class="d-block w-100" alt="...">
+                            <img src="/images/pengumuman.png" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
                                 <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>Artikel</h1>
+                                <h1>ARTIKEL</h1>
                             </div>
                         </div>
                     </div>
                 </article>
-                <section class="detailartikel-card card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
-                    <article class="card-body pt-lg-2">
+                <section class="detailartikel-card card mx-4 py-5" style="top: -30px; border-radius: 20px;"
+                    z-index="2">
+                    </div>
+                    <article class="card-body pt-lg-4">
                         <div class="container py-3">
                             <div class="card px-3">
                                 <div class="row">
                                     <header class="col-md-6 py-3">
                                         <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-text text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
+                                            <h4 class="card-title fw-bold pt-3">{{ $artikel->judul }}</h4>
+                                            <h5 class="card-text text-secondary mb-3">{{ $artikel->judul }}</h5>
+                                            <p class="card-text">{{ $artikel->konten }}</p>
                                         </div>
                                     </header>
-                                    <aside class="col-md-6 py-3">
+                                    <aside class="col-md-6 d-flex align-items-center py-3">
                                         <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
                                     </aside>
                                 </div>
                             </div>
                         </div>
-                        <div class="container py-3">
-                            <div class="card px-3">
-                                <div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </header>
-                                    <aside class="col-md-6 px-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">Heading</h4>
-                                            <h5 class="card-title text-secondary mb-3">Subheading</h5>
-                                            <p class="card-text">Body text for your whole article or post. We’ll
-                                                put
-                                                in some lorem ipsum to show how a filled-out page might look:</p>
-                                            <p class="card-text">Excepteur efficient emerging, minim veniam anim
-                                                aute carefully curated Ginza conversation exquisite perfect nostrud
-                                                nisi intricate Content. Qui international first-class nulla ut.
-                                                Punctual adipisicing, essential lovely queen tempor eiusmod irure.
-                                                Exclusive izakaya charming Scandinavian impeccable aute quality of
-                                                life soft power pariatur Melbourne occaecat discerning. Qui wardrobe
-                                                aliquip, et Porter destination Toto remarkable officia Helsinki
-                                                excepteur Basset hound. Zürich sleepy perfect consectetur.
-                                            </p>
-                                        </div>
-                                    </aside>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
                 </section>
                 <footer class="footer text-light py-5">
                     <div class="container">
@@ -212,7 +176,9 @@
                             <div class="col-lg-3 col-md-12 mb-4">
                                 <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
                                 <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
+                                    085376699066
+                                </h3>
                                 </h3>
                             </div>
                         </div>
