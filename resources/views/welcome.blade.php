@@ -95,14 +95,14 @@
                                             <ul class="dropdown-menu">
                                                 @foreach ($child->children as $subchild)
                                                     <li class="dropdown-submenu">
-                                                        <a class="dropdown-item dropdown-toggle" href="{{ $subchild->url ?: route('menu.show', $subchild->id) }}">
+                                                        <a class="dropdown-item dropdown-toggle" href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
                                                             {{ $subchild->title }}
                                                         </a>
                                                         @if ($subchild->children->count())
                                                             <ul class="dropdown-menu">
                                                                 @foreach ($subchild->children as $subsubchild)
                                                                     <li>
-                                                                        <a class="dropdown-item" href="{{ $subsubchild->url ?: route('menu.show', $subsubchild->id) }}">
+                                                                        <a class="dropdown-item" href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
                                                                             {{ $subsubchild->title }}
                                                                         </a>
                                                                     </li>

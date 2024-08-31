@@ -137,44 +137,50 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($allMenus as $menu)
-                                <tr>
-                                    <td>{{ $menu->id }}</td>
-                                    <td>{{ $menu->title }}</td>
-                                    <td>
-                                        @if ($menu->url)
-                                            <a href="{{ $menu->url }}" target="_blank">{{ $menu->url }}</a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($menu->content)
-                                            {!! Str::limit($menu->content, 50) !!}
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($menu->parent_id)
-                                            <span class="badge bg-secondary">Sub-menu dari ID:
-                                                {{ $menu->parent_id }}</span>
-                                        @else
-                                            <span class="badge bg-primary">Menu Utama</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <!-- Tombol Hapus -->
-                                        <form action="{{ route('menu.destroy', $menu->id) }}" method="POST"
-                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+    @foreach ($allMenus as $menu)
+        <tr>
+            <td>{{ $menu->id }}</td>
+            <td>{{ $menu->title }}</td>
+            <td>
+                @if ($menu->url)
+                    <a href="{{ $menu->url }}" target="_blank">{{ $menu->url }}</a>
+                @else
+                    -
+                @endif
+            </td>
+            <td>
+                @if ($menu->content)
+                    {!! Str::limit(strip_tags($menu->content), 50) !!}
+                @else
+                    -
+                @endif
+            </td>
+            <td>
+                @if ($menu->parent_id)
+                    <span class="badge bg-secondary">Sub-menu dari ID: {{ $menu->parent_id }}</span>
+                @else
+                    <span class="badge bg-primary">Menu Utama</span>
+                @endif
+            </td>
+            <td>
+                <!-- Tombol View -->
+                <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info btn-sm">View</a>
+
+                <!-- Tombol Edit -->
+                <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning btn-sm">Edit</a>
+
+                <!-- Tombol Hapus -->
+                <form action="{{ route('menu.destroy', $menu->id) }}" method="POST" style="display:inline;"
+                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</tbody>
+
                     </table>
                 </div>
             </div>

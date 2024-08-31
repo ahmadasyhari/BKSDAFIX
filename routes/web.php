@@ -36,14 +36,20 @@ Route::get('/artikel', [ArtikelController::class, 'showArtikel'])->name('artikel
 Route::get('/detailartikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 Route::get('/pengumuman', [PengumumanController::class, 'showPengumuman'])->name('pengumuman.list');
 Route::get('/detailpengumuman/{id}', [PengumumanController::class, 'show'])->name('pengumuman.show');
+// Route untuk menampilkan menu utama
 Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
+// Route untuk menampilkan submenu dengan tampilan berbeda
+Route::get('/submenu/{id}', [MenuController::class, 'subshow'])->name('submenu.show');
 Route::group(['middleware' => ['auth']], function () {
     // Rute untuk Menu
     Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
     Route::post('/admin/menu/store', [MenuController::class, 'store'])->name('menu.store');
     Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
     Route::delete('/admin/menu/force-delete/{id}', [MenuController::class, 'forceDelete'])->name('menu.forceDelete');
-   
+    Route::get('/admin/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
+    Route::get('/admin/menu/{id}/edit', [MenuController::class, 'edit'])->name('menu.edit');
+    Route::put('/admin/menu/{id}', [MenuController::class, 'update'])->name('menu.update');
+
 
     // Rute untuk Artikel
     Route::get('admin/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
