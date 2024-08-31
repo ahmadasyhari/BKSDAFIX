@@ -46,8 +46,8 @@
 
 @section('content')
     <!-- Main content -->
-    <div class="container d-flex align-items-center px-4 py-3 bg-white mb-4">
-        <p class="align-middle p-0 m-0 fs-5">Beranda</p>
+    <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
+        <p class="align-middle px-2 m-0 fs-6">Beranda</p>
     </div>
 
     @if (session('success'))
@@ -56,16 +56,14 @@
         </div>
     @endif
 
-    <section id="content" class="bg-white mx-4 p-4 px-4 px-md-5 py-md-5">
-        <div class="card">
-            <div class="card-body">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                {{ __('Anda berhasil login!') }}
-            </div>
+    <section id="content" class="px-md-4 mb-4">
+        <div id="content-header" class="bg-white shadow-lg px-5 py-4 mb-4 vh-100">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            {{ __('Anda berhasil login!') }}
         </div>
     </section>
 @endsection

@@ -176,14 +176,12 @@ h3 {
     border-radius: 10px !important;
 }
 
-.informasi {
-    header {
-        font-family: 'Montserrat Subrayada', sans-serif;
-    }
+.informasi header {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
 
-    article {
-        font-family: 'ABeeZee', sans-serif;
-    }
+.informasi article {
+    font-family: 'ABeeZee', sans-serif;
 }
 
 .informasi .card {

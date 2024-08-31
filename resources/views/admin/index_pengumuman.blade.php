@@ -46,18 +46,18 @@
 
 @section('content')
     <!-- Main content -->
-    <div id="content-header" class="container-fluid d-flex align-items-center px-4 py-3 bg-white mb-4">
-        <p class="align-middle p-0 m-0 fs-5">Beranda / Mengelola Pengumuman</p>
+    <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
+        <p class="align-middle px-2 m-0 fs-6">Beranda / Mengelola Pengumuman</p>
     </div>
-    
+
     @if (session('success'))
         <div class="alert alert-success mx-4">
             {{ session('success') }}
         </div>
     @endif
 
-    <section id="content" class="px-md-4">
-        <div id="content" class="bg-white px-5 py-4">
+    <section id="content" class="px-md-4 mb-4">
+        <div id="content" class="bg-white shadow-lg px-5 py-4 mb-4">
             <a href="{{ route('pengumuman.create') }}" class="btn btn-success mb-4">+ Tambah Pengumuman</a>
             <table class="table table-bordered">
                 <thead>
@@ -91,6 +91,9 @@
             </table>
         </div>
     </section>
+@endsection
+
+@section('scripts')
     <script>
         // Fungsi untuk menampilkan input yang sesuai
         function toggleContentInput() {

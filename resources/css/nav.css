@@ -1,3 +1,6 @@
+body {
+    font-family: 'Poppins', 'sans-serif';
+}
 .navbar {
     position: relative;
     display: -webkit-box;
@@ -582,7 +585,7 @@ button:focus {
 #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
-    top: 120px;
+    top: 46.5px;
     right: 0;
     margin-right: -20px;
     -webkit-transition: 0.3s;

@@ -53,7 +53,7 @@
     <div id="content-header" class="container-fluid d-flex align-items-center px-4 py-3 bg-white mb-4">
         <p class="align-middle p-0 m-0 fs-5">Beranda / Mengelola Menu</p>
     </div>
-    
+
     @if (session('success'))
         <div class="alert alert-success mx-4">
             {{ session('success') }}
@@ -172,7 +172,9 @@
                 </div>
             </div>
     </section>
-    </section>
+@endsection
+
+@section('scripts')
     <script>
         // Fungsi untuk menampilkan input yang sesuai
         function toggleContentInput() {
@@ -290,7 +292,7 @@
     <div id="content-header" class="container-fluid d-flex align-items-center px-4 py-3 bg-white mb-4">
         <p class="align-middle p-0 m-0 fs-5">Beranda / Mengelola Menu</p>
     </div>
-    
+
     @if (session('success'))
         <div class="alert alert-success mx-4">
             {{ session('success') }}
