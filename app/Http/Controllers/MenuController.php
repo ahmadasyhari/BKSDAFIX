@@ -7,12 +7,19 @@ use App\Models\Menu;
 
 class MenuController extends Controller
 {
+    public function index()
+    {
+        $allMenus = Menu::all();
+
+        return view('admin.index_menu', compact('allMenus'));
+    }
+
     public function create()
     {
         $menus = Menu::whereNull('parent_id')->get();
         $allMenus = Menu::all();
 
-        return view('admin.create_menu', compact('menus', 'allMenus'));
+        return view('admin.create_menu', compact('menus','allMenus'));
     }
 
     public function destroy(Request $request, $id)
@@ -27,7 +34,7 @@ class MenuController extends Controller
         }
 
         $menu->delete();
-        return redirect()->back()->with('success', 'Menu berhasil dihapus!');
+        return redirect()->route('index_menu')->with('success', 'Menu berhasil dihapus!');
     }
 
     public function forceDelete($id)
@@ -37,7 +44,7 @@ class MenuController extends Controller
         $menu->children()->delete();
         $menu->delete();
 
-        return redirect()->back()->with('success', 'Menu dan semua sub-menu berhasil dihapus!');
+        return redirect()->route('index_menu')->with('success', 'Menu dan semua sub-menu berhasil dihapus!');
     }
 
     public function show($id)
@@ -87,7 +94,7 @@ public function update(Request $request, $id)
         ]);
     }
 
-    return redirect()->route('menu.create')->with('success', 'Menu berhasil diperbarui!');
+    return redirect()->route('menu.index')->with('success', 'Menu berhasil diperbarui!');
 }
 
 
@@ -119,6 +126,6 @@ public function update(Request $request, $id)
 
         Menu::create($data);
 
-        return redirect()->back()->with('success', 'Menu berhasil ditambahkan!');
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil ditambahkan!');
     }
 }

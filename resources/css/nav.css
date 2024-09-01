@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', 'sans-serif';
 }
+
 .navbar {
     position: relative;
     display: -webkit-box;
@@ -814,4 +815,10 @@ fieldset:disabled a.btn {
 
 .navbar-nav .nav-item .nav-link:hover {
     color: #E5A000 !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -22,11 +22,11 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('menu.create') }}">Mengelola Menu</a>
+                    <a class="nav-link py-3" href="{{ route('menu.index') }}">Mengelola Menu</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active" href="#" aria-current="page">Mengelola Pengumuman</a>
+                    <a class="nav-link py-3 active" href="{{ route('pengumuman.index') }}" aria-current="page">Mengelola Pengumuman</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -47,7 +47,7 @@
 @section('content')
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
-        <p class="align-middle px-2 m-0 fs-6">Beranda / Mengelola Pengumuman</p>
+        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a> / <a href="{{ route('pengumuman.index') }}" class="text-decoration-none text-reset">Mengelola Pengumuman</a> / Tambah Pengumuman</p>
     </div>
 
     @if (session('success'))
@@ -57,7 +57,7 @@
     @endif
 
     <section id="content" class="px-md-4 mb-4">
-        <div id="content" class="bg-white shadow-lg px-5 py-4 mb-4">
+        <div id="content-header" class="bg-white shadow-lg px-5 py-4">
             <h4 class="py-3">Tambah Pengumuman</h4>
 
             @if ($errors->any())
@@ -91,8 +91,8 @@
                     <label for="konten" class="form-label">Isi Pengumuman</label>
                     <textarea class="form-control" id="konten" name="konten" rows="10" required></textarea>
                 </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                <div class="d-grid mb-4">
+                    <button type="submit" class="btn btn-dark">Simpan</button>
                 </div>
             </form>
         </div>

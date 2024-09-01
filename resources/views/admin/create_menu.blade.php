@@ -24,7 +24,7 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active" href="#" aria-current="page">
+                    <a class="nav-link py-3 active"  href="{{ route('menu.index') }}" aria-current="page">
                         Mengelola Menu
                     </a>
                 </li>
@@ -51,7 +51,9 @@
 @section('content')
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
-        <p class="align-middle px-2 m-0 fs-6">Beranda / Mengelola Menu</p>
+        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}"
+                class="text-decoration-none text-reset">Beranda</a> / <a href="{{ route('menu.index') }}"
+                class="text-decoration-none text-reset">Mengelola Menu</a> / Tambah Menu</a></p>
     </div>
 
     @if (session('warning'))
@@ -67,8 +69,8 @@
     @endif
 
     <section id="content" class="px-md-4 mb-4">
-        <div id="content-header" class="bg-white shadow-lg px-5 py-4 mb-4">
-            <h4 class="py-3">Form Tambah Menu</h4>
+        <div id="content-header" class="bg-white shadow-lg px-5 py-4">
+            <h4 class="py-3">Tambah Menu</h4>
 
             <form action="{{ route('menu.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -96,7 +98,7 @@
                     <textarea class="form-control" id="content" name="content" style="display:none;"></textarea>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="parent_id" class="form-label">Menu Induk</label>
                     <select class="form-control" id="parent_id" name="parent_id">
                         <option value="">Tidak Ada (Menu Utama)</option>
@@ -117,73 +119,11 @@
                     </select>
                 </div>
 
-
-                <button type="submit" class="btn btn-success my-2">+ Tambah Menu</button>
-            </form>
-
-            <!-- Menampilkan daftar menu yang sudah dibuat dalam bentuk tabel responsif -->
-            <div class="mt-3">
-                <h4 class="py-3">Daftar Menu</h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Judul Menu</th>
-                                <th>URL</th>
-                                <th>Konten</th>
-                                <th>Induk/Sub-menu</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-    @foreach ($allMenus as $menu)
-        <tr>
-            <td>{{ $menu->id }}</td>
-            <td>{{ $menu->title }}</td>
-            <td>
-                @if ($menu->url)
-                    <a href="{{ $menu->url }}" target="_blank">{{ $menu->url }}</a>
-                @else
-                    -
-                @endif
-            </td>
-            <td>
-                @if ($menu->content)
-                    {!! Str::limit(strip_tags($menu->content), 50) !!}
-                @else
-                    -
-                @endif
-            </td>
-            <td>
-                @if ($menu->parent_id)
-                    <span class="badge bg-secondary">Sub-menu dari ID: {{ $menu->parent_id }}</span>
-                @else
-                    <span class="badge bg-primary">Menu Utama</span>
-                @endif
-            </td>
-            <td>
-                <!-- Tombol View -->
-                <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info btn-sm">View</a>
-
-                <!-- Tombol Edit -->
-                <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning btn-sm">Edit</a>
-
-                <!-- Tombol Hapus -->
-                <form action="{{ route('menu.destroy', $menu->id) }}" method="POST" style="display:inline;"
-                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                </form>
-            </td>
-        </tr>
-    @endforeach
-</tbody>
-
-                    </table>
+                <div class="d-grid mb-4">
+                    <button type="submit" class="btn btn-dark">Simpan</button>
                 </div>
-            </div>
+            </form>
+        </div>
     </section>
 @endsection
 

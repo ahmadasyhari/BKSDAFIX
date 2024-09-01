@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
@@ -44,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Rute untuk Menu
     Route::get('/admin/menu/create', [MenuController::class, 'create'])->name('menu.create');
     Route::post('/admin/menu/store', [MenuController::class, 'store'])->name('menu.store');
+    Route::get('/admin/menu', [MenuController::class, 'index'])->name('menu.index');
     Route::delete('/admin/menu/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
     Route::delete('/admin/menu/force-delete/{id}', [MenuController::class, 'forceDelete'])->name('menu.forceDelete');
     Route::get('/admin/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
@@ -69,4 +71,4 @@ Route::group(['middleware' => ['auth']], function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

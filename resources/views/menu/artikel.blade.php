@@ -74,32 +74,49 @@
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
                     </li>-->
-                    
+
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown">
-                            @if ($menuItem->url)
-                                <a class="nav-link" href="{{ $menuItem->url }}">
-                                    {{ $menuItem->title }}
-                                </a>
-                            @else
-                                <a class="nav-link dropdown-toggle" href="#" id="{{ $dropdownId }}"
-                                    role="button" aria-expanded="false">
-                                    {{ $menuItem->title }}
-                                </a>
-                            @endif
+                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                            <a class="nav-link dropdown-toggle text-uppercase"
+                                href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
+                                id="{{ $dropdownId }}" role="button" aria-expanded="false">
+                                {{ $menuItem->title }}
+                            </a>
 
                             @if ($menuItem->children->count())
                                 <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
                                     @foreach ($menuItem->children as $child)
-                                        @if ($child->url)
-                                            <li><a class="dropdown-item"
-                                                    href="{{ $child->url }}">{{ $child->title }}</a></li>
-                                        @else
-                                            <li><a class="dropdown-item"
-                                                    href="{{ route('menu.show', $child->id) }}">{{ $child->title }}</a>
-                                            </li>
-                                        @endif
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle"
+                                                href="{{ $child->url ?: route('menu.show', $child->id) }}">
+                                                {{ $child->title }}
+                                            </a>
+                                            @if ($child->children->count())
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($child->children as $subchild)
+                                                        <li class="dropdown-submenu">
+                                                            <a class="dropdown-item dropdown-toggle"
+                                                                href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
+                                                                {{ $subchild->title }}
+                                                            </a>
+                                                            @if ($subchild->children->count())
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach ($subchild->children as $subsubchild)
+                                                                        <li>
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
+                                                                                {{ $subsubchild->title }}
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
                                     @endforeach
                                 </ul>
                             @endif
@@ -133,26 +150,27 @@
                 </article>
                 <section class="artikel-card card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
                     <article class="card-body pt-lg-5">
-                        @foreach($artikels as $artikel)
-                        <div class="container py-2">
-                            <div class="card" style="border-radius: 10px;">
-                                <div class="card-body p-4">
-                                    <div class="row g-3">
-                                        <header class="col-md-2">
-                                            <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                alt="Artikel Image">
-                                        </header>
-                                        <aside class="col-md-10 px-3">
-                                            <div class="card-block px-6">
-                                                <h4 class="card-title fw-bold">{{ $artikel->judul }}</h4>
-                                                <p class="card-text">{{ Str::limit($artikel->konten, 150) }}</p>
-                                                <a href="{{ route('artikel.show', $artikel->id) }}" class="mt-auto btn btn-dark">Selengkapnya</a>
-                                            </div>
-                                        </aside>
+                        @foreach ($artikels as $artikel)
+                            <div class="container py-2">
+                                <div class="card" style="border-radius: 10px;">
+                                    <div class="card-body p-4">
+                                        <div class="row g-3">
+                                            <header class="col-md-2">
+                                                <img src="/images/imgplaceholdersquare.png" class="card-img"
+                                                    alt="Artikel Image">
+                                            </header>
+                                            <aside class="col-md-10 px-3">
+                                                <div class="card-block px-6">
+                                                    <h4 class="card-title fw-bold">{{ $artikel->judul }}</h4>
+                                                    <p class="card-text">{{ Str::limit($artikel->konten, 150) }}</p>
+                                                    <a href="{{ route('artikel.show', $artikel->id) }}"
+                                                        class="mt-auto btn btn-dark">Selengkapnya</a>
+                                                </div>
+                                            </aside>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                         <!-- Pagination -->
                         <nav class="page mt-5">
@@ -184,7 +202,9 @@
                             <div class="col-lg-3 col-md-12 mb-4">
                                 <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
                                 <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE : 085376699066</h3>
+                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
+                                    085376699066
+                                </h3>
                                 </h3>
                             </div>
                         </div>
