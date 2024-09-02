@@ -34,7 +34,7 @@ class MenuController extends Controller
         }
 
         $menu->delete();
-        return redirect()->route('index_menu')->with('success', 'Menu berhasil dihapus!');
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil dihapus!');
     }
 
     public function forceDelete($id)
@@ -44,7 +44,7 @@ class MenuController extends Controller
         $menu->children()->delete();
         $menu->delete();
 
-        return redirect()->route('index_menu')->with('success', 'Menu dan semua sub-menu berhasil dihapus!');
+        return redirect()->route('menu.index')->with('success', 'Menu dan semua sub-menu berhasil dihapus!');
     }
 
     public function show($id)

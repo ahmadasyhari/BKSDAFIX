@@ -85,7 +85,7 @@
                     <textarea class="form-control" id="editor" name="content">{{ $menu->content }}</textarea>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="parent_id" class="form-label">Menu Induk</label>
                     <select class="form-control" id="parent_id" name="parent_id">
                         <option value="">Tidak Ada (Menu Utama)</option>
