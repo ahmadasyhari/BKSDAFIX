@@ -306,36 +306,23 @@
                         <section class="list-artikel pt-5">
                             <article class="container-fluid">
                                 <h1 class="mb-3 text-start" style="color: #004165">Artikel</h2>
-                                    <div class="row d-flex">
-                                        <div class="col-lg-12 text-center mb-5 p-1">
-                                            <ul class="nav nav-pills d-flex justify-content-start flex-wrap"
-                                                id="artikelTabs" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bolder active" id="pengelolaan-tab"
-                                                        data-toggle="tab" href="#pengelolaan"
-                                                        role="tab">Pengelolaan</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bolder" id="tsl-tab" data-toggle="tab"
-                                                        href="#tsl" role="tab">TSL</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bolder" id="penyuluhan-tab"
-                                                        data-toggle="tab" href="#penyuluhan"
-                                                        role="tab">Penyuluhan</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bolder" id="patroli-tab" data-toggle="tab"
-                                                        href="#patroli" role="tab">Patroli</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link fw-bolder" id="kepegawaian-tab"
-                                                        data-toggle="tab" href="#kepegawaian"
-                                                        role="tab">Kepegawaian</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <div class="row d-flex">
+    <div class="col-lg-12 text-center mb-5 p-1">
+        <ul class="nav nav-pills d-flex justify-content-start flex-wrap" id="artikelTabs" role="tablist">
+            @foreach($kategoris as $index => $kategori)
+                <li class="nav-item">
+                    <a class="nav-link fw-bolder {{ $index == 0 ? 'active' : '' }}" 
+                       id="{{ $kategori->slug }}-tab"
+                       data-toggle="tab"
+                       href="#{{ $kategori->slug }}"
+                       role="tab">
+                        {{ $kategori->nama }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
 
                                     <div class="tab-content" id="artikelTabsContent">
     <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">

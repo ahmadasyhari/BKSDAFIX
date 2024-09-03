@@ -12,6 +12,7 @@ use App\Http\Controllers\InformasiController;
 
 Route::get('/', [InformasiController::class, 'index'])->name('home');
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
