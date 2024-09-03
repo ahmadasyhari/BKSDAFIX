@@ -20,6 +20,7 @@
     <!-- Gunakan versi CDN TinyMCE yang tidak membutuhkan API Key -->
     <script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"></script>
     @vite('resources/css/nav.css')
+    @vite('resources/css/custom-buttons.css')
     @vite('resources/js/nav.js')
 </head>
 
@@ -41,8 +42,10 @@
                                 <!-- Dropdown Menu -->
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <a class="dropdown-item text-center" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span><i
+                                                    class="fa-solid fa-right-from-bracket"
+                                                    style="padding-right: 7px"></i></span>
                                             {{ __('Logout') }}
                                         </a>
                                     </li>

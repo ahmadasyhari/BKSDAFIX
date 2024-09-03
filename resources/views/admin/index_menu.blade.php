@@ -18,15 +18,15 @@
             <hr style="margin: 0rem;">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('home') }}">Beranda</a>
+                    <a class="nav-link py-3" href="{{ route('home') }}"> Beranda</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('menu.index') }}">Mengelola Menu</a>
+                    <a class="nav-link py-3 active" href="{{ route('menu.index') }}" aria-current="page"> Mengelola Menu</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active" href="#" aria-current="page">Mengelola Pengumuman</a>
+                    <a class="nav-link py-3" href="{{ route('pengumuman.index') }}">Mengelola Pengumuman</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -48,7 +48,7 @@
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
         <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}"
-            class="text-decoration-none text-reset">Beranda</a> / Mengelola Pengumuman</p>
+            class="text-decoration-none text-reset">Beranda</a> / Mengelola Menu</p>
     </div>
 
     @if (session('success'))
@@ -59,29 +59,57 @@
 
     <section id="content" class="px-md-4 mb-4">
         <div id="content-header" class="bg-white shadow-lg px-5 py-4">
-            <a href="{{ route('pengumuman.create') }}" class="btn btn-success mb-4">+ Tambah Pengumuman</a>
+            <a href="{{ route('menu.create') }}" class="btn btn-success mb-4">+ Tambah Menu</a>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Judul</th>
-                            <th>Kategori</th>
-                            <th>Dibuat Pada</th>
+                            <th>Judul Menu</th>
+                            <th>URL</th>
+                            <th>Konten</th>
+                            <th>Induk/Sub-menu</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pengumumans as $pengumuman)
+                        @foreach ($allMenus as $menu)
                             <tr>
-                                <td>{{ $pengumuman->id }}</td>
-                                <td>{{ $pengumuman->judul }}</td>
-                                <td>{{ $pengumuman->kategori->nama }}</td>
-                                <td>{{ $pengumuman->created_at }}</td>
+                                <td>{{ $menu->id }}</td>
+                                <td>{{ $menu->title }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('pengumuman.destroy', $pengumuman->id) }}" method="POST"
-                                        style="display:inline;">
+                                    @if ($menu->url)
+                                        <a href="{{ $menu->url }}" target="_blank">{{ $menu->url }}</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($menu->content)
+                                        {!! Str::limit(strip_tags($menu->content), 50) !!}
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($menu->parent_id)
+                                        <span class="badge bg-secondary">Sub-menu dari ID:
+                                            {{ $menu->parent_id }}</span>
+                                    @else
+                                        <span class="badge bg-primary">Menu Utama</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <!-- Tombol View -->
+                                    <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-info btn-sm">View</a>
+
+                                    <!-- Tombol Edit -->
+                                    <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning btn-sm">Edit</a>
+
+                                    <!-- Tombol Hapus -->
+                                    <form action="{{ route('menu.destroy', $menu->id) }}" method="POST"
+                                        style="display:inline;"
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm">Hapus</button>

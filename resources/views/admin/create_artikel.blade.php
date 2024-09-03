@@ -22,7 +22,7 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('menu.create') }}"> Mengelola Menu</a>
+                    <a class="nav-link py-3" href="{{ route('menu.index') }}"> Mengelola Menu</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -30,7 +30,7 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active" href="#" aria-current="page">Mengelola Artikel</a>
+                    <a class="nav-link py-3 active" href="{{ route('artikel.index') }}" aria-current="page">Mengelola Artikel</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -46,8 +46,8 @@
 
 @section('content')
     <!-- Main content -->
-    <div id="content-header" class="container-fluid  bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
-        <p class="align-middle px-2 m-0 fs-6">Beranda / Mengelola Artikel</p>
+    <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
+        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a> / <a href="{{ route('artikel.index') }}" class="text-decoration-none text-reset">Mengelola Artikel</a> / Tambah Artikel</p>
     </div>
 
     @if (session('success'))
@@ -57,7 +57,7 @@
     @endif
 
     <section id="content" class="px-md-4 mb-4">
-        <div id="content" class="bg-white shadow-lg px-5 py-4 mb-4">
+        <div id="content-header" class="bg-white shadow-lg px-5 py-4">
             <h4 class="py-3">Tambah Artikel</h4>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -85,12 +85,12 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-4">
                     <label for="konten" class="form-label">Konten Artikel</label>
                     <textarea class="form-control" id="konten" name="konten" rows="10" required></textarea>
                 </div>
 
-                <div class="d-grid">
+                <div class="d-grid mb-4">
                     <button type="submit" class="btn btn-dark">Simpan</button>
                 </div>
             </form>

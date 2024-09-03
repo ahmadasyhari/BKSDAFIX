@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!--<li class="nav-item dropdown">
                         <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
                         <ul class="dropdown-menu">
                             <li><a class="fw-bold dropdown-item" href="/logo">Logo</a></li>
@@ -74,33 +74,50 @@
                                     tidak dapat dielakan</a></li>
                             <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
                         </ul>
-                    </li>
+                    </li>-->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown">
-                            @if ($menuItem->url)
-                                <a class="nav-link" href="{{ $menuItem->url }}">
-                                    {{ $menuItem->title }}
-                                </a>
-                            @else
-                                <a class="nav-link dropdown-toggle" href="#" id="{{ $dropdownId }}"
-                                    role="button" aria-expanded="false">
-                                    {{ $menuItem->title }}
-                                </a>
-                            @endif
+                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                            <a class="nav-link dropdown-toggle text-uppercase"
+                                href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
+                                id="{{ $dropdownId }}" role="button" aria-expanded="false">
+                                {{ $menuItem->title }}
+                            </a>
 
                             @if ($menuItem->children->count())
                                 <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
                                     @foreach ($menuItem->children as $child)
-                                        @if ($child->url)
-                                            <li><a class="dropdown-item"
-                                                    href="{{ $child->url }}">{{ $child->title }}</a></li>
-                                        @else
-                                            <li><a class="dropdown-item"
-                                                    href="{{ route('menu.show', $child->id) }}">{{ $child->title }}</a>
-                                            </li>
-                                        @endif
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle"
+                                                href="{{ $child->url ?: route('menu.show', $child->id) }}">
+                                                {{ $child->title }}
+                                            </a>
+                                            @if ($child->children->count())
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($child->children as $subchild)
+                                                        <li class="dropdown-submenu">
+                                                            <a class="dropdown-item dropdown-toggle"
+                                                                href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
+                                                                {{ $subchild->title }}
+                                                            </a>
+                                                            @if ($subchild->children->count())
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach ($subchild->children as $subsubchild)
+                                                                        <li>
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
+                                                                                {{ $subsubchild->title }}
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
                                     @endforeach
                                 </ul>
                             @endif
@@ -132,13 +149,13 @@
                         </div>
                     </div>
                 </article>
-                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;"
-                    z-index="2">
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
                     <div class="card-body pt-lg-4 ">
                         <article class="container-fluid text-center">
                             <div class="row px-4">
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#0B1D26; border-radius:10px; height: 130px">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#0B1D26; border-radius:10px; height: 130px">
                                         <div class="row card-body d-flex justify-content-center text-white"
                                             style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
@@ -147,18 +164,18 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
 
@@ -166,9 +183,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
 
