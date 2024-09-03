@@ -5,6 +5,8 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -65,6 +67,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('admin/pengumuman/store', [PengumumanController::class, 'store'])->name('pengumuman.store');
     Route::get('admin/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
     Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
+    Route::resource('users', UserController::class);
 });
 
 

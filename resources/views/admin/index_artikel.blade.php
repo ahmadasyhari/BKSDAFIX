@@ -39,6 +39,10 @@
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
                     <a class="nav-link py-3" href="#">Mengelola Foto</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('users.index') }}">Manajemen User</a>
             </ul>
         </div>
     </nav>

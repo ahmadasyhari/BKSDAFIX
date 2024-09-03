@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('nav')
-    <nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
+<nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
         <div class="custom-menu">
             <button type="button" id="sidebarCollapse" class="btn btn-dark">
                 <i class="fa fa-bars"></i>
@@ -18,15 +18,11 @@
             <hr style="margin: 0rem;">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('home') }}">
-                        Beranda
-                    </a>
+                    <a class="nav-link py-3" href="{{ route('home') }}"> Beranda</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active"  href="{{ route('menu.index') }}" aria-current="page">
-                        Mengelola Menu
-                    </a>
+                    <a class="nav-link py-3 active" href="{{ route('menu.index') }}" aria-current="page"> Mengelola Menu</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -43,6 +39,10 @@
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
                     <a class="nav-link py-3" href="#">Mengelola Foto</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('users.index') }}">Manajemen User</a>
             </ul>
         </div>
     </nav>
