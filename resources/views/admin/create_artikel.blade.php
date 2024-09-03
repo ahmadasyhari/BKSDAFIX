@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('nav')
-    <nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
+<nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
         <div class="custom-menu">
             <button type="button" id="sidebarCollapse" class="btn btn-dark">
                 <i class="fa fa-bars"></i>
@@ -22,7 +22,7 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3" href="{{ route('menu.index') }}"> Mengelola Menu</a>
+                    <a class="nav-link py-3 active" href="{{ route('menu.index') }}" aria-current="page"> Mengelola Menu</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -30,7 +30,7 @@
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
-                    <a class="nav-link py-3 active" href="{{ route('artikel.index') }}" aria-current="page">Mengelola Artikel</a>
+                    <a class="nav-link py-3" href="{{ route('artikel.index') }}">Mengelola Artikel</a>
                 </li>
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
@@ -39,6 +39,10 @@
                 <hr style="margin: 0rem;">
                 <li class="nav-item">
                     <a class="nav-link py-3" href="#">Mengelola Foto</a>
+                </li>
+                <hr style="margin: 0rem;">
+                <li class="nav-item">
+                    <a class="nav-link py-3" href="{{ route('users.index') }}">Manajemen User</a>
             </ul>
         </div>
     </nav>
