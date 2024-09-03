@@ -14,6 +14,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     @vite('resources/css/style.css')
+
+    <style>
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-indicators button {
+    background-color: #FBC834;
+    border: none;
+    margin: 0 10px; /* Menambahkan jarak antar tombol */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #004165; /* Warna nomor */
+    cursor: pointer;
+}
+
+.carousel-indicators .active {
+    background-color: #004165;
+    color: #FFF;
+}
+
+.carousel-indicators button:focus {
+    outline: none;
+}
+
+
+    </style>
 </head>
 
 <body>
@@ -30,53 +66,6 @@
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
-                    <!--
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">PROFIL</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/logo">Logo</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Struktur Organisasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Visi & Misi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Tugas Pokok dan Fungsi</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/perizinan">Perizinan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kawasan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Laporan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Galery Foto dan Video</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">IZIN BARU / PERPANJANGAN</a>
-                            </li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/simaksi">SIMAKSI</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran TSL</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Peredaran TSL</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/mitra">Lembaga Konservasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
-                                    Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa
-                                    Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a>
-                            </li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pembangunan Strategis yang
-                                    tidak dapat dielakan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
-                        </ul>
-                    </li>
-                -->
                 @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                     @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
                     <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
@@ -203,47 +192,58 @@
                         </section>
                         <section class="informasi container-fluid py-5">
                             <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
-                            <article class="row mx-1">
-                                <div class="col-md-12">
-                                    <div class="card mb-4 shadow-sm py-3 px-4">
-                                        <div class="card-body row g-5">
-                                            <header class="col-md-4 d-flex align-items-center">
-                                                <img src="/images/image2.png" class="card-img" alt="Berita Image">
-                                            </header>
-                                            <aside class="col-md-8">
-                                                <header class="text-white pb-3">
-                                                    <h2 class="card-title" style="color: #FBC834">
-                                                        INFORMASI
-                                                    </h2>
-                                                </header>
-                                                <article class="text-white">
-                                                    <p class="card-text">Sahabat, pada tahu nggak sih
-                                                        kalau kita bisa lihat gajah di dekat Danau Toba? Ayo
-                                                        kita ke ANECC!</p>
-                                                    <p class="card-text">Ayok kita ke ANECC ! Lokasinya
-                                                        deket banget sama Parapat loh! Tepatnya di Jl. Raya
-                                                        Lintas Utama Sumatera No.16,
-                                                        Sibaganding, Kec. Girsang Sipangan Bolon, Kabupaten
-                                                        Simalungun, Sumatera Utara 21174.</p>
-                                                    <p class="card-text"><small class="text-muted">1 menit
-                                                            yang lalu</small></p>
-                                                </article>
-                                            </aside>
-                                        </div>
+                            <div id="informasiCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    @foreach($informasi as $index => $item)
+                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                        <article class="row mx-1">
+                                            <div class="col-md-12">
+                                                <div class="card mb-4 shadow-sm py-3 px-4">
+                                                    <div class="card-body row g-5">
+                                                        <header class="col-md-4 d-flex align-items-center">
+                                                            <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}" class="card-img" alt="Informasi Image">
+                                                        </header>
+                                                        <aside class="col-md-8">
+                                                        <header class="text-white pb-3">
+    <h2 class="card-title" style="color: #FBC834">
+        <a href="{{ route('artikel.show', $item->id) }}" class="text-decoration-none text-white">
+            {{ strtoupper($item->judul) }}
+        </a>
+    </h2>
+</header>
+                                                            <article class="text-white">
+                                                                <p class="card-text">{{ Str::limit($item->konten, 150) }}</p>
+                                                                <p class="card-text"><small class="text-muted">{{ $item->created_at->diffForHumans() }}</small></p>
+                                                            </article>
+                                                        </aside>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
                                     </div>
+                                    @endforeach
                                 </div>
-                            </article>
-                            <!-- Pagination -->
-                            <nav class="page page-short" aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item m-1"><a class="page-link active" href="#">1</a>
-                                    </li>
-                                    <li class="page-item m-1"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item m-1"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item m-1"><a class="page-link" href="/pengumuman">Lebih Banyak</a>
-                                    </li>
-                                </ul>
-                            </nav>
+                                <!-- Number Indicators -->
+                                <div class="d-flex justify-content-center my-3">
+                                    @foreach($informasi->take(6) as $index => $item)
+                                        <button type="button" data-bs-target="#informasiCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="true">
+                                            {{ $index + 1 }}
+                                        </button>
+                                    @endforeach
+                                    @if($informasi->count() > 6)
+                                        <a href="/pengumuman" class="btn btn-outline-warning mx-2">Lebih Banyak</a>
+                                    @endif
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#informasiCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#informasiCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
                         </section>
                         <section class="container-fluid">
                             <h1 class="mb-4 text-start align-middle" style="color: #004165"><i
@@ -338,125 +338,57 @@
                                     </div>
 
                                     <div class="tab-content" id="artikelTabsContent">
-                                        <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
-                                            <div class="row">
-                                                <!-- Artikel 1 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle18.png" class="card-img-top"
-                                                            alt="Artikel 1">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">MENGUNGKAP MISTERI KUSKUS TOTOL
-                                                                WAIGEO: SPILOCUSCUS PAPUENSIS</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Artikel 2 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle19.png" class="card-img-top"
-                                                            alt="Artikel 2">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">PERANAN PENTING BURUNG DALAM
-                                                                EKOSISTEM HUTAN INDONESIA</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Artikel 3 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle29.png" class="card-img-top"
-                                                            alt="Artikel 3">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">HUTAN DAN MASYARAKAT: KOLABORASI
-                                                                PENTING DALAM KONSERVASI SUMBER DAYA ALAM</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Artikel 4 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle20.png" class="card-img-top"
-                                                            alt="Artikel 3">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">KEAJAIBAN POLINATOR: PENJAGA
-                                                                EKOSISTEM YANG SERING TIDAK DIANGGAP</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Artikel 5 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle21.png" class="card-img-top"
-                                                            alt="Artikel 3">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">PERAN LABA-LABA DALAM EKOSISTEM
-                                                                HUTAN</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Artikel 6 -->
-                                                <div class="col-lg-4 col-md-6 mb-4">
-                                                    <div class="card h-100">
-                                                        <img src="/images/Rectangle28.png" class="card-img-top"
-                                                            alt="Artikel 3">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">PENTINGNYA JAMUR DALAM EKOSISTEM
-                                                                HUTAN</h5>
-                                                            <p class="card-text">Body text for whatever you'd like to
-                                                                say. Add main takeaway points...</p>
-                                                        </div>
-                                                        <div class="card-body d-flex align-items-end">
-                                                            <a href="/detailartikel"
-                                                                class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Pagination -->
-                                    <nav class="page" aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
-                                            <li class="page-item m-1"><a class="page-link active"
-                                                    href="#">1</a>
-                                            </li>
-                                            <li class="page-item m-1"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item m-1"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item m-1"><a class="page-link" href="/artikel">Lebih
-                                                    Banyak</a></li>
-                                        </ul>
-                                    </nav>
+    <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
+        <div class="row">
+            @foreach($informasi as $item)
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}" class="card-img-top" alt="{{ $item->judul }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->judul }}</h5>
+                        <p class="card-text">{{ Str::limit($item->konten, 150) }}</p>
+                    </div>
+                    <div class="card-body d-flex align-items-end">
+                        <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+<nav class="page" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <!-- Previous Page Link -->
+        @if ($informasi->onFirstPage())
+            <li class="page-item m-1 disabled"><span class="page-link">Sebelumnya</span></li>
+        @else
+            <li class="page-item m-1"><a class="page-link" href="{{ $informasi->previousPageUrl() }}">Sebelumnya</a></li>
+        @endif
+
+        <!-- Pagination Elements -->
+        @foreach ($informasi->links()->elements[0] as $page => $url)
+            <li class="page-item m-1 {{ $page == $informasi->currentPage() ? 'active' : '' }}">
+                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+            </li>
+        @endforeach
+
+        <!-- Next Page Link -->
+        @if ($informasi->hasMorePages())
+            <li class="page-item m-1"><a class="page-link" href="{{ $informasi->nextPageUrl() }}">Berikutnya</a></li>
+        @else
+            <li class="page-item m-1 disabled"><span class="page-link">Berikutnya</span></li>
+        @endif
+
+        <!-- "Lebih Banyak" Link -->
+        @if($informasi->lastPage() > 3)
+            <li class="page-item m-1"><a class="page-link" href="/artikel">Lebih Banyak</a></li>
+        @endif
+    </ul>
+</nav>
+
                             </article>
                         </section>
                     </article>
