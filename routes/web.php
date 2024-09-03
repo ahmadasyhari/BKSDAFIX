@@ -6,6 +6,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KategoriController;
+
 
 
 Route::get('/', function () {
@@ -54,6 +56,9 @@ Route::group(['middleware' => ['auth']], function () {
  
     Route::get('/admin/menu/{id}/edit', [MenuController::class, 'edit'])->name('menu.edit');
     Route::put('/admin/menu/{id}', [MenuController::class, 'update'])->name('menu.update');
+
+
+    Route::resource('kategoris', KategoriController::class);
 
 
     // Rute untuk Artikel
