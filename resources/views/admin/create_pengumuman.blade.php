@@ -6,7 +6,9 @@
 @section('content')
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
-        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a> / <a href="{{ route('pengumuman.index') }}" class="text-decoration-none text-reset">Mengelola Pengumuman</a> / Tambah Pengumuman</p>
+        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a>
+            / <a href="{{ route('pengumuman.index') }}" class="text-decoration-none text-reset">Mengelola Pengumuman</a> /
+            Tambah Pengumuman</p>
     </div>
 
     @if (session('success'))
@@ -48,7 +50,7 @@
 
                 <div class="mb-4">
                     <label for="konten" class="form-label">Isi Pengumuman</label>
-                    <textarea class="form-control" id="konten" name="konten" rows="10" required></textarea>
+                    <textarea class="form-control" id="konten" name="konten" rows="10"></textarea>
                 </div>
                 <div class="d-grid mb-4">
                     <button type="submit" class="btn btn-dark">Simpan</button>
@@ -65,9 +67,9 @@
             selector: '#konten',
             height: 300,
             plugins: [
-                'advlist autolink link image lists charmap preview anchor pagebreak',
-                'searchreplace wordcount visualblocks code fullscreen insertdatetime media',
-                'table emoticons help'
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor',
+                'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'emoticons', 'help'
             ],
             toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
                 'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
