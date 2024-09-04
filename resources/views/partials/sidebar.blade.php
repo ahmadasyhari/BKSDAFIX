@@ -20,7 +20,7 @@
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3 active" href="{{ route('menu.index') }}" aria-current="page">Mengelola Menu</a>
+                <a class="nav-link py-3" href="{{ route('menu.index') }}" aria-current="page">Mengelola Menu</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">

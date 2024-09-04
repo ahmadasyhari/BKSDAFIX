@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artikel extends Model
 {
-    public $table = 'pengumumans';
+    public $table = 'artikels';
     use HasFactory;
 
     protected $fillable = ['judul', 'konten', 'kategori_id'];

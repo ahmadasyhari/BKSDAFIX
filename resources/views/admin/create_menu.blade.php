@@ -45,7 +45,7 @@
 
                 <div id="url-input" class="mb-3" style="display: block;">
                     <label for="url" class="form-label">URL Menu</label>
-                    <input type="text" class="form-control" id="url" name="url">
+                    <input type="text" class="form-control" id="url" name="url" placeholder="http://127.0.0.1:8000)/{url}">
                 </div>
 
                 <div id="rich-text-input" class="container-fluid mb-3" style="display:none;">
@@ -107,7 +107,6 @@
                 // Inisialisasi TinyMCE pada textarea #editor
                 tinymce.init({
                     selector: '#editor',
-                    width: 600,
                     height: 300,
                     plugins: [
                         'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor',

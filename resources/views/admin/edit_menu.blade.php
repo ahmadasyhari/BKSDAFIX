@@ -88,7 +88,6 @@
                 document.getElementById('rich-text-input').style.display = 'block';
                 tinymce.init({
                     selector: '#editor',
-                    width: 600,
                     height: 300,
                     plugins: [
                         'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor',

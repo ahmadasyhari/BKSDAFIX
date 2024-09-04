@@ -16,39 +16,39 @@
     @vite('resources/css/style.css')
 
     <style>
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.carousel-indicators button {
-    background-color: #FBC834;
-    border: none;
-    margin: 0 10px; /* Menambahkan jarak antar tombol */
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    font-size: 16px;
-    color: #004165; /* Warna nomor */
-    cursor: pointer;
-}
+        .carousel-indicators button {
+            background-color: #FBC834;
+            border: none;
+            margin: 0 10px;
+            /* Menambahkan jarak antar tombol */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #004165;
+            /* Warna nomor */
+            cursor: pointer;
+        }
 
-.carousel-indicators .active {
-    background-color: #004165;
-    color: #FFF;
-}
+        .carousel-indicators .active {
+            background-color: #004165;
+            color: #FFF;
+        }
 
-.carousel-indicators button:focus {
-    outline: none;
-}
-
-
+        .carousel-indicators button:focus {
+            outline: none;
+        }
     </style>
 </head>
 
@@ -66,48 +66,53 @@
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
-                @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
-                    @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                    <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}" id="{{ $dropdownId }}" role="button" aria-expanded="false">
-                            {{ $menuItem->title }}
-                        </a>
+                    @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
+                        @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
+                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                            <a class="nav-link dropdown-toggle text-uppercase"
+                                href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
+                                id="{{ $dropdownId }}" role="button" aria-expanded="false">
+                                {{ $menuItem->title }}
+                            </a>
 
-                        @if ($menuItem->children->count())
-                            <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
-                                @foreach ($menuItem->children as $child)
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-item dropdown-toggle" href="{{ $child->url ?: route('menu.show', $child->id) }}">
-                                            {{ $child->title }}
-                                        </a>
-                                        @if ($child->children->count())
-                                            <ul class="dropdown-menu">
-                                                @foreach ($child->children as $subchild)
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item dropdown-toggle" href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
-                                                            {{ $subchild->title }}
-                                                        </a>
-                                                        @if ($subchild->children->count())
-                                                            <ul class="dropdown-menu">
-                                                                @foreach ($subchild->children as $subsubchild)
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                            {{ $subsubchild->title }}
-                                                                        </a>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                @endforeach
+                            @if ($menuItem->children->count())
+                                <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
+                                    @foreach ($menuItem->children as $child)
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle"
+                                                href="{{ $child->url ?: route('menu.show', $child->id) }}">
+                                                {{ $child->title }}
+                                            </a>
+                                            @if ($child->children->count())
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($child->children as $subchild)
+                                                        <li class="dropdown-submenu">
+                                                            <a class="dropdown-item dropdown-toggle"
+                                                                href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
+                                                                {{ $subchild->title }}
+                                                            </a>
+                                                            @if ($subchild->children->count())
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach ($subchild->children as $subsubchild)
+                                                                        <li>
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
+                                                                                {{ $subsubchild->title }}
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -194,52 +199,61 @@
                             <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
                             <div id="informasiCarousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    @foreach($informasi as $index => $item)
-                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                        <article class="row mx-1">
-                                            <div class="col-md-12">
-                                                <div class="card mb-4 shadow-sm py-3 px-4">
-                                                    <div class="card-body row g-5">
-                                                        <header class="col-md-4 d-flex align-items-center">
-                                                            <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}" class="card-img" alt="Informasi Image">
-                                                        </header>
-                                                        <aside class="col-md-8">
-                                                        <header class="text-white pb-3">
-    <h2 class="card-title" style="color: #FBC834">
-        <a href="{{ route('artikel.show', $item->id) }}" class="text-decoration-none text-white">
-            {{ strtoupper($item->judul) }}
-        </a>
-    </h2>
-</header>
-                                                            <article class="text-white">
-                                                                <p class="card-text">{{ Str::limit($item->konten, 150) }}</p>
-                                                                <p class="card-text"><small class="text-muted">{{ $item->created_at->diffForHumans() }}</small></p>
-                                                            </article>
-                                                        </aside>
+                                    @foreach ($informasi as $index => $item)
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                            <article class="row mx-1">
+                                                <div class="col-md-12">
+                                                    <div class="card mb-4 shadow-sm py-3 px-4">
+                                                        <div class="card-body row g-5">
+                                                            <header class="col-md-4 d-flex align-items-center">
+                                                                <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}"
+                                                                    class="card-img" alt="Informasi Image">
+                                                            </header>
+                                                            <aside class="col-md-8">
+                                                                <header class="text-white pb-3">
+                                                                    <h2 class="card-title" style="color: #FBC834">
+                                                                        <a href="{{ route('artikel.show', $item->id) }}"
+                                                                            class="text-decoration-none text-white">
+                                                                            {{ strtoupper($item->judul) }}
+                                                                        </a>
+                                                                    </h2>
+                                                                </header>
+                                                                <article class="text-white">
+                                                                    <p class="card-text">
+                                                                        {{ Str::limit($item->konten, 150) }}</p>
+                                                                    <p class="card-text"><small
+                                                                            class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
+                                                                    </p>
+                                                                </article>
+                                                            </aside>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </article>
-                                    </div>
+                                            </article>
+                                        </div>
                                     @endforeach
                                 </div>
                                 <!-- Number Indicators -->
                                 <div class="d-flex justify-content-center my-3">
-                                    @foreach($informasi->take(6) as $index => $item)
-                                        <button type="button" data-bs-target="#informasiCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="true">
+                                    @foreach ($informasi->take(6) as $index => $item)
+                                        <button type="button" data-bs-target="#informasiCarousel"
+                                            data-bs-slide-to="{{ $index }}"
+                                            class="{{ $index == 0 ? 'active' : '' }}" aria-current="true">
                                             {{ $index + 1 }}
                                         </button>
                                     @endforeach
-                                    @if($informasi->count() > 6)
+                                    @if ($informasi->count() > 6)
                                         <a href="/pengumuman" class="btn btn-outline-warning mx-2">Lebih Banyak</a>
                                     @endif
                                 </div>
 
-                                <button class="carousel-control-prev" type="button" data-bs-target="#informasiCarousel" data-bs-slide="prev">
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#informasiCarousel" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#informasiCarousel" data-bs-slide="next">
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#informasiCarousel" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
                                 </button>
@@ -306,75 +320,84 @@
                         <section class="list-artikel pt-5">
                             <article class="container-fluid">
                                 <h1 class="mb-3 text-start" style="color: #004165">Artikel</h2>
-                                <div class="row d-flex">
-    <div class="col-lg-12 text-center mb-5 p-1">
-        <ul class="nav nav-pills d-flex justify-content-start flex-wrap" id="artikelTabs" role="tablist">
-            @foreach($kategoris as $index => $kategori)
-                <li class="nav-item">
-                    <a class="nav-link fw-bolder {{ $index == 0 ? 'active' : '' }}" 
-                       id="{{ $kategori->slug }}-tab"
-                       data-toggle="tab"
-                       href="#{{ $kategori->slug }}"
-                       role="tab">
-                        {{ $kategori->nama }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-</div>
+                                    <div class="row d-flex">
+                                        <div class="col-lg-12 text-center mb-5 p-1">
+                                            <ul class="nav nav-pills d-flex justify-content-start flex-wrap"
+                                                id="artikelTabs" role="tablist">
+                                                @foreach ($kategoris as $index => $kategori)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link fw-bolder {{ $index == 0 ? 'active' : '' }}"
+                                                            id="{{ $kategori->slug }}-tab" data-toggle="tab"
+                                                            href="#{{ $kategori->slug }}" role="tab">
+                                                            {{ $kategori->nama }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
 
                                     <div class="tab-content" id="artikelTabsContent">
-    <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
-        <div class="row">
-            @foreach($informasi as $item)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}" class="card-img-top" alt="{{ $item->judul }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $item->judul }}</h5>
-                        <p class="card-text">{{ Str::limit($item->konten, 150) }}</p>
-                    </div>
-                    <div class="card-body d-flex align-items-end">
-                        <a href="{{ route('artikel.show', $item->id) }}" class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
+                                        <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
+                                            <div class="row">
+                                                @foreach ($informasi as $item)
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}"
+                                                                class="card-img-top" alt="{{ $item->judul }}">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ $item->judul }}</h5>
+                                                                <p class="card-text">
+                                                                    {{ Str::limit($item->konten, 150) }}</p>
+                                                            </div>
+                                                            <div class="card-body d-flex align-items-end">
+                                                                <a href="{{ route('artikel.show', $item->id) }}"
+                                                                    class="btn btn-outline-warning px-5 py-2">SELENGKAPNYA</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
 
-<!-- Pagination -->
-<nav class="page" aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <!-- Previous Page Link -->
-        @if ($informasi->onFirstPage())
-            <li class="page-item m-1 disabled"><span class="page-link">Sebelumnya</span></li>
-        @else
-            <li class="page-item m-1"><a class="page-link" href="{{ $informasi->previousPageUrl() }}">Sebelumnya</a></li>
-        @endif
+                                    <!-- Pagination -->
+                                    <nav class="page" aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-center">
+                                            <!-- Previous Page Link -->
+                                            @if ($informasi->onFirstPage())
+                                                <li class="page-item m-1 disabled"><span
+                                                        class="page-link">Sebelumnya</span></li>
+                                            @else
+                                                <li class="page-item m-1"><a class="page-link"
+                                                        href="{{ $informasi->previousPageUrl() }}">Sebelumnya</a></li>
+                                            @endif
 
-        <!-- Pagination Elements -->
-        @foreach ($informasi->links()->elements[0] as $page => $url)
-            <li class="page-item m-1 {{ $page == $informasi->currentPage() ? 'active' : '' }}">
-                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-            </li>
-        @endforeach
+                                            <!-- Pagination Elements -->
+                                            @foreach ($informasi->links()->elements[0] as $page => $url)
+                                                <li
+                                                    class="page-item m-1 {{ $page == $informasi->currentPage() ? 'active' : '' }}">
+                                                    <a class="page-link"
+                                                        href="{{ $url }}">{{ $page }}</a>
+                                                </li>
+                                            @endforeach
 
-        <!-- Next Page Link -->
-        @if ($informasi->hasMorePages())
-            <li class="page-item m-1"><a class="page-link" href="{{ $informasi->nextPageUrl() }}">Berikutnya</a></li>
-        @else
-            <li class="page-item m-1 disabled"><span class="page-link">Berikutnya</span></li>
-        @endif
+                                            <!-- Next Page Link -->
+                                            @if ($informasi->hasMorePages())
+                                                <li class="page-item m-1"><a class="page-link"
+                                                        href="{{ $informasi->nextPageUrl() }}">Berikutnya</a></li>
+                                            @else
+                                                <li class="page-item m-1 disabled"><span
+                                                        class="page-link">Berikutnya</span></li>
+                                            @endif
 
-        <!-- "Lebih Banyak" Link -->
-        @if($informasi->lastPage() > 3)
-            <li class="page-item m-1"><a class="page-link" href="/artikel">Lebih Banyak</a></li>
-        @endif
-    </ul>
-</nav>
+                                            <!-- "Lebih Banyak" Link -->
+                                            @if ($informasi->lastPage() > 3)
+                                                <li class="page-item m-1"><a class="page-link" href="/artikel">Lebih
+                                                        Banyak</a></li>
+                                            @endif
+                                        </ul>
+                                    </nav>
 
                             </article>
                         </section>
@@ -424,14 +447,14 @@
 </body>
 <style>
     .dropdown-submenu {
-    position: relative;
-}
+        position: relative;
+    }
 
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-}
-
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
 </style>
+
 </html>
