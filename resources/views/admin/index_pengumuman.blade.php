@@ -28,7 +28,7 @@
                             <th>Judul</th>
                             <th>Kategori</th>
                             <th>Dibuat Pada</th>
-                            <th>Aksi</th>
+                            <th width="20%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +39,7 @@
                                 <td>{{ $pengumuman->kategori->nama }}</td>
                                 <td>{{ $pengumuman->created_at }}</td>
                                 <td>
+                                    <a class="btn btn-info btn-sm" href="{{ route('pengumuman.show', $pengumuman->id) }}">Lihat</a>
                                     <a href="#" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('pengumuman.destroy', $pengumuman->id) }}" method="POST"
                                         style="display:inline;">

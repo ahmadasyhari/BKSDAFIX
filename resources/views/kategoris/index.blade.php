@@ -23,9 +23,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th width="280px">Aksi</th>
+                    <th>Dibuat Pada</th>
+                    <th>Diupdate Pada</th>
+                    <th width="21%">Aksi</th>
                 </tr>
                 @foreach ($kategoris as $kategori)
                     <tr>
@@ -35,11 +35,11 @@
                         <td>{{ $kategori->updated_at }}</td>
                         <td>
                             <form action="{{ route('kategoris.destroy', $kategori->id) }}" method="POST">
-                                <a class="btn btn-info" href="{{ route('kategoris.show', $kategori->id) }}">Tampilkan</a>
-                                <a class="btn btn-primary" href="{{ route('kategoris.edit', $kategori->id) }}">Ubah</a>
+                                <a class="btn btn-info btn-sm" href="{{ route('kategoris.show', $kategori->id) }}">Lihat</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('kategoris.edit', $kategori->id) }}">Ubah</a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                             </form>
                         </td>
                     </tr>

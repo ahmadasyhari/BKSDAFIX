@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($menu) ? $menu->title : 'Mitra Kerja' }}</title>
+    <title>{{ isset($menu) ? $menu->title : 'Lembaga Konservasi' }}</title>
     <link href="https://fonts.cdnfonts.com/css/montserrat-subrayada" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/abeezee" rel="stylesheet">
@@ -35,13 +35,13 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img class="logo" src="/images/logo.png" alt="Logo">
+            <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
@@ -94,7 +94,7 @@
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">
@@ -120,12 +120,11 @@
                                                             @if ($subchild->children->count())
                                                                 <ul class="dropdown-menu">
                                                                     @foreach ($subchild->children as $subsubchild)
-                                                                        <li>
-                                                                            <a class="dropdown-item"
-                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                                {{ $subsubchild->title }}
-                                                                            </a>
-                                                                        </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">                                                                            {{ $subsubchild->title }}
+                                                                        </a>
+                                                                    </li>
                                                                     @endforeach
                                                                 </ul>
                                                             @endif

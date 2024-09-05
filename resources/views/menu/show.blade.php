@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
@@ -77,47 +77,52 @@
                     </li>-->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
-                    @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                    <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}" id="{{ $dropdownId }}" role="button" aria-expanded="false">
-                            {{ $menuItem->title }}
-                        </a>
+                        @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
+                        <li class="nav-item dropdown fw-bold text-wrap">
+                            <a class="nav-link dropdown-toggle text-uppercase"
+                                href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
+                                id="{{ $dropdownId }}" role="button" aria-expanded="false">
+                                {{ $menuItem->title }}
+                            </a>
 
-                        @if ($menuItem->children->count())
-                            <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
-                                @foreach ($menuItem->children as $child)
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-item dropdown-toggle" href="{{ $child->url ?: route('menu.show', $child->id) }}">
-                                            {{ $child->title }}
-                                        </a>
-                                        @if ($child->children->count())
-                                            <ul class="dropdown-menu">
-                                                @foreach ($child->children as $subchild)
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item dropdown-toggle" href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
-                                                            {{ $subchild->title }}
-                                                        </a>
-                                                        @if ($subchild->children->count())
-                                                            <ul class="dropdown-menu">
-                                                                @foreach ($subchild->children as $subsubchild)
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                            {{ $subsubchild->title }}
-                                                                        </a>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                @endforeach
+                            @if ($menuItem->children->count())
+                                <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
+                                    @foreach ($menuItem->children as $child)
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle"
+                                                href="{{ $child->url ?: route('menu.show', $child->id) }}">
+                                                {{ $child->title }}
+                                            </a>
+                                            @if ($child->children->count())
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($child->children as $subchild)
+                                                        <li class="dropdown-submenu">
+                                                            <a class="dropdown-item dropdown-toggle"
+                                                                href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
+                                                                {{ $subchild->title }}
+                                                            </a>
+                                                            @if ($subchild->children->count())
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach ($subchild->children as $subsubchild)
+                                                                        <li>
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
+                                                                                {{ $subsubchild->title }}
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -128,7 +133,10 @@
             <div class="carousel-item active" data-bs-interval="3000">
                 <img src="/images/paropo.svg" class="d-block w-100" alt="...">
                 <div class="header-content" z-index="1">
-
+                    @if (isset($menu))
+                        <h2 style="color: #FBC834">{{ $child->title }}</h2>
+                        <h1>{{ $menu->title }}</h1>
+                    @endif
                 </div>
             </div>
         </div>
@@ -138,7 +146,7 @@
         <article class="card-body pt-lg-4">
             <div class="container py-2">
                 @if (isset($menu))
-                    <h1>{{ $menu->title }}</h1>
+                    <h1 class="mb-5">{{ $menu->title }}</h1>
                     <div>
                         {!! $menu->content !!}
                     </div>
@@ -190,13 +198,14 @@
 </body>
 <style>
     .dropdown-submenu {
-    position: relative;
-}
+        position: relative;
+    }
 
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-}
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
 </style>
+
 </html>

@@ -31,12 +31,8 @@ Route::get('/perizinan', function () {
     return view('menu.perizinan');
 });
 
-Route::get('/simaksi', function () {
-    return view('menu.layanan_simaksi');
-});
-
-Route::get('/mitra', function () {
-    return view('menu.mitra');
+Route::get('/lembaga-konservasi', function () {
+    return view('menu.lembaga_konservasi');
 });
 
 

@@ -2,49 +2,73 @@ body {
     background-color: #0B1D26;
 }
 
-.nav-item .nav-link:not(.active) {
-    width: auto;
-    min-width: 190px;
-    margin: 0 0.5375em;
-    padding: 0.9375em 1.125em;
-    color: #000000 !important;
+.navbar-collapse {
+    padding-right: 15px;
+}
+
+/* Pastikan nav-item menggunakan flexbox */
+.navbar .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* Agar responsif saat layar mengecil */
+}
+
+.navbar .nav-item {
+    margin: 0 0.0113em;
+    flex-grow: 1;
+    /* Semua nav-item memiliki lebar yang sama */
+    flex-basis: 0;
+    /* Berikan nilai awal 0 untuk flex-grow bekerja */
+}
+
+/* Styling untuk non-active nav-link */
+.navbar .nav-item .nav-link:not(.active) {
+    display: block;
+    text-align: center;
+    margin: 0.5375em;
+    padding: 1em 1.125em;
     background-color: #FFFFFF !important;
+    color: #0B1D26 !important;
 }
 
-.nav-item .nav-link.active {
-    width: auto;
-    min-width: 200px;
-    margin: 0 0.5375em;
-    padding: 0.9375em 1.125em;
-    color: #FFF !important;
+/* Styling untuk active nav-link */
+.navbar .nav-item .nav-link.active {
+    display: block;
+    text-align: center;
+    margin: 0.5375em;
+    padding: 1em 1.125em;
     background-color: #0B1D26 !important;
+    color: #FFFFFF !important;
 }
 
-.nav-item .nav-link:hover {
+
+.navbar .nav-item .nav-link:hover {
     background-color: #3E525E !important;
     color: #FBC834 !important;
 }
 
-.nav-item .nav-link:hover:not(.active) {
+.navbar .nav-item .nav-link:hover:not(.active) {
     color: #FBC834 !important;
     background-color: #0B1D26 !important;
 }
 
 /* Menampilkan submenu saat menu utama aktif */
-.nav-item.dropdown:hover .dropdown-menu {
+.navbar .nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
 
 /* Mengatur dropdown-menu agar terlihat di bawah */
 .dropdown-menu {
+    word-wrap: normal;
     margin: 0;
     padding: 0;
     display: none;
 }
 
 .dropdown-menu .dropdown-item:not(.active) {
-    width: auto;
-    min-width: 200px;
+    word-wrap: normal;
+    width: 200px;
     margin: 0;
     padding: 0.9375em 1.125em;
     color: #000000 !important;
@@ -52,8 +76,8 @@ body {
 }
 
 .dropdown-menu .dropdown-item.active {
-    width: auto;
-    min-width: 200px;
+    word-wrap: normal;
+    width: 200px;
     margin: 0;
     padding: 0.9375em 1.125em;
     color: #FFF !important;
@@ -61,7 +85,7 @@ body {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #3E525E !important;
+    background-color: #FFF !important;
     color: #FBC834 !important;
 }
 
@@ -70,8 +94,36 @@ body {
     background-color: #0B1D26 !important;
 }
 
+
+.dropdown-submenu .dropdown-item:not(.active) {
+    width: 200px;
+    margin: 0;
+    padding: 0.9375em 1.125em;
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+}
+
+.dropdown-submenu .dropdown-item.active {
+    width: 200px;
+    margin: 0;
+    padding: 0.9375em 1.125em;
+    color: #FFF !important;
+    background-color: #0B1D26 !important;
+}
+
+.dropdown-submenu .dropdown-item:hover {
+    background-color: #FFF !important;
+    color: #FBC834 !important;
+}
+
+.dropdown-submenu .dropdown-item:hover:not(.active) {
+    color: #FBC834 !important;
+    background-color: #0B1D26 !important;
+}
+
 .logo {
-    padding-left: 2%;
+    margin: 0;
+    padding: 0% 1%;
     width: auto;
     height: 75px;
     transition: all 0.3s ease;
@@ -155,8 +207,8 @@ h3 {
     z-index: 1;
 }
 
-.page-short .pagination a {
-    color: black;
+
+.page-short .pagination .page-link {
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -164,13 +216,13 @@ h3 {
     transition: background-color .5s;
 }
 
-.page-short .pagination a.active {
+.page-short .pagination .page-link.active {
     background-color: #0B1D26;
     color: rgb(255, 255, 255);
     border-radius: 10px !important;
 }
 
-.page-short .pagination a:hover:not(.active) {
+.page-short .pagination .page-link:hover:not(.active) {
     background-color: #CECECE;
     color: #000000;
     border-radius: 10px !important;
@@ -197,7 +249,7 @@ h3 {
     /* Memastikan gambar rata tengah */
 }
 
-.list-artikel .nav-pills .nav-link {
+.list-artikel .nav-item .nav-link {
     min-width: 140px;
     background: 0 0;
     border: 0;
@@ -207,19 +259,19 @@ h3 {
     background-color: #D9D9D9 !important;
 }
 
-.list-artikel .nav-pills .nav-link.active {
+.list-artikel .nav-item .nav-link.active {
     min-width: 140px;
     border-radius: 0px;
     color: #FFF;
     background-color: #0B1D26 !important;
 }
 
-.list-artikel .nav-pills .nav-link:hover {
+.list-artikel .nav-item .nav-link:hover {
     background-color: #3E525E !important;
     color: #FBC834 !important;
 }
 
-.list-artikel .nav-pills .nav-link:hover:not(.active) {
+.list-artikel .nav-item .nav-link:hover:not(.active) {
     color: #FBC834 !important;
     background-color: #0B1D26 !important;
 }
@@ -239,10 +291,25 @@ h3 {
     height: fit-content;
 }
 
-/* Pengumuman */
+/* Pagination */
 
-.page .pagination a {
-    color: black;
+.pagination .page-item.active a {
+    background-color: #0B1D26 !important;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    transition: background-color .5s;
+}
+
+.pagination .page-item:hover(.active) a {
+    color: #000000;
+    background-color: #CECECE;
+    border-radius: 10px !important;
+}
+
+.pagination .page-item:not(.active) a {
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -250,15 +317,39 @@ h3 {
     transition: background-color .5s;
 }
 
-.page .pagination a.active {
-    background-color: #0B1D26;
-    color: rgb(255, 255, 255);
+.pagination .page-item:hover:not(.active) a {
+    color: #000000;
+    background-color: #CECECE;
     border-radius: 10px !important;
 }
 
-.page .pagination a:hover:not(.active) {
-    background-color: #CECECE;
+.pagination .page-item btn.active{
+    background-color: #0B1D26 !important;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    transition: background-color .5s;
+}
+
+.pagination .page-item btn:hover(.active){
     color: #000000;
+    background-color: #CECECE;
+    border-radius: 10px !important;
+}
+
+.pagination .page-item btn:not(.active){
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    transition: background-color .5s;
+}
+
+.pagination .page-item btn:hover:not(.active){
+    color: #000000;
+    background-color: #CECECE;
     border-radius: 10px !important;
 }
 
@@ -396,7 +487,7 @@ h3 {
     .logo {
         padding-left: 2%;
         width: auto;
-        height: 55px;
+        height: 45px;
     }
 
     .header-background {

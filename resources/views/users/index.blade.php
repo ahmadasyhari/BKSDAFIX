@@ -24,6 +24,7 @@
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                            <th>ID</th>
                             <th width="60%">Name</th>
                             <th>Aksi</th>
                         </tr>
@@ -31,9 +32,10 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
+                                <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">View</a>
+                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">Lihat</a>
                                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline"
                                         onsubmit="return confirm('Are you sure you want to delete this user?');">

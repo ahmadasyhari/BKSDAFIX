@@ -16,7 +16,7 @@
   box-shadow: 0 0 0 2px #0B1D26;
   cursor: pointer;
   overflow: hidden;
-  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .animated-button svg {

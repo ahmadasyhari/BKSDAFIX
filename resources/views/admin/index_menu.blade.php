@@ -29,7 +29,7 @@
                             <th>URL</th>
                             <th>Konten</th>
                             <th>Induk/Sub-menu</th>
-                            <th>Aksi</th>
+                            <th width="20%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

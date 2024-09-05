@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
@@ -77,7 +77,7 @@
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">
@@ -103,12 +103,11 @@
                                                             @if ($subchild->children->count())
                                                                 <ul class="dropdown-menu">
                                                                     @foreach ($subchild->children as $subsubchild)
-                                                                        <li>
-                                                                            <a class="dropdown-item"
-                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                                {{ $subsubchild->title }}
-                                                                            </a>
-                                                                        </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">                                                                            {{ $subsubchild->title }}
+                                                                        </a>
+                                                                    </li>
                                                                     @endforeach
                                                                 </ul>
                                                             @endif
@@ -154,7 +153,7 @@
                     <article class="card-body pt-lg-4">
                         <div class="container py-3">
                             <div class="card px-3">
-                                <div class="row">
+                                <!--<div class="row">
                                     <header class="col-md-6 py-3">
                                         <div class="card-block px-6">
                                             <h4 class="card-title fw-bold pt-3">{{ $pengumuman->judul }}</h4>
@@ -165,7 +164,14 @@
                                     <aside class="col-md-6 d-flex align-items-center py-3">
                                         <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
                                     </aside>
-                                </div>
+                                </div>-->
+                                <header class="card-block px-6">
+                                    <h4 class="card-title fw-bold pt-3">{{ $pengumuman->judul }}</h4>
+                                    <h5 class="card-text text-secondary mb-5">{{ $pengumuman->judul }}</h5>
+                                </header>
+                                <article>
+                                    {!! $pengumuman->konten !!}
+                                </article>
                             </div>
                         </div>
                 </section>

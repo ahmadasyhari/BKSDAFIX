@@ -17,68 +17,21 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
+    <nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF;">
         <div class="container-fluid">
-            <img class="logo" src="/images/logo-sm.png" alt="Logo" width="75" height="auto">
+            <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" type="button"
-                            aria-expanded="false">PROFIL</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item {{ !isset($menu) ? 'active' : '' }}"
-                                    href="#">Logo</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Struktur Organisasi</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Visi & Misi</a></li>
-                            <li><a class="fw-bold dropdown-item" href="#">Tugas Pokok dan Fungsi</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">DATA & INFORMASI</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/perizinan">Perizinan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kawasan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Laporan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Galery Foto dan Video</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">LAYANAN</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">IZIN BARU / PERPANJANGAN</a>
-                            </li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/simaksi">SIMAKSI</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Lembaga Konservasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran TSL</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Peredaran TSL</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="fw-bold nav-link" type="button" aria-expanded="false">MITRA KERJA</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="fw-bold dropdown-item text-wrap" href="/mitra">Lembaga Konservasi</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penangkaran Tumbuhan dan Satwa
-                                    Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pengedar Tumbuhan dan Satwa
-                                    Liar</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Penguatan Fungsi KSA & KPA</a>
-                            </li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Pembangunan Strategis yang
-                                    tidak dapat dielakan</a></li>
-                            <li><a class="fw-bold dropdown-item text-wrap" href="#">Kemitran Konservasi</a></li>
-                        </ul>
-                    </li> -->
-
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">

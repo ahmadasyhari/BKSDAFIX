@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
@@ -77,7 +77,7 @@
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">
@@ -105,8 +105,7 @@
                                                                     @foreach ($subchild->children as $subsubchild)
                                                                         <li>
                                                                             <a class="dropdown-item"
-                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                                {{ $subsubchild->title }}
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">                                                                            {{ $subsubchild->title }}
                                                                             </a>
                                                                         </li>
                                                                     @endforeach
@@ -148,10 +147,10 @@
                         </div>
                     </div>
                 </article>
-                <section class="logo-card card mx-4 py-5" style="top: -30px; border-radius: 20px; z-index: 2;">
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px; z-index: 2;">
                     <article class="card-body pt-lg-4">
                         <div class="text-center py-4">
-                            <img class="img-fluid mx-auto" src="/images/alursimaksi.png" alt="Logo BKSDA SUMUT">
+                            <img class="img-fluid mx-auto" src="/images/alursimaksi.png" width="70%" alt="Logo BKSDA SUMUT">
                         </div>
                         <div class="container py-2">
                             <div class="text-center mb-4">

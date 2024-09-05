@@ -19,13 +19,13 @@
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #FFF">
         <div class="container-fluid">
-            <img class="logo" src="/images/logo.png" alt="Logo">
+            <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link" href="/">BERANDA</a>
                     </li>
@@ -77,47 +77,52 @@
                     </li> -->
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
-                    @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                    <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
-                        <a class="nav-link dropdown-toggle text-uppercase" href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}" id="{{ $dropdownId }}" role="button" aria-expanded="false">
-                            {{ $menuItem->title }}
-                        </a>
+                        @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
+                        <li class="nav-item dropdown fw-bold text-wrap">
+                            <a class="nav-link dropdown-toggle text-uppercase"
+                                href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
+                                id="{{ $dropdownId }}" role="button" aria-expanded="false">
+                                {{ $menuItem->title }}
+                            </a>
 
-                        @if ($menuItem->children->count())
-                            <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
-                                @foreach ($menuItem->children as $child)
-                                    <li class="fw-bold dropdown-submenu">
-                                        <a class="dropdown-item dropdown-toggle" href="{{ $child->url ?: route('menu.show', $child->id) }}">
-                                            {{ $child->title }}
-                                        </a>
-                                        @if ($child->children->count())
-                                            <ul class="dropdown-menu">
-                                                @foreach ($child->children as $subchild)
-                                                    <li class="dropdown-submenu">
-                                                        <a class="dropdown-item dropdown-toggle" href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
-                                                            {{ $subchild->title }}
-                                                        </a>
-                                                        @if ($subchild->children->count())
-                                                            <ul class="dropdown-menu">
-                                                                @foreach ($subchild->children as $subsubchild)
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
-                                                                            {{ $subsubchild->title }}
-                                                                        </a>
-                                                                    </li>
-                                                                @endforeach
-                                                            </ul>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                @endforeach
+                            @if ($menuItem->children->count())
+                                <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
+                                    @foreach ($menuItem->children as $child)
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item dropdown-toggle"
+                                                href="{{ $child->url ?: route('menu.show', $child->id) }}">
+                                                {{ $child->title }}
+                                            </a>
+                                            @if ($child->children->count())
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($child->children as $subchild)
+                                                        <li class="dropdown-submenu">
+                                                            <a class="dropdown-item dropdown-toggle"
+                                                                href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
+                                                                {{ $subchild->title }}
+                                                            </a>
+                                                            @if ($subchild->children->count())
+                                                                <ul class="dropdown-menu">
+                                                                    @foreach ($subchild->children as $subsubchild)
+                                                                        <li>
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
+                                                                                {{ $subsubchild->title }}
+                                                                            </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -138,19 +143,21 @@
                         <div class="carousel-item active" data-bs-interval="3000">
                             <img src="/images/paropo.svg" class="d-block w-100" alt="...">
                             <div class="header-content" z-index="1">
-                                <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>PERIZINAN</h1>
+                                @if (isset($menu))
+                                    <h2 style="color: #FBC834">{{ $menuItem->title }}</h2>
+                                    <h1>{{ $menu->title }}</h1>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </article>
-                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;"
-                    z-index="2">
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
                     <div class="card-body pt-lg-4 ">
                         <article class="container-fluid text-center">
                             <div class="row px-4">
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#0B1D26; border-radius:10px; height: 130px">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#0B1D26; border-radius:10px; height: 130px">
                                         <div class="row card-body d-flex justify-content-center text-white"
                                             style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
@@ -159,18 +166,18 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
 
@@ -178,9 +185,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-4">
-                                    <div class="card shadow-sm" style="background-color:#E5A000; border-radius:10px; height: 130px">
-                                        <div class="row card-body d-flex justify-content-center"
-                                            style="">
+                                    <div class="card shadow-sm"
+                                        style="background-color:#E5A000; border-radius:10px; height: 130px">
+                                        <div class="row card-body d-flex justify-content-center" style="">
                                             <h5 class="card-title p-0 m-0">Title</h5>
                                             <p>Body text</p>
 
@@ -287,13 +294,14 @@
 </body>
 <style>
     .dropdown-submenu {
-    position: relative;
-}
+        position: relative;
+    }
 
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-}
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
 </style>
+
 </html>

@@ -1,43 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Http\Request;
 use App\Models\Pengumuman;
 use App\Models\Artikel;
-use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 use App\Models\Kategori;
-
 
 class InformasiController extends Controller
 {
     public function index(Request $request)
     {
-        // Mengambil data pengumuman dan artikel
-        $pengumumans = Pengumuman::with('kategori')->get();
-        $artikels = Artikel::with('kategori')->get();
-    
-        // Menggabungkan koleksi dan mengurutkan berdasarkan created_at secara descending
-        $informasi = $pengumumans->merge($artikels)->sortByDesc('created_at');
-    
-        // Pagination manual setelah penggabungan
-        $perPage = 9; // Jumlah item per halaman
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $currentItems = $informasi->slice(($currentPage - 1) * $perPage, $perPage)->all();
-        $paginatedItems = new LengthAwarePaginator($currentItems, $informasi->count(), $perPage, $currentPage, [
-            'path' => $request->url(),
-            'query' => $request->query(),
-        ]);
-    
+        // Mengambil data pengumuman dan artikel secara terpisah
+        $pengumumans = Pengumuman::with('kategori')->orderBy('created_at', 'desc')->paginate(9, ['*'], 'pengumumans');
+        $artikels = Artikel::with('kategori')->orderBy('created_at', 'desc')->paginate(9, ['*'], 'artikels');
+        
         // Mengambil data kategori
         $kategoris = Kategori::all();
-    
-        // Mengirim data ke view welcome
+
+        // Mengirim data pengumuman dan artikel secara terpisah ke view welcome
         return view('welcome', [
-            'informasi' => $paginatedItems,
+            'pengumumans' => $pengumumans,
+            'artikels' => $artikels,
             'kategoris' => $kategoris
         ]);
     }
-    
 }
 

@@ -10,7 +10,7 @@
         <ul class="nav flex-column">
             <li class="nav-item py-3">
                 <img src="/images/profile.png" alt="Logo" width="75" height="auto">
-                <h4 class="my-3">Admin</h4>
+                <h4 class="my-3">{{ Auth::user()->name }}</h4>
             </li>
         </ul>
         <hr style="margin: 0rem;">

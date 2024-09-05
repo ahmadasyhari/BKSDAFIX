@@ -53,7 +53,7 @@
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF">
+    <nav class="navbar sticky-top navbar-expand-xl navbar-light" style="background-color: #FFF;">
         <div class="container-fluid">
             <img class="logo" src="/images/logo-sm.png" alt="Logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -61,14 +61,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center d-flex align-items-center">
                     <li class="nav-item">
                         <a class="fw-bold nav-link {{ !isset($menu) ? 'active' : '' }}" aria-current="page"
                             href="/">BERANDA</a>
                     </li>
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">
@@ -79,7 +79,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="{{ $dropdownId }}">
                                     @foreach ($menuItem->children as $child)
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle"
+                                            <a class="dropdown-item dropdown-toggle text-wrap"
                                                 href="{{ $child->url ?: route('menu.show', $child->id) }}">
                                                 {{ $child->title }}
                                             </a>
@@ -87,7 +87,7 @@
                                                 <ul class="dropdown-menu">
                                                     @foreach ($child->children as $subchild)
                                                         <li class="dropdown-submenu">
-                                                            <a class="dropdown-item dropdown-toggle"
+                                                            <a class="dropdown-item dropdown-toggle text-wrap"
                                                                 href="{{ $subchild->url ?: route('submenu.show', $subchild->id) }}">
                                                                 {{ $subchild->title }}
                                                             </a>
@@ -95,7 +95,7 @@
                                                                 <ul class="dropdown-menu">
                                                                     @foreach ($subchild->children as $subsubchild)
                                                                         <li>
-                                                                            <a class="dropdown-item"
+                                                                            <a class="dropdown-item text-wrap"
                                                                                 href="{{ $subsubchild->url ?: route('submenu.show', $subsubchild->id) }}">
                                                                                 {{ $subsubchild->title }}
                                                                             </a>
@@ -199,7 +199,7 @@
                             <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
                             <div id="informasiCarousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    @foreach ($informasi as $index => $item)
+                                    @foreach ($pengumumans as $index => $item)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <article class="row mx-1">
                                                 <div class="col-md-12">
@@ -220,7 +220,8 @@
                                                                 </header>
                                                                 <article class="text-white">
                                                                     <p class="card-text">
-                                                                        {{ Str::limit($item->konten, 150) }}</p>
+                                                                        {!! Str::limit($item->konten, 300) !!}
+                                                                    </p>
                                                                     <p class="card-text"><small
                                                                             class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
                                                                     </p>
@@ -234,18 +235,24 @@
                                     @endforeach
                                 </div>
                                 <!-- Number Indicators -->
-                                <div class="d-flex justify-content-center my-3">
-                                    @foreach ($informasi->take(6) as $index => $item)
-                                        <button type="button" data-bs-target="#informasiCarousel"
-                                            data-bs-slide-to="{{ $index }}"
-                                            class="{{ $index == 0 ? 'active' : '' }}" aria-current="true">
-                                            {{ $index + 1 }}
-                                        </button>
-                                    @endforeach
-                                    @if ($informasi->count() > 6)
-                                        <a href="/pengumuman" class="btn btn-outline-warning mx-2">Lebih Banyak</a>
-                                    @endif
-                                </div>
+                                <nav class="page page-short" aria-label="Page navigation example">
+                                    <ul class="pagination d-flex flex-wrap justify-content-center">
+                                        @foreach ($pengumumans->take(6) as $index => $item)
+                                            <li class="page-item m-1"><a type="button"
+                                                    data-bs-target="#informasiCarousel"
+                                                    data-bs-slide-to="{{ $index }}"
+                                                    class="page-link {{ $index == 0 ? 'active' : '' }}"
+                                                    aria-current="true">
+                                                    {{ $index + 1 }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                        @if ($pengumumans->count() > 6)
+                                            <a href="/pengumuman" class="btn btn-outline-warning mx-2">Lebih
+                                                Banyak</a>
+                                        @endif
+                                    </ul>
+                                </nav>
 
                                 <button class="carousel-control-prev" type="button"
                                     data-bs-target="#informasiCarousel" data-bs-slide="prev">
@@ -317,7 +324,7 @@
                             </article>
                         </section>
 
-                        <section class="list-artikel pt-5">
+                        <section class="pt-5">
                             <article class="container-fluid">
                                 <h1 class="mb-3 text-start" style="color: #004165">Artikel</h2>
                                     <div class="row d-flex">
@@ -325,13 +332,15 @@
                                             <ul class="nav nav-pills d-flex justify-content-start flex-wrap"
                                                 id="artikelTabs" role="tablist">
                                                 @foreach ($kategoris as $index => $kategori)
-                                                    <li class="nav-item">
-                                                        <a class="nav-link fw-bolder {{ $index == 0 ? 'active' : '' }}"
-                                                            id="{{ $kategori->slug }}-tab" data-toggle="tab"
-                                                            href="#{{ $kategori->slug }}" role="tab">
-                                                            {{ $kategori->nama }}
-                                                        </a>
-                                                    </li>
+                                                    <div class="list-artikel">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link fw-bolder {{ $index == 0 ? 'active' : '' }}"
+                                                                id="{{ $kategori->slug }}-tab" data-toggle="tab"
+                                                                href="#{{ $kategori->slug }}" role="tab">
+                                                                {{ $kategori->nama }}
+                                                            </a>
+                                                        </li>
+                                                    </div>
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -340,7 +349,7 @@
                                     <div class="tab-content" id="artikelTabsContent">
                                         <div class="tab-pane fade show active" id="pengelolaan" role="tabpanel">
                                             <div class="row">
-                                                @foreach ($informasi as $item)
+                                                @foreach ($artikels as $item)
                                                     <div class="col-lg-4 col-md-6 mb-4">
                                                         <div class="card h-100">
                                                             <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}"
@@ -348,7 +357,7 @@
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $item->judul }}</h5>
                                                                 <p class="card-text">
-                                                                    {{ Str::limit($item->konten, 150) }}</p>
+                                                                    {!! Str::limit($item->konten, 150) !!}</p>
                                                             </div>
                                                             <div class="card-body d-flex align-items-end">
                                                                 <a href="{{ route('artikel.show', $item->id) }}"
@@ -362,43 +371,44 @@
                                     </div>
 
                                     <!-- Pagination -->
-                                    <nav class="page" aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
+                                    <nav class="page page-short mt-3">
+                                        <ul class="pagination d-flex flex-wrap justify-content-center">
                                             <!-- Previous Page Link -->
-                                            @if ($informasi->onFirstPage())
+                                            @if ($artikels->onFirstPage())
                                                 <li class="page-item m-1 disabled"><span
                                                         class="page-link">Sebelumnya</span></li>
                                             @else
                                                 <li class="page-item m-1"><a class="page-link"
-                                                        href="{{ $informasi->previousPageUrl() }}">Sebelumnya</a></li>
+                                                        href="{{ $artikels->previousPageUrl() }}">Sebelumnya</a>
+                                                </li>
                                             @endif
 
                                             <!-- Pagination Elements -->
-                                            @foreach ($informasi->links()->elements[0] as $page => $url)
+                                            @foreach ($artikels->links()->elements[0] as $page => $url)
                                                 <li
-                                                    class="page-item m-1 {{ $page == $informasi->currentPage() ? 'active' : '' }}">
+                                                    class="page-item m-1 {{ $page == $artikels->currentPage() ? 'active' : '' }}">
                                                     <a class="page-link"
                                                         href="{{ $url }}">{{ $page }}</a>
                                                 </li>
                                             @endforeach
 
                                             <!-- Next Page Link -->
-                                            @if ($informasi->hasMorePages())
+                                            @if ($artikels->hasMorePages())
                                                 <li class="page-item m-1"><a class="page-link"
-                                                        href="{{ $informasi->nextPageUrl() }}">Berikutnya</a></li>
+                                                        href="{{ $artikels->nextPageUrl() }}">Berikutnya</a>
+                                                </li>
                                             @else
                                                 <li class="page-item m-1 disabled"><span
                                                         class="page-link">Berikutnya</span></li>
                                             @endif
 
                                             <!-- "Lebih Banyak" Link -->
-                                            @if ($informasi->lastPage() > 3)
+                                            @if ($artikels->lastPage() > 3)
                                                 <li class="page-item m-1"><a class="page-link" href="/artikel">Lebih
                                                         Banyak</a></li>
                                             @endif
                                         </ul>
                                     </nav>
-
                             </article>
                         </section>
                     </article>
@@ -445,16 +455,5 @@
         @endif
     </main>
 </body>
-<style>
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu>.dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -1px;
-    }
-</style>
 
 </html>
