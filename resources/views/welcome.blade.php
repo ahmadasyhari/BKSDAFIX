@@ -204,23 +204,23 @@
                                             <article class="row mx-1">
                                                 <div class="col-md-12">
                                                     <div class="card mb-4 shadow-sm py-3 px-4">
-                                                        <div class="card-body row g-5">
+                                                        <div class="card-body row g-4">
                                                             <header class="col-md-4 d-flex align-items-center">
                                                                 <img src="{{ $pengumuman->gambar ? asset('storage/pengumuman_images/' . $pengumuman->gambar) : '/images/imgplaceholder.png' }}"
                                                                 class="card-img card-img-top" alt="{{ $pengumuman->judul }}">
                                                             </header>
                                                             <aside class="col-md-8">
-                                                                <header class="text-white pb-3">
+                                                                <header class="text-white py-2">
                                                                     <h2 class="card-title" style="color: #FBC834">
                                                                         <a href="{{ route('pengumuman.show', $pengumuman->id) }}"
-                                                                            class="text-decoration-none text-white">
+                                                                            class="text-decoration-none text-reset">
                                                                             {{ strtoupper($pengumuman->judul) }}
                                                                         </a>
                                                                     </h2>
                                                                 </header>
                                                                 <article class="text-white">
                                                                     <p class="card-text">
-                                                                        {!! Str::limit($pengumuman->konten, 300) !!}
+                                                                        {!! Str::limit($pengumuman->konten, 400) !!}
                                                                     </p>
                                                                     <p class="card-text"><small
                                                                             class="text-muted">{{ $pengumuman->created_at->diffForHumans() }}</small>

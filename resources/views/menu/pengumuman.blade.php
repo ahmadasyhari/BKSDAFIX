@@ -77,7 +77,7 @@
 
                     @foreach (Menu::whereNull('parent_id')->get() as $menuItem)
                         @php $dropdownId = 'navbarDropdown' . $menuItem->id; @endphp
-                        <li class="nav-item dropdown fw-bold dropdown-item text-wrap">
+                        <li class="nav-item dropdown fw-bold text-wrap">
                             <a class="nav-link dropdown-toggle text-uppercase"
                                 href="{{ $menuItem->url ?: route('menu.show', $menuItem->id) }}"
                                 id="{{ $dropdownId }}" role="button" aria-expanded="false">
@@ -148,22 +148,22 @@
                         </div>
                     </div>
                 </article>
-                <section class="pengumuman-card card mx-4 py-5" style="top: -30px; border-radius: 20px;"
-                    z-index="2">
+                <section class="card mx-4 py-5" style="top: -30px; border-radius: 20px;" z-index="2">
                     <article class="card-body pt-lg-5">
                         @foreach ($pengumumans as $pengumuman)
                             <div class="container py-2">
                                 <div class="card" style="border-radius: 10px;">
                                     <div class="card-body p-4">
-                                        <div class="row g-3">
-                                            <header class="col-md-2">
-                                                <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                    alt="Pengumuman Image">
+                                        <div class="row g-4">
+                                            <header class="col-xl-3">
+                                                <img src="{{ $pengumuman->gambar ? asset('storage/pengumuman_images/' . $pengumuman->gambar) : '/images/imgplaceholdersquare.png' }}"
+                                                    class="d-block w-100 img-thumbnailsquare"
+                                                    alt="{{ $pengumuman->judul }}">
                                             </header>
-                                            <aside class="col-md-10 px-3">
+                                            <aside class="col-xl-9">
                                                 <div class="card-block px-6">
                                                     <h4 class="card-title fw-bold">{{ $pengumuman->judul }}</h4>
-                                                    <p class="card-text">{{ Str::limit($pengumuman->konten, 150) }}
+                                                    <p class="card-text">{!! Str::limit($pengumuman->konten, 200) !!}
                                                     </p>
                                                     <a href="{{ route('pengumuman.show', $pengumuman->id) }}"
                                                         class="mt-auto btn btn-dark">Selengkapnya</a>

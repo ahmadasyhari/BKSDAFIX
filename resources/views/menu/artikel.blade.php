@@ -154,15 +154,17 @@
                             <div class="container py-2">
                                 <div class="card" style="border-radius: 10px;">
                                     <div class="card-body p-4">
-                                        <div class="row g-3">
-                                            <header class="col-md-2">
-                                                <img src="/images/imgplaceholdersquare.png" class="card-img"
-                                                    alt="Artikel Image">
+                                        <div class="row g-4">
+                                            <header class="col-xl-3">
+                                                <img src="{{ $artikel->gambar ? asset('storage/artikel_images/' . $artikel->gambar) : '/images/imgplaceholdersquare.png' }}"
+                                                    class="d-block w-100 img-thumbnailsquare"
+                                                    alt="{{ $artikel->judul }}">
                                             </header>
-                                            <aside class="col-md-10 px-3">
+                                            <aside class="col-xl-9">
                                                 <div class="card-block px-6">
                                                     <h4 class="card-title fw-bold">{{ $artikel->judul }}</h4>
-                                                    <p class="card-text">{{ Str::limit($artikel->konten, 150) }}</p>
+                                                    <p class="card-text">{!! Str::limit($artikel->konten, 200) !!}
+                                                    </p>
                                                     <a href="{{ route('artikel.show', $artikel->id) }}"
                                                         class="mt-auto btn btn-dark">Selengkapnya</a>
                                                 </div>
