@@ -31,7 +31,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('pengumuman.store') }}" method="POST">
+            <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul Pengumuman</label>
@@ -46,6 +46,11 @@
                             <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
                         @endforeach
                     </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gambar" class="form-label">Upload Gambar</label>
+                    <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*">
                 </div>
 
                 <div class="mb-4">

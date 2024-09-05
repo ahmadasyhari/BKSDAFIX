@@ -32,10 +32,24 @@ class ArtikelController extends Controller
             'judul' => 'required',
             'konten' => 'required',
             'kategori_id' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image
         ]);
 
-        // Membuat artikel baru
-        Artikel::create($request->all());
+        // Handle image upload
+        if ($request->hasFile('gambar')) {
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->storeAs('public/artikel_images', $imageName); // Store image in storage/app/public/artikel_images
+        } else {
+            $imageName = null; // No image uploaded
+        }
+
+        // // Membuat artikel baru
+        Artikel::create([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'konten' => $request->konten,
+            'gambar' => $imageName,
+        ]);
 
         // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('artikel.index')->with('success', 'Artikel berhasil ditambahkan.');

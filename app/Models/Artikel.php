@@ -10,7 +10,7 @@ class Artikel extends Model
     public $table = 'artikels';
     use HasFactory;
 
-    protected $fillable = ['judul', 'konten', 'kategori_id'];
+    protected $fillable = ['judul', 'konten', 'kategori_id', 'gambar'];
 
     public function kategori()
     {

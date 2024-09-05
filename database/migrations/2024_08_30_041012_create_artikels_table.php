@@ -4,13 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
+    
     public function up()
     {
         Schema::create('artikels', function (Blueprint $table) {
@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('konten');
             $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade');
+            $table->string('gambar')->nullable(); // New column for storing image path
             $table->timestamps();
         });
     }

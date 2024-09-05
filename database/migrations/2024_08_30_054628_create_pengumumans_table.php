@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->text('konten');
             $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade');
+            $table->string('gambar')->nullable(); // New column for storing image path
             $table->timestamps();
         });
     }

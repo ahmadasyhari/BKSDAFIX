@@ -33,10 +33,24 @@ class PengumumanController extends Controller
             'judul' => 'required',
             'konten' => 'required',
             'kategori_id' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image
         ]);
 
+        // Handle image upload
+        if ($request->hasFile('gambar')) {
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->storeAs('public/pengumuman_images', $imageName); // Store image in storage/app/public/pengumuman_images
+        } else {
+            $imageName = null; // No image uploaded
+        }
+
         // Membuat pengumuman baru
-        Pengumuman::create($request->all());
+        Pengumuman::create([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'konten' => $request->konten,
+            'gambar' => $imageName,
+        ]);
 
         // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('pengumuman.index')->with('success', 'Pengumuman berhasil ditambahkan.');

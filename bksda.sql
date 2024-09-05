@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 30 Agu 2024 pada 02.36
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.0.30
+-- Host: localhost
+-- Generation Time: Sep 05, 2024 at 01:10 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,31 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `beritas`
+-- Table structure for table `artikels`
 --
 
-CREATE TABLE `beritas` (
+CREATE TABLE `artikels` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `kategori_id` bigint(20) UNSIGNED NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `beritas`
+-- Dumping data for table `artikels`
 --
 
-INSERT INTO `beritas` (`id`, `judul`, `konten`, `kategori_id`, `created_at`, `updated_at`) VALUES
-(6, 'Berita Mce', 'Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 1, '2024-08-29 10:48:52', '2024-08-29 10:48:52'),
-(7, 'ddd', 'adfafdaf', 1, '2024-08-29 11:00:52', '2024-08-29 11:00:52'),
-(8, 'sada', 'gogogogogogog', 1, '2024-08-29 11:16:36', '2024-08-29 11:16:36');
+INSERT INTO `artikels` (`id`, `judul`, `konten`, `kategori_id`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'MENGUNGKAP MISTERI KUSKUS TOTOL WAIGEO: SPILOCUSCUS PAPUENSIS', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', 1, '1725532995.png', '2024-09-05 03:43:15', '2024-09-05 03:43:15');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -64,7 +63,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategoris`
+-- Table structure for table `kategoris`
 --
 
 CREATE TABLE `kategoris` (
@@ -75,16 +74,20 @@ CREATE TABLE `kategoris` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `kategoris`
+-- Dumping data for table `kategoris`
 --
 
 INSERT INTO `kategoris` (`id`, `nama`, `created_at`, `updated_at`) VALUES
-(1, 'Pemerintah', NULL, NULL);
+(1, 'Pengelolaan', '2024-09-04 19:57:07', '2024-09-04 19:57:07'),
+(2, 'TSL', '2024-09-04 19:57:11', '2024-09-04 19:57:11'),
+(3, 'Penyuluhan', '2024-09-04 19:57:17', '2024-09-04 19:57:17'),
+(4, 'Patroli', '2024-09-04 19:57:25', '2024-09-04 19:57:25'),
+(5, 'Kepegawaian', '2024-09-04 19:57:32', '2024-09-04 19:57:32');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -92,24 +95,43 @@ CREATE TABLE `menus` (
   `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `content` longtext DEFAULT NULL,
+  `content` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id`, `parent_id`, `title`, `url`, `content`, `created_at`, `updated_at`) VALUES
-(76, NULL, 'adf', 'http://127.0.0.1:8000/', NULL, '2024-08-29 08:52:32', '2024-08-29 08:52:32'),
-(77, 76, 'sa', NULL, '<p>adfadfadsf</p>', '2024-08-29 08:53:58', '2024-08-29 08:53:58'),
-(78, NULL, 'swadika[', NULL, '<p>adfadfadf</p>', '2024-08-29 10:05:03', '2024-08-29 10:05:03');
+(7, NULL, 'Profil', 'http://127.0.0.1:8000/profil', NULL, '2024-09-04 20:13:36', '2024-09-04 20:57:55'),
+(8, NULL, 'Data & Informasi', 'http://127.0.0.1:8000/Informasi', NULL, '2024-09-04 20:15:05', '2024-09-04 21:29:34'),
+(9, NULL, 'Layanan', 'https://127.0.0.1:8000/layanan', NULL, '2024-09-04 20:15:38', '2024-09-04 20:15:38'),
+(10, NULL, 'Mitra Kerja', 'http://127.0.0.1:8000//mitra', NULL, '2024-09-04 20:18:01', '2024-09-04 20:57:46'),
+(11, 7, 'Logo', 'http://127.0.0.1:8000/logo', NULL, '2024-09-04 20:18:35', '2024-09-04 20:57:40'),
+(12, 7, 'Struktur Organisasi', NULL, '<p>Struktur organisasi</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 20:56:13', '2024-09-04 20:56:13'),
+(13, 7, 'Visi & Misi', NULL, '<p dir=\"ltr\">VISI</p>\r\n<p dir=\"ltr\">Visi Presiden-Wakil Presiden adalah &ldquo;TERWUJUDNYA INDONESIA MAJU YANG BERDAULAT, MANDIRI, DAN BERKEPRIBADIAN BERLANDASKAN GOTONG ROYONG&rdquo;. Langkah yang yang ditempuh untuk mencapai visi tersebut dijabarkan dalam 9 (sembilan) Misi Pembangunan Nasional yaitu :</p>\r\n<ol>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Peningkatan kualitas manusia Indonesia;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Struktur ekonomi yang produktif, mandiri dan berdaya saing;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Pembangunan yang merata dan berkeadilan;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Mencapai lingkungan hidup yang berkelanjutan;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Kemajuan budaya yang mencerminkan kepribadian bangsa;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Penegakan sistem hukum yang bebas korupsi, bermartabat dan terpercaya;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Perlindungan bagi segenap bangsa dan memberikan rasa aman pada seluruh warga;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengelolaan pembangunan yang bersih, efektif dan terpercaya; dan</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"2\">\r\n<p dir=\"ltr\" role=\"presentation\">Sinergi pemerintah daerah dalam kerangka negara kesatuan.</p>\r\n</li>\r\n</ol>\r\n<p><strong>&nbsp;</strong></p>\r\n<p dir=\"ltr\">MISI</p>\r\n<p dir=\"ltr\">Salah satu rumusan Misi Presiden yang terkait langsung dengan KLHK adalah Misi ke-4 yaitu: &ldquo;Mencapai Lingkungan Hidup yang Berkelanjutan&rdquo;. Terdapat 2 (dua) pilar KLHK sebagai penopang untuk mewujudkan Visi dan Misi Presiden tersebut, yaitu:</p>\r\n<ol>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Keberlanjutan Sumber Daya Hutan dan Lingkungan Hidup adalah upaya pembangunan lingkungan hidup dan kehutanan yang menjamin terpenuhinya kebutuhan generasi sekarang tanpa mengorbankan kemampuan generasi mendatang untuk memenuhi kebutuhan mereka pada saatnya nanti.</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Kesejahteraan adalah tercapainya perbaikan kualitas dan taraf hidup masyarakat.</p>\r\n</li>\r\n</ol>\r\n<p dir=\"ltr\">Kedua pilar ini harus didukung oleh tata kelola pembangunan lingkungan hidup dan kehutanan yang baik pada seluruh lingkup tugas, fungsi dan kewenangan KLHK, dari tingkat pusat hingga tingkat tapak/lapangan</p>', '2024-09-04 21:07:46', '2024-09-04 21:07:46'),
+(14, 7, 'Tugas Pokok dan Fungsi', NULL, '<p dir=\"ltr\">Berdasarkan Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor : 17 Tahun 2022 tanggal 26 Juli 2022 tentang Organisasi dan Tata Kerja Unit Pelaksana Teknis Direktorat Jenderal Konservasi Sumber Daya Alam dan Ekosistem, Balai Besar Konservasi Sumber Daya Alam Sumatera Utara mempunyai tugas penyelenggaraan konservasi sumber daya alam dan ekosistemnya di cagar alam, suaka margasatwa, taman wisata alam dan taman buru serta koordinasi teknis pengelolaan taman hutan raya dan kawasan ekosistem esensial berdasarkan ketentuan peraturan perundang-undangan. Dalam melaksanakan tugas sebagaimana dimaksud, menyelenggarakan fungsi di wilayah kerjanya sebagai berikut :</p>\r\n<ol>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Inventarisasi potensi, penataan kawasan dan penyusunan rencana pengelolaan cagar alam, suaka margasatwa, taman wisata alam dan taman buru;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pelaksanaan perlindungan dan pengamanan cagar alam, suaka margasatwa, taman wisata alam, taman buru;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengendalian dampak kerusakan sumber daya alam hayati;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengendalian kebakaran hutan di cagar alam, suaka margasatwa, taman wisata alam dan taman buru;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengelolaan jenis tumbuhan dan satwa liar beserta habitatnya serta sumberdaya genetik dan pengetahuan tradisional;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengembangan dan pemanfaatan jasa lingkungan;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Evaluasi kesesuaian fungsi, pemulihan ekosistem dan penutupan kawasan;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Penyiapan pembentukan dan operasionalisasi kesatuan pengelolaan hutan konservasi (kphk);</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Penyediaan data dan informasi, promosi dan pemasaran konservasi sumber daya alam dan ekosistemnya;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengembangan kerjasama dan kemitraan bidang konservasi sumberdaya alam dan ekosistemnya;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengawasan dan pengendalian peredaran tumbuhan dan satwa liar;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Koordinasi teknis penetapan koridor hidupan liar;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Koordinasi teknis pengelolaan taman hutan raya dan kawasan ekosistem esensial;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pengembangan bina cinta alam serta penyuluhan konservasi sumberdaya alam dan ekosistemnya;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pemberdayaan masyarakat di dalam dan sekitar kawasan konservasi;</p>\r\n</li>\r\n<li dir=\"ltr\" aria-level=\"1\">\r\n<p dir=\"ltr\" role=\"presentation\">Pelaksanaan urusan tata usaha dan rumah tangga serta kehumasan.</p>\r\n</li>\r\n</ol>\r\n<p>&nbsp;</p>', '2024-09-04 21:08:38', '2024-09-04 21:40:52'),
+(15, 8, 'Perizinan', 'http://127.0.0.1:8000/perizinan', NULL, '2024-09-04 21:09:42', '2024-09-04 21:09:42'),
+(16, 8, 'Kawasan Hutan', NULL, '<p>Kawasan Hutan&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 21:10:33', '2024-09-04 21:10:33'),
+(17, 8, 'Laporan', NULL, '<p>Laporan&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 21:11:18', '2024-09-04 21:11:18'),
+(18, 8, 'Gallery Foto dan Video', 'http://127.0.0.1:8000/gallery', NULL, '2024-09-04 21:12:12', '2024-09-04 21:15:43'),
+(19, 9, 'Izin Baru / Perpanjangan', NULL, '<p>Izin baru&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 21:12:49', '2024-09-04 21:12:49'),
+(20, 9, 'Simaksi', 'http://127.0.0.1:8000//simaksi', NULL, '2024-09-04 21:13:10', '2024-09-04 21:15:58'),
+(21, 9, 'Lembaga Konservasi', 'http://127.0.0.1:8000/lembaga-konservasi', NULL, '2024-09-04 21:13:45', '2024-09-04 21:15:36'),
+(22, 9, 'Penangkaran TSL', NULL, '<p>Penangkaran TSL&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 21:14:09', '2024-09-04 21:16:54'),
+(23, 9, 'Peredaran TSL', NULL, '<p>Peredaran TSL&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 21:14:46', '2024-09-04 21:16:41'),
+(24, 10, 'Lembaga Konservasi', 'http://127.0.0.1:8000/lembaga-konservasi', NULL, '2024-09-04 22:11:37', '2024-09-04 22:11:37'),
+(25, 10, 'Penangkaran Tumbuhan dan Satwa Liar', NULL, '<p>Penangkaran Tumbuhan dan Satwa Liar&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 22:20:19', '2024-09-04 22:20:19'),
+(26, 10, 'Pengedar Tumbuhan dan Satwa Liar', NULL, '<p>Pengedar Tumbuhan dan Satwa Liar&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 22:20:34', '2024-09-04 22:21:16'),
+(27, 10, 'Penguatan Fungsi KSA & KPA', NULL, '<p>Penguatan Fungsi KSA &amp; KPA&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 22:20:54', '2024-09-04 22:20:54'),
+(28, 10, 'Pembangunan Strategis yang tidak dapat dielakan', NULL, '<p>Pembangunan Strategis yang tidak dapat dielakan&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu tempor nibh, tempus consectetur nunc. Vestibulum at lectus libero. Mauris ultrices lacinia diam vel aliquam. Etiam posuere, metus a rutrum blandit, libero libero ultrices arcu, ut rutrum erat velit id mauris. Donec sodales erat est, ut dictum tellus varius sed. Proin placerat mollis ex sit amet auctor. Sed ultricies, nibh a mattis accumsan, est turpis placerat enim, consequat blandit diam ipsum sit amet felis. In eleifend, orci a hendrerit sollicitudin, dui urna fermentum lorem, sit amet congue quam lectus sit amet justo. Cras auctor nibh enim, vitae sodales erat cursus condimentum. Phasellus commodo lobortis arcu id interdum. Curabitur rhoncus non tortor vel fermentum. Pellentesque lobortis posuere sem.</p>\r\n<p>Morbi facilisis risus non venenatis lobortis. Integer ac est sit amet leo semper iaculis a et tellus. Morbi quis ullamcorper nunc. Morbi est lorem, dignissim at tempus nec, varius at metus. Nunc venenatis erat eget tellus rhoncus, laoreet iaculis libero ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ultricies urna et massa pulvinar, quis venenatis justo bibendum. Praesent sodales, erat sed suscipit iaculis, sem sem maximus arcu, sed finibus turpis enim vitae arcu. Nullam lobortis urna eget lacus euismod, vitae molestie felis vulputate. Sed a efficitur nisi. Mauris iaculis eros vitae mauris tincidunt, quis vulputate arcu pretium. Aliquam laoreet nibh ac volutpat vulputate.</p>\r\n<p>Nullam ultricies pharetra nibh a convallis. Nam pellentesque, quam at facilisis auctor, massa erat commodo tellus, sit amet mollis ex leo at dui. Cras venenatis ex velit. Mauris elementum elit id erat luctus, sed sollicitudin libero malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit est vel luctus sollicitudin. Donec imperdiet ligula vitae urna tincidunt finibus. Phasellus vel dui iaculis, porttitor tellus varius, sollicitudin libero. Ut hendrerit ipsum nec tortor convallis venenatis. Fusce eu ipsum at justo mattis efficitur in quis diam.</p>\r\n<p>Mauris et nulla at elit tincidunt elementum. Nam metus nisi, dictum eu risus quis, ullamcorper dignissim sem. Curabitur maximus diam quis dolor hendrerit interdum. Nunc porttitor, dui sit amet blandit molestie, ante augue dignissim sapien, vitae gravida risus sapien a orci. Suspendisse potenti. Sed vitae porta elit. Ut mollis imperdiet est id pretium. Ut fringilla iaculis luctus. Nam ut vestibulum felis, eget pellentesque lectus. Nullam imperdiet maximus nulla nec placerat. Proin eleifend dui quis imperdiet malesuada. Donec vestibulum enim non sem mollis ultrices. In elementum orci eu maximus vestibulum.</p>', '2024-09-04 22:21:37', '2024-09-04 22:22:18');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -119,7 +141,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -127,43 +149,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(6, '2024_08_13_073741_create_menus_table', 2),
-(10, '2024_08_13_075409_add_parent_id_to_menus_table', 3),
-(11, '2024_08_13_080950_add_parent_id_to_menus_table', 4),
-(12, '2024_08_13_085541_add_content_to_menus_table', 5),
-(13, '2024_08_13_091939_modify_url_column_in_menus_table', 6),
-(14, '2024_08_24_100726_create_permission_tables', 7),
-(15, '2024_08_29_164417_create_kategoris_table', 8),
-(16, '2024_08_29_164452_create_beritas_table', 9);
+(5, '2024_08_13_073741_create_menus_table', 1),
+(6, '2024_08_13_075409_add_parent_id_to_menus_table', 1),
+(7, '2024_08_13_085541_add_content_to_menus_table', 1),
+(8, '2024_08_13_091939_modify_url_column_in_menus_table', 1),
+(9, '2024_08_29_164417_create_kategoris_table', 1),
+(10, '2024_08_30_041012_create_artikels_table', 1),
+(11, '2024_08_30_054628_create_pengumumans_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `model_has_permissions`
---
-
-CREATE TABLE `model_has_permissions` (
-  `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(255) NOT NULL,
-  `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `model_has_roles`
---
-
-CREATE TABLE `model_has_roles` (
-  `role_id` bigint(20) UNSIGNED NOT NULL,
-  `model_type` varchar(255) NOT NULL,
-  `model_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -175,21 +172,30 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permissions`
+-- Table structure for table `pengumumans`
 --
 
-CREATE TABLE `permissions` (
+CREATE TABLE `pengumumans` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `guard_name` varchar(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `konten` text NOT NULL,
+  `kategori_id` bigint(20) UNSIGNED NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `pengumumans`
+--
+
+INSERT INTO `pengumumans` (`id`, `judul`, `konten`, `kategori_id`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'Hewan Langka yang Terancam Punah', '<p>Hewan langka di Indonesia terancam punah karena habitat yang berkurang hingga perburuan.</p>\r\n<p>Sejumlah kementerian di Indonesia hingga berbagai lembaga internasional mencoba melindungi hewan-hewan endemik Indonesia ini dari kepunahan.<br>World Wild Fund (WWF) merunut daftar sejumlah hewan langka Indonesia yang dilindungi oleh dunia internasional dengan status critically endangered, yaitu hewan-hewan yang makin rentan dengan kepunahan.</p>', 1, '1725532947.jpg', '2024-09-05 03:42:27', '2024-09-05 03:42:27');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -208,32 +214,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `roles`
---
-
-CREATE TABLE `roles` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `guard_name` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `role_has_permissions`
---
-
-CREATE TABLE `role_has_permissions` (
-  `permission_id` bigint(20) UNSIGNED NOT NULL,
-  `role_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -248,80 +229,66 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ahmad', 'ahmad@gmail.com', NULL, '$2y$10$QEzav8aR4nbqmuqoJPymvOdGA9uJS.Gx1I9WM/lgKTEB9mWScOe16', NULL, '2024-08-26 08:02:26', '2024-08-26 08:02:26'),
-(2, 'ahmad', 'aa@gmail.com', NULL, '$2y$10$vI4zucrlkkPaO0VDitTYieZTk16Km.8wlNU.UaIgq8ga1c/OUPvUe', NULL, '2024-08-27 08:02:05', '2024-08-27 08:02:05'),
-(3, 'ahmad', 'a@gmail.com', NULL, '$2y$10$em2.1Uoj1J8omyDXiAY6cudwW5EE2k2WiWCIsLu93yLaCkhgSy4S2', NULL, '2024-08-29 08:18:34', '2024-08-29 08:18:34');
+(4, 'Abrar', 'abrar.abe01@gmail.com', '2024-09-04 12:42:12', '$2y$10$PhM/H2mIbudG6vW.PMAwv.Dpei6rYPmFSA/zjrB1FEn.OgGIYZwR6', NULL, '2024-09-04 12:42:12', '2024-09-04 12:42:12'),
+(5, 'Aldo', 'aldo@gmail.com', NULL, '$2y$10$ab8tR4YectYNnGHVBDO74u7e7hgF3UEzMUjjBwqXgNGmkZZE2DkVi', NULL, '2024-09-04 06:17:07', '2024-09-04 06:19:05'),
+(6, 'Ahmad', 'ahmadasyhari@gmail.com', NULL, '$2y$10$AI/mOtwygWOoRMwW/d9yW.J5eUQxR55//u0TuJrPGujNflqSIeDxW', NULL, '2024-09-04 23:28:24', '2024-09-04 23:28:24');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `beritas`
+-- Indexes for table `artikels`
 --
-ALTER TABLE `beritas`
+ALTER TABLE `artikels`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `beritas_kategori_id_foreign` (`kategori_id`);
+  ADD KEY `artikels_kategori_id_foreign` (`kategori_id`);
 
 --
--- Indeks untuk tabel `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `kategoris`
+-- Indexes for table `kategoris`
 --
 ALTER TABLE `kategoris`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menus_parent_id_foreign` (`parent_id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `model_has_permissions`
---
-ALTER TABLE `model_has_permissions`
-  ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
-  ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
-
---
--- Indeks untuk tabel `model_has_roles`
---
-ALTER TABLE `model_has_roles`
-  ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
-  ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
-
---
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  ADD PRIMARY KEY (`email`);
+  ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `permissions`
+-- Indexes for table `pengumumans`
 --
-ALTER TABLE `permissions`
+ALTER TABLE `pengumumans`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`);
+  ADD KEY `pengumumans_kategori_id_foreign` (`kategori_id`);
 
 --
--- Indeks untuk tabel `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -329,118 +296,85 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indeks untuk tabel `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`);
-
---
--- Indeks untuk tabel `role_has_permissions`
---
-ALTER TABLE `role_has_permissions`
-  ADD PRIMARY KEY (`permission_id`,`role_id`),
-  ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
-
---
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `beritas`
+-- AUTO_INCREMENT for table `artikels`
 --
-ALTER TABLE `beritas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `artikels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `kategoris`
+-- AUTO_INCREMENT for table `kategoris`
 --
 ALTER TABLE `kategoris`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `pengumumans`
+--
+ALTER TABLE `pengumumans`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `menus`
---
-ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT untuk tabel `permissions`
---
-ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `beritas`
+-- Constraints for table `artikels`
 --
-ALTER TABLE `beritas`
-  ADD CONSTRAINT `beritas_kategori_id_foreign` FOREIGN KEY (`kategori_id`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE;
+ALTER TABLE `artikels`
+  ADD CONSTRAINT `artikels_kategori_id_foreign` FOREIGN KEY (`kategori_id`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `menus`
+-- Constraints for table `menus`
 --
 ALTER TABLE `menus`
   ADD CONSTRAINT `menus_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `model_has_permissions`
+-- Constraints for table `pengumumans`
 --
-ALTER TABLE `model_has_permissions`
-  ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `model_has_roles`
---
-ALTER TABLE `model_has_roles`
-  ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `role_has_permissions`
---
-ALTER TABLE `role_has_permissions`
-  ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+ALTER TABLE `pengumumans`
+  ADD CONSTRAINT `pengumumans_kategori_id_foreign` FOREIGN KEY (`kategori_id`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

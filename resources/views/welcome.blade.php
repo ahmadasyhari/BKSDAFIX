@@ -199,31 +199,31 @@
                             <h1 class="mb-5 text-center">PENGUMUMAN / BERITA</h1>
                             <div id="informasiCarousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    @foreach ($pengumumans as $index => $item)
+                                    @foreach ($pengumumans as $index => $pengumuman)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                             <article class="row mx-1">
                                                 <div class="col-md-12">
                                                     <div class="card mb-4 shadow-sm py-3 px-4">
                                                         <div class="card-body row g-5">
                                                             <header class="col-md-4 d-flex align-items-center">
-                                                                <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}"
-                                                                    class="card-img" alt="Informasi Image">
+                                                                <img src="{{ $pengumuman->gambar ? asset('storage/pengumuman_images/' . $pengumuman->gambar) : '/images/imgplaceholder.png' }}"
+                                                                class="card-img card-img-top" alt="{{ $pengumuman->judul }}">
                                                             </header>
                                                             <aside class="col-md-8">
                                                                 <header class="text-white pb-3">
                                                                     <h2 class="card-title" style="color: #FBC834">
-                                                                        <a href="{{ route('artikel.show', $item->id) }}"
+                                                                        <a href="{{ route('pengumuman.show', $pengumuman->id) }}"
                                                                             class="text-decoration-none text-white">
-                                                                            {{ strtoupper($item->judul) }}
+                                                                            {{ strtoupper($pengumuman->judul) }}
                                                                         </a>
                                                                     </h2>
                                                                 </header>
                                                                 <article class="text-white">
                                                                     <p class="card-text">
-                                                                        {!! Str::limit($item->konten, 300) !!}
+                                                                        {!! Str::limit($pengumuman->konten, 300) !!}
                                                                     </p>
                                                                     <p class="card-text"><small
-                                                                            class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
+                                                                            class="text-muted">{{ $pengumuman->created_at->diffForHumans() }}</small>
                                                                     </p>
                                                                 </article>
                                                             </aside>
@@ -237,7 +237,7 @@
                                 <!-- Number Indicators -->
                                 <nav class="page page-short" aria-label="Page navigation example">
                                     <ul class="pagination d-flex flex-wrap justify-content-center">
-                                        @foreach ($pengumumans->take(6) as $index => $item)
+                                        @foreach ($pengumumans->take(6) as $index => $pengumuman)
                                             <li class="page-item m-1"><a type="button"
                                                     data-bs-target="#informasiCarousel"
                                                     data-bs-slide-to="{{ $index }}"
@@ -352,8 +352,7 @@
                                                 @foreach ($artikels as $item)
                                                     <div class="col-lg-4 col-md-6 mb-4">
                                                         <div class="card h-100">
-                                                            <img src="{{ $item->image ? asset('storage/' . $item->image) : '/images/default.png' }}"
-                                                                class="card-img-top" alt="{{ $item->judul }}">
+                                                            <img src="{{ $item->gambar ? asset('storage/artikel_images/' . $item->gambar) : '/images/imgplaceholder.png' }}" class="card-img-top" alt="{{ $item->judul }}"> 
                                                             <div class="card-body">
                                                                 <h5 class="card-title">{{ $item->judul }}</h5>
                                                                 <p class="card-text">
@@ -413,38 +412,7 @@
                         </section>
                     </article>
                 </section>
-                <footer class="footer text-light py-5">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Temukan Kami Section -->
-                            <div class="col-lg-4 col-md-12 mb-4">
-                                <h2 class="text-uppercase fw-bold mb-4">Temukan Kami</h2>
-                                <p>Sosial Media Resmi dari Balai Besar Konservasi <br> Sumber Daya Alam Sumatra Utara
-                                </p>
-                                <div class="social-icons">
-                                    <a href="#"><img src="/images/facebook.png" alt="Facebook"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/youtube.png" alt="YouTube"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/instagram.png" alt="Instagram"
-                                            class="social-icon"></a>
-                                    <a href="#"><img src="/images/twitter.png" alt="Twitter"
-                                            class="social-icon"></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-12 mb-4"></div>
-                            <!-- Hubungi Kami Section -->
-                            <div class="col-lg-3 col-md-12 mb-4">
-                                <h2 class="text-uppercase fw-bold text-lg-end text-md-start mb-4">Hubungi Kami</h2>
-                                <h3 class="text-lg-end text-md-start text-wrap align-middle">
-                                    <img src="/images/phone.png" alt="Phone Icon" class="contact-icon">CALL CENTRE :
-                                    085376699066
-                                </h3>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                @include('partials.footer')
                 <div class="pelaporan">
                     <div class="container d-flex justify-content-center align-items-center">
                         <img class="icon-pelaporan" src="/images/pelaporan.png" alt="Logo">

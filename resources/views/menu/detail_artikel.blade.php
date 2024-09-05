@@ -140,10 +140,12 @@
                 <article id="carouselExampleslidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                            <img src="/images/pengumuman.png" class="d-block w-100" alt="...">
+                            <img src="{{ $artikel->gambar ? asset('storage/artikel_images/' . $artikel->gambar) : '/images/imgplaceholder.png' }}"
+                                class="d-block w-100 img-fluid" alt="{{ $artikel->judul }}"
+                                style="max-height: 600px; object-fit: cover;">
                             <div class="header-content" z-index="1">
-                                <h2 style="color: #FBC834">Informasi</h2>
-                                <h1>ARTIKEL</h1>
+                                <h2 style="color: #FBC834; mix-blend-mode: difference; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Informasi</h2>
+                                <h1 style="color: white; mix-blend-mode: difference; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">{{ $artikel->judul }}</h1>
                             </div>
                         </div>
                     </div>
@@ -154,18 +156,6 @@
                     <article class="card-body pt-lg-4">
                         <div class="container py-3">
                             <div class="card px-3">
-                                <!--<div class="row">
-                                    <header class="col-md-6 py-3">
-                                        <div class="card-block px-6">
-                                            <h4 class="card-title fw-bold pt-3">{{ $artikel->judul }}</h4>
-                                            <h5 class="card-text text-secondary mb-3">{{ $artikel->judul }}</h5>
-                                            <p class="card-text">{{ $artikel->konten }}</p>
-                                        </div>
-                                    </header>
-                                    <aside class="col-md-6 d-flex align-items-center py-3">
-                                        <img src="/images/imgplaceholder.png" class="card-img" alt="Berita Image">
-                                    </aside>
-                                </div>-->
                                 <header class="card-block px-6">
                                     <h4 class="card-title fw-bold pt-3">{{ $artikel->judul }}</h4>
                                     <h5 class="card-text text-secondary mb-5">{{ $artikel->judul }}</h5>
@@ -189,7 +179,7 @@
                                             class="social-icon"></a>
                                     <a href="#"><img src="/images/youtube.png" alt="YouTube"
                                             class="social-icon"></a>
-                                    <a href="#"><img src="/images/instagram.png" alt="Instagram"
+                                    <a href="https://www.instagram.com/bbksda_sumut/"><img src="/images/instagram.png" alt="Instagram"
                                             class="social-icon"></a>
                                     <a href="#"><img src="/images/twitter.png" alt="Twitter"
                                             class="social-icon"></a>
