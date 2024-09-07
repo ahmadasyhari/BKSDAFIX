@@ -8,21 +8,22 @@
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
         <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a>
-            / <a href="{{ route('artikel.index') }}" class="text-decoration-none text-reset">Mengelola Artikel</a> / Tambah
+            / <a href="{{ route('artikel.index') }}" class="text-decoration-none text-reset">Mengelola Artikel</a> / Edit
             Artikel</p>
     </div>
 
     @if (session('success'))
-        <div class="alert alert-success mx-4 mb-4">
+        <div class="alert alert-success mx-4">
             {{ session('success') }}
         </div>
     @endif
 
     <section id="content" class="px-md-4 mb-4">
         <div id="content-header" class="bg-white shadow-lg px-5 py-4">
-            <h4 class="py-3">Tambah Artikel</h4>
+            <h4 class="py-3">Edit Artikel</h4>
+
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger mx-4 mb-4">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -30,11 +31,15 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+
+            <form action="{{ route('artikel.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
+
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul Artikel</label>
-                    <input type="text" class="form-control" id="judul" name="judul" required>
+                    <input type="text" class="form-control" id="judul" name="judul" value="{{ $artikel->judul }}"
+                        required>
                 </div>
 
                 <div class="mb-3">
@@ -42,7 +47,9 @@
                     <select class="form-control" id="kategori_id" name="kategori_id" required>
                         <option value="">Pilih Kategori</option>
                         @foreach ($kategoris as $kategori)
-                            <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
+                            <option value="{{ $kategori->id }}"
+                                {{ $artikel->kategori_id == $kategori->id ? 'selected' : '' }}>
+                                {{ $kategori->nama }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -52,20 +59,39 @@
                     <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*"
                         onchange="previewImage(event)">
 
+                    <!-- Menampilkan gambar lama jika ada -->
+                    @if ($artikel->gambar)
+                        <div class="mt-3">
+                            <img id="oldImage" class="img-thumbnail shadow-sm"
+                                src="{{ asset('storage/artikel_images/' . $artikel->gambar) }}" alt="Gambar Lama"
+                                style="max-height: 250px;">
+                        </div>
+                    @endif
+
                     <!-- Pratinjau gambar baru yang dipilih -->
                     <div class="mt-3">
-                        <img id="preview" class="img-thumbnail shadow-sm"="" alt="Pratinjau Gambar"
+                        <img id="preview" class="img-thumbnail shadow-sm"="" alt="Pratinjau Gambar Baru"
                             style="max-height: 250px; display: none;">
+                        <!--<p id="filename" style="display: block;">{{ $artikel->gambar }}</p>-->
                     </div>
                 </div>
 
                 <div class="mb-4">
                     <label for="konten" class="form-label">Konten Artikel</label>
-                    <textarea class="form-control" id="konten" name="konten" rows="10"></textarea>
+                    <textarea class="form-control" id="konten" name="konten" rows="10">{{ $artikel->konten }}</textarea>
                 </div>
 
-                <div class="d-grid mb-4">
-                    <button type="submit" class="btn btn-dark">Simpan</button>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-8">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark">Simpan Perubahan</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-grid">
+                            <a href="{{ route('artikel.index') }}" class="btn btn-secondary">Batal</a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class MenuController extends Controller
         $menus = Menu::whereNull('parent_id')->get();
         $allMenus = Menu::all();
 
-        return view('admin.create_menu', compact('menus','allMenus'));
+        return view('admin.create_menu', compact('menus', 'allMenus'));
     }
 
     public function destroy(Request $request, $id)
@@ -60,42 +60,42 @@ class MenuController extends Controller
     }
 
     public function edit($id)
-{
-    $menu = Menu::findOrFail($id);
-    $menus = Menu::whereNull('parent_id')->get(); // Ambil semua menu induk untuk opsi parent
+    {
+        $menu = Menu::findOrFail($id);
+        $menus = Menu::whereNull('parent_id')->get(); // Ambil semua menu induk untuk opsi parent
 
-    return view('admin.edit_menu', compact('menu', 'menus'));
-}
-
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'title' => 'required',
-        'type' => 'required',
-    ]);
-
-    $menu = Menu::findOrFail($id);
-
-    if ($request->type === 'url') {
-        $request->validate(['url' => 'required|url']);
-        $menu->update([
-            'title' => $request->title,
-            'url' => $request->url,
-            'content' => null,  // Pastikan konten dihapus jika URL dipilih
-            'parent_id' => $request->parent_id,
-        ]);
-    } else {
-        $request->validate(['content' => 'required']);
-        $menu->update([
-            'title' => $request->title,
-            'url' => null,  // Pastikan URL dihapus jika Rich Text dipilih
-            'content' => $request->content,
-            'parent_id' => $request->parent_id,
-        ]);
+        return view('admin.edit_menu', compact('menu', 'menus'));
     }
 
-    return redirect()->route('menu.index')->with('success', 'Menu berhasil diperbarui!');
-}
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+        ]);
+
+        $menu = Menu::findOrFail($id);
+
+        if ($request->type === 'url') {
+            $request->validate(['url' => 'required|url']);
+            $menu->update([
+                'title' => $request->title,
+                'url' => $request->url,
+                'content' => null,  // Pastikan konten dihapus jika URL dipilih
+                'parent_id' => $request->parent_id,
+            ]);
+        } else {
+            $request->validate(['content' => 'required']);
+            $menu->update([
+                'title' => $request->title,
+                'url' => null,  // Pastikan URL dihapus jika Rich Text dipilih
+                'content' => $request->content,
+                'parent_id' => $request->parent_id,
+            ]);
+        }
+
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil diperbarui!');
+    }
 
 
 

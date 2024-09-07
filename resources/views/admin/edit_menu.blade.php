@@ -7,10 +7,20 @@
 @section('content')
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
-        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}"
-                class="text-decoration-none text-reset">Beranda</a> / <a href="{{ route('menu.index') }}"
-                class="text-decoration-none text-reset">Mengelola Menu</a> / Edit Menu</a></p>
+        <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a>
+            / <a href="{{ route('menu.index') }}" class="text-decoration-none text-reset">Mengelola Menu</a> / Edit Menu</a>
+        </p>
     </div>
+
+    @if ($errors->any())
+        <div class="alert alert-danger mx-4 mb-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <section id="content" class="px-md-4 mb-4">
         <div id="content-header" class="bg-white shadow-lg px-5 py-4">

@@ -78,4 +78,50 @@ class ArtikelController extends Controller
         return view('menu.detail_artikel', compact('artikel'));
     }
 
+    public function edit($id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        $kategoris = Kategori::all();
+
+        return view('admin.edit_artikel', compact('artikel', 'kategoris'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'kategori_id' => 'required',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation
+        ]);
+
+        // Temukan artikel berdasarkan ID
+        $artikel = Artikel::findOrFail($id);
+
+        // Handle image upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($artikel->gambar) {
+                Storage::delete('public/artikel_images/' . $artikel->gambar);
+            }
+
+            // Simpan gambar baru
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->storeAs('public/artikel_images', $imageName);
+        } else {
+            // Jika tidak ada gambar baru, gunakan gambar lama
+            $imageName = $artikel->gambar;
+        }
+
+        // Update artikel
+        $artikel->update([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'konten' => $request->konten,
+            'gambar' => $imageName, // Update gambar dengan yang baru atau yang lama
+        ]);
+
+        return redirect()->route('artikel.index')->with('success', 'Artikel berhasil diperbarui!');
+    }
 }

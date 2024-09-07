@@ -13,7 +13,7 @@
     </div>
 
     @if (session('warning'))
-        <div class="alert alert-warning">
+        <div class="alert alert-warning  mx-4 mb-4">
             {{ session('warning') }}
             <form action="{{ route('menu.forceDelete', session('menu_id')) }}" method="POST" class="d-inline">
                 @csrf

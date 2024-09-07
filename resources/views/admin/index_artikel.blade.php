@@ -12,7 +12,7 @@
     </div>
 
     @if (session('success'))
-        <div class="alert alert-success mx-4">
+        <div class="alert alert-success mx-4 mb-4">
             {{ session('success') }}
         </div>
     @endif
@@ -28,6 +28,7 @@
                             <th>Judul</th>
                             <th>Kategori</th>
                             <th>Dibuat Pada</th>
+                            <th>Diupdate Pada</th>
                             <th width="20%">Aksi</th>
                         </tr>
                     </thead>
@@ -38,9 +39,10 @@
                                 <td>{{ $artikel->judul }}</td>
                                 <td>{{ $artikel->kategori->nama }}</td>
                                 <td>{{ $artikel->created_at }}</td>
+                                <td>{{ $artikel->updated_at }}</td>
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('artikel.show', $artikel->id) }}">Lihat</a>
-                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{{ route('artikel.edit', $artikel->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('artikel.destroy', $artikel->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf

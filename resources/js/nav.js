@@ -1,4 +1,4 @@
-// main scripts
+// nav scripts
 (function ($) {
 
     "use strict";

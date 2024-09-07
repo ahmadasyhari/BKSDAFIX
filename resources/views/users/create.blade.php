@@ -11,6 +11,17 @@
         </p>
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger mx-4 mb-4">
+            <strong>Whoops!</strong> Ada kesalahan input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <section id="content" class="px-md-4 mb-4">
         <div id="content-header" class="bg-white shadow-lg px-5 py-4">
             <h4 class="py-3">Tambah User</h4>

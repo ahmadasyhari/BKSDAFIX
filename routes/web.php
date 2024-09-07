@@ -61,16 +61,20 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     // Rute untuk Artikel
-    Route::get('admin/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
-    Route::post('admin/artikel/store', [ArtikelController::class, 'store'])->name('artikel.store');
-    Route::get('admin/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+    Route::get('/admin/artikel/create', [ArtikelController::class, 'create'])->name('artikel.create');
+    Route::post('/admin/artikel/store', [ArtikelController::class, 'store'])->name('artikel.store');
+    Route::get('/admin/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
     Route::delete('admin/artikel/{id}', [ArtikelController::class, 'destroy'])->name('artikel.destroy');
+    Route::get('/admin/artikel/{id}/edit', [ArtikelController::class, 'edit'])->name('artikel.edit');
+    Route::put('/admin/artikel/{id}', [ArtikelController::class, 'update'])->name('artikel.update');
 
     // Rute untuk Pengumuman
-    Route::get('admin/pengumuman/create', [PengumumanController::class, 'create'])->name('pengumuman.create');
-    Route::post('admin/pengumuman/store', [PengumumanController::class, 'store'])->name('pengumuman.store');
-    Route::get('admin/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
+    Route::get('/admin/pengumuman/create', [PengumumanController::class, 'create'])->name('pengumuman.create');
+    Route::post('/admin/pengumuman/store', [PengumumanController::class, 'store'])->name('pengumuman.store');
+    Route::get('/admin/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.index');
     Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+    Route::get('/admin/pengumuman/{id}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+    Route::put('/admin/pengumuman/{id}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 
     Route::resource('users', UserController::class);
 });

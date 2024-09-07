@@ -11,7 +11,7 @@
     </div>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mx-4 mb-4">
             <strong>Whoops!</strong> Ada kesalahan input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)

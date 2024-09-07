@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
@@ -79,4 +78,50 @@ class PengumumanController extends Controller
         return view('menu.detail_pengumuman', compact('pengumuman'));
     }
 
+    public function edit($id)
+    {
+        $pengumuman = Pengumuman::findOrFail($id);
+        $kategoris = Kategori::all();
+
+        return view('admin.edit_pengumuman', compact('pengumuman', 'kategoris'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'judul' => 'required',
+            'konten' => 'required',
+            'kategori_id' => 'required',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation
+        ]);
+
+        // Temukan pengumuman berdasarkan ID
+        $pengumuman = Pengumuman::findOrFail($id);
+
+        // Handle image upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($pengumuman->gambar) {
+                Storage::delete('public/pengumuman_images/' . $pengumuman->gambar);
+            }
+
+            // Simpan gambar baru
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->storeAs('public/pengumuman_images', $imageName);
+        } else {
+            // Jika tidak ada gambar baru, gunakan gambar lama
+            $imageName = $pengumuman->gambar;
+        }
+
+        // Update pengumuman
+        $pengumuman->update([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'konten' => $request->konten,
+            'gambar' => $imageName, // Update gambar dengan yang baru atau yang lama
+        ]);
+
+        return redirect()->route('pengumuman.index')->with('success', 'Pengumuman berhasil diperbarui!');
+    }
 }
