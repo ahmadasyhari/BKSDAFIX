@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+
+@section('title')
+    <title>Mengelola Kategori</title>
+@endsection
+
 @section('nav')
     @include('partials.sidebar')
 @endsection

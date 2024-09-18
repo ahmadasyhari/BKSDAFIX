@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    <title>Edit User</title>
+@endsection
+
 @section('nav')
     @include('partials.sidebar')
 @endsection

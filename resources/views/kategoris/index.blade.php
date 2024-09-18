@@ -1,7 +1,13 @@
 @extends('layouts.admin')
+
+@section('title')
+    <title>Mengelola Kategori</title>
+@endsection
+
 @section('nav')
     @include('partials.sidebar')
 @endsection
+
 @section('content')
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
         <p class="align-middle px-2 m-0 fs-6"><a href="{{ route('home') }}" class="text-decoration-none text-reset">Beranda</a>

@@ -1,4 +1,4 @@
-<!-- resources/views/partials/sidebar.blade.php -->
+<!-- Navbar admin -->
 <nav id="sidebar" class="navbar-dark nav-bg-dark" style="min-height:100vh">
     <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-dark">
@@ -16,19 +16,22 @@
         <hr style="margin: 0rem;">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('home') }}">Beranda</a>
+                <a class="nav-link py-3 {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('menu.index') }}" aria-current="page">Mengelola Menu</a>
+                <a class="nav-link py-3 {{ Route::is('menu*') ? 'active' : '' }}" href="{{ route('menu.index') }}"
+                    aria-current="page">Mengelola Menu</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('pengumuman.index') }}">Mengelola Pengumuman</a>
+                <a class="nav-link py-3 {{ Route::is('pengumuman*') ? 'active' : '' }}"
+                    href="{{ route('pengumuman.index') }}">Mengelola Pengumuman</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('artikel.index') }}">Mengelola Artikel</a>
+                <a class="nav-link py-3 {{ Route::is('artikel*') ? 'active' : '' }}"
+                    href="{{ route('artikel.index') }}">Mengelola Artikel</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
@@ -40,11 +43,13 @@
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('kategoris.index') }}">Mengelola Kategori</a>
+                <a class="nav-link py-3 {{ Route::is('kategoris*') ? 'active' : '' }}"
+                    href="{{ route('kategoris.index') }}">Mengelola Kategori</a>
             </li>
             <hr style="margin: 0rem;">
             <li class="nav-item">
-                <a class="nav-link py-3" href="{{ route('users.index') }}">Manajemen User</a>
+                <a class="nav-link py-3 {{ Route::is('users*') ? 'active' : '' }}"
+                    href="{{ route('users.index') }}">Manajemen User</a>
             </li>
         </ul>
     </div>

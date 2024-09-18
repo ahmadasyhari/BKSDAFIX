@@ -1,8 +1,13 @@
 @extends('layouts.admin')
 
+@section('title')
+    <title>Tambah Peengumuman</title>
+@endsection
+
 @section('nav')
     @include('partials.sidebar')
 @endsection
+
 @section('content')
     <!-- Main content -->
     <div id="content-header" class="container-fluid bg-white shadow-sm d-flex align-items-center px-4 py-3 mb-4">
@@ -55,7 +60,7 @@
 
                     <!-- Pratinjau gambar baru yang dipilih -->
                     <div class="mt-3">
-                        <img id="preview" class="img-thumbnail shadow-sm"="" alt="Pratinjau Gambar"
+                        <img id="preview" class="img-thumbnail shadow-sm" alt="Pratinjau Gambar"
                             style="max-height: 250px; display: none;">
                     </div>
                 </div>

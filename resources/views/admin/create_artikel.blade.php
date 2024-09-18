@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    <title>Tambah Artikel</title>
+@endsection
+
 @section('nav')
     @include('partials.sidebar')
 @endsection
@@ -54,7 +58,7 @@
 
                     <!-- Pratinjau gambar baru yang dipilih -->
                     <div class="mt-3">
-                        <img id="preview" class="img-thumbnail shadow-sm"="" alt="Pratinjau Gambar"
+                        <img id="preview" class="img-thumbnail shadow-sm" alt="Pratinjau Gambar"
                             style="max-height: 250px; display: none;">
                     </div>
                 </div>

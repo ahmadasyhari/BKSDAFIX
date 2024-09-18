@@ -13,8 +13,7 @@
         menubar: 'file edit view insert format tools table help',
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
-</script>
-<script>
+    
     // Priview gambar
     function previewImage(event) {
         var reader = new FileReader();
